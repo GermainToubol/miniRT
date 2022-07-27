@@ -48,12 +48,15 @@ SRC_NAMES	= ft_error_base \
 			  ft_strndup \
 			  ft_strnstr \
 			  ft_strrchr \
+			  ft_strs_append \
 			  ft_strtrim \
 			  ft_substr \
+			  ft_tablen \
 			  ft_toupper \
 			  ft_tolower \
 			  ft_ultoa_base \
-			  ft_utoa_base
+			  ft_utoa_base \
+			  get_next_line
 
 HEADER_DIR	= include
 SRC_DIR		= src

@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   manage_keypress.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:32:11 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/07/27 13:35:01 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/07/27 14:14:38 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <X11/keysym.h>
+#include "events.h"
 #include "minirt.h"
 
-int	render(t_data *data)
+int	manage_keypress(int keysym, t_data *data)
 {
-	(void) data;
+	if (keysym == XK_Escape)
+		return (close_window(data));
 	return (0);
 }

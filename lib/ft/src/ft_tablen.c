@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:32:11 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/07/27 12:58:45 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/07/27 13:12:45 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
-
-int	render(t_data *data)
+int	ft_tablen(char **tab)
 {
-	(void) data;
-	return (0);
+	int	i;
+
+	if (!tab)
+		return (0);
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);	
 }

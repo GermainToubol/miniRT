@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:32:11 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/07/27 13:46:43 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/07/27 14:11:34 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef EVENTS_H
+# define EVENTS_H
 
-int	render(t_data *data)
-{
-	(void) data;
-	return (0);
-}
+# include "minirt.h"
+
+int	close_window(t_data *data);
+int	manage_keypress(int keysym, t_data *data);
+
+#endif

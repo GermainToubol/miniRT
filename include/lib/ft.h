@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:33:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/13 19:46:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:24:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include <stddef.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
 
 size_t	ft_arraylen(char **array);
 double	ft_atod(const char *str);
@@ -57,11 +61,14 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strndup(const char *str, int size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strs_append(char ***strs, char *str);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		ft_tablen(char **tab);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_ultoa_base(unsigned long int nbr, char *base);
 char	*ft_utoa_base(unsigned int nbr, char *base);
+char	*get_next_line(int fd);
 
 #endif

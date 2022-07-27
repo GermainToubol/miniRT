@@ -1,4 +1,4 @@
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
 MAKE		= /bin/make
 
@@ -9,11 +9,21 @@ LIB_NAMES	= ft \
 			  mlx \
 			  t_math
 
-LIBEXT_NAMES= 
+LIBEXT_NAMES= X11 \
+			  Xext
 
 HEADER_NAMES= 
 
 SRC_NAMES	= main \
+			  events/close_window \
+			  events/manage_keypress \
+			  init/check_scene/check_scene \
+			  init/init \
+			  init/init_mlx \
+			  init/init_scene \
+			  init/parse_scene/parse_scene \
+			  render/render \
+			  terminate/terminate
 
 LIB_DIR		= lib
 
@@ -22,7 +32,7 @@ LIB			= $(LIBEXT_NAMES:%=-l%) \
 			  $(LIB_NAMES:%=-l%)
 
 INCLUDE_DIRS= include \
-			  imclude/lib
+			  include/lib
 HEADER_DIR	= include
 SRC_DIR		= src
 OBJ_DIR		= obj

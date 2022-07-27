@@ -6,14 +6,24 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 22:52:32 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 11:49:10 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:13:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	run(t_data *data)
+#include <X11/Xlib.h>
+#include "events.h"
+#include "init.h"
+#include "minirt.h"
+#include "mlx.h"
+#include "render.h"
+#include "terminate.h"
+
+static void	run(t_data *data)
 {
-	(void) data;
-	return (0);
+	mlx_hook(data->win, KeyPress, KeyPressMask, &manage_keypress, data);
+	mlx_hook(data->win, ClientMessage, 0, &close_window, data);
+	mlx_loop_hook(data->mlx, &render, data);
+	mlx_loop(data->mlx);
 }
 
 int	main(int argc, char **argv)
@@ -24,7 +34,7 @@ int	main(int argc, char **argv)
 	ret_value = init(&data, argc, argv);
 	if (ret_value != 0)
 		return (ret_value);
-	ret_value = run(&data);
+	run(&data);
 	terminate(&data);
-	return (ret_value);
+	return (0);
 }

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:32:11 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/07/27 13:33:17 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/07/27 14:14:30 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include "mlx.h"
 
-int	render(t_data *data)
+int	close_window(t_data *data)
 {
-	(void) data;
+	mlx_loop_end(data->mlx);
 	return (0);
 }
