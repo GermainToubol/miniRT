@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:51:49 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/27 23:01:33 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ static int	check_input(int argc, char **argv)
 
 int	init(t_data *data, int argc, char **argv)
 {
-	if (check_input(argc, argv) == -1)
-		return (2);
+	int	ret_value;
+
+	ret_value = check_input(argc, argv);
+	if (ret_value != 0)
+		return (ret_value);
 	if (init_scene(data, argc, argv) == -1)
 		return (1);
 	if (init_mlx(data) == -1)
