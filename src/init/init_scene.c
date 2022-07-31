@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:23:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:37:14 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/31 21:06:57 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	set_scene_lines(char ***scene_lines, int argc, char **argv)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	if (!*scene_lines)
+		return (-1);
 	return (0);
 }
 
@@ -45,7 +47,7 @@ int	init_scene(t_scene *scene, int argc, char **argv)
 	int		ret_value;
 
 	if (set_scene_lines(&scene_lines, argc, argv) == -1)
-		return (-1);
+		return (ft_putstr_fd("Error while reading input file\n", 2), -1);
 	ret_value = check_scene(scene_lines);
 	if (ret_value != 0)
 		return (ft_free_tab(scene_lines), ret_value);

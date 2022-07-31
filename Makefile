@@ -93,6 +93,10 @@ re:				fclean all
 start_compiling:
 	@echo "\n$(_GREEN)Start Compiling $(_NO_COLOR)"
 
+.PHONY:			malloc_test
+malloc_test: $(OBJ) $(LIB_FILES)
+	$(CC) $(CFLAGS) -fsanitize=undefined -rdynamic -o $@ $(OBJ) $(LIB) -L. -lmallocator
+
 
 $(NAME): $(LIB_FILES) $(OBJ) $(HEADER)
 	@echo "\n$(_BLUE)Linkage $(NAME)$(_NO_COLOR)"
