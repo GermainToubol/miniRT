@@ -18,10 +18,19 @@ SRC_NAMES	= main \
 			  events/close_window \
 			  events/manage_keypress \
 			  init/check_scene/check_scene \
+			  init/check_scene/rt_error_elem_format \
+			  init/check_scene/rt_error_elem_format2 \
+			  init/check_scene/rt_is_type \
+			  init/check_scene/rt_is_type2 \
+			  init/check_scene/rt_print_error \
 			  init/init \
 			  init/init_mlx \
 			  init/init_scene \
 			  init/parse_scene/parse_scene \
+			  init/parse_scene/rt_get_type \
+			  init/parse_scene/rt_get_type2 \
+			  init/parse_scene/rt_set_elem \
+			  init/parse_scene/rt_set_elem2 \
 			  render/render \
 			  terminate/terminate
 
@@ -78,9 +87,7 @@ fclean:			clean
 	done
 
 .PHONY:			re
-re:				
-	$(MAKE) fclean
-	$(MAKE) all
+re:				fclean all
 
 .INTERMEDIATE:	start_compiling
 start_compiling:

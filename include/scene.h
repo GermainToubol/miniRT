@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:47:42 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/31 20:36:02 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,50 +16,44 @@
 # include "parameters.h"
 # include "t_math.h"
 
-typedef t_vect t_pos;
-typedef t_vect t_dir;
+typedef t_vect	t_pos;
+typedef t_vect	t_dir;
 
-typedef struct
-{
-	t_pos	origin;
-	t_dir	dir;
-}	t_ray;
-
-typedef struct
+typedef struct s_sphere
 {
 	t_pos	pos;
 	float	r;
 }	t_sphere;
 
-typedef struct
+typedef struct s_plane
 {
 	t_pos	pos;
 	t_dir	normal;
 }	t_plane;
 
-typedef struct
+typedef struct s_cylinder
 {
 	t_pos	pos;
 	t_dir	dir;
-	float	h;
 	float	r;
+	float	h;
 }	t_cylinder;
 
-typedef enum
+typedef enum e_obj_tag
 {
-	sphere,
-	plane,
-	cylinder
+	sphere_tag,
+	plane_tag,
+	cylinder_tag
 }	t_obj_tag;
 
-typedef struct
+typedef struct s_color
 {
 	float	r;
 	float	g;
 	float	b;
 }	t_color;
 
-typedef struct
+typedef struct s_obj
 {
 	t_obj_tag	tag;
 	union
@@ -71,27 +65,35 @@ typedef struct
 	t_color		color;
 }	t_obj;
 
-typedef struct
+typedef struct s_light
 {
 	t_pos	pos;
-	t_color	color;
 	float	ratio;
+	t_color	color;
 }	t_light;
 
-typedef struct
+typedef struct s_ambient_light
 {
-	t_color	color;
 	float	ratio;
+	t_color	color;
 }	t_ambient_light;
 
-typedef struct
+typedef struct s_camera
 {
-	t_ray			**ray;
+	t_pos	pos;
+	t_dir	dir;
+	float	fov;
+}	t_camera;
+
+typedef struct s_scene
+{
 	int				nb_objs;
 	t_obj			*obj;
 	int				nb_lights;
 	t_light			*light;
 	t_ambient_light	ambient_light;
+	int				nb_cameras;
+	t_camera		*camera;
 }	t_scene;
 
 #endif

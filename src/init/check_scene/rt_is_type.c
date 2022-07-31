@@ -6,10 +6,11 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:48:53 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/28 02:11:54 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/31 20:31:10 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft.h"
 #include "init.h"
 
 static int	rt_is_vect(char *str)
@@ -25,18 +26,19 @@ static int	rt_is_vect(char *str)
 		dot_seen = 0;
 		while (*str && *str != ',')
 		{
-			if ((*str == '.' && dot_seen)
-				|| (*str != '.' && (*str < '0' || *str > '9')))
+			if ((!ft_isdigit(*str) && *str != '.')
+				|| (dot_seen && *str == '.'))
 				return (0);
-			dot_seen |= *str == '.';
+			dot_seen |= (*str == '.');
 			str++;
 		}
-		if (!*str && i < 3)
+		if ((i < 3 && !*str)
+			|| (i == 3 && *str))
 			return (0);
 		if (*str)
 			str++;
 	}
-	return (str[j] == 0);
+	return (1);
 }
 
 int	rt_is_pos(char *str)
@@ -70,7 +72,7 @@ int	rt_is_color(char *str)
 		j = 0;
 		while (str[j] && str[j] != ',')
 		{
-			if (str[j] < '0' || str[j] > '9')
+			if (!ft_isdigit(str[j]))
 				return (0);
 			j++;
 		}

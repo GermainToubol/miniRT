@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:23:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:54:42 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/31 20:37:14 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,18 @@ static int	set_scene_lines(char ***scene_lines, int argc, char **argv)
 	return (0);
 }
 
-int	init_scene(t_data *data, int argc, char **argv)
+int	init_scene(t_scene *scene, int argc, char **argv)
 {
 	char	**scene_lines;
+	int		ret_value;
 
 	if (set_scene_lines(&scene_lines, argc, argv) == -1)
 		return (-1);
-	if (check_scene(scene_lines) == -1
-		|| parse_scene(&data->scene, scene_lines) == -1)
-		return (ft_free_tab(scene_lines), -1);
+	ret_value = check_scene(scene_lines);
+	if (ret_value != 0)
+		return (ft_free_tab(scene_lines), ret_value);
+	if (parse_scene(scene, scene_lines) == -1)
+		return (ft_free_tab(scene_lines), 1);
 	ft_free_tab(scene_lines);
 	return (0);
 }

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*   ft_isfloat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 21:37:24 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 19:51:00 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/06/02 16:47:06 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/07/31 19:48:55 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double	ft_atod(const char *str)
+int	ft_isfloat(const char *str)
 {
-	double	nbr;
-	double	exponent;
-	int		i;
+	int	i;
 
-	nbr = (double) ft_atoi(str);
 	i = 0;
-	while (str[i] && str[i] != '.')
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	exponent = 0.1;
-	if (str[i])
+	while (str[i] && ft_isdigit(str[i]))
 		i++;
-	while (ft_isdigit(str[i]))
+	if (str[i] == '.')
 	{
-		nbr += (str[i] - '0') * exponent;
-		exponent *= 0.1;
 		i++;
+		while (str[i] && ft_isdigit(str[i]))
+			i++;
 	}
-	return (nbr);
+	return (str[i] == 0);
 }

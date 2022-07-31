@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 21:37:24 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 19:51:00 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/31 19:51:31 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double	ft_atod(const char *str)
+float	ft_atof(const char *str)
 {
-	double	nbr;
-	double	exponent;
+	float	nbr;
+	float	exponent;
 	int		i;
 
-	nbr = (double) ft_atoi(str);
+	nbr = (float) ft_atoi(str);
 	i = 0;
 	while (str[i] && str[i] != '.')
 		i++;

@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*   ft_memset_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 21:37:24 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 19:51:00 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/07/31 19:36:14 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/07/31 19:37:57 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-double	ft_atod(const char *str)
+void	ft_memset_int(int *tab, int val, size_t n)
 {
-	double	nbr;
-	double	exponent;
-	int		i;
+	size_t	i;
 
-	nbr = (double) ft_atoi(str);
 	i = 0;
-	while (str[i] && str[i] != '.')
-		i++;
-	exponent = 0.1;
-	if (str[i])
-		i++;
-	while (ft_isdigit(str[i]))
+	while (i < n)
 	{
-		nbr += (str[i] - '0') * exponent;
-		exponent *= 0.1;
+		tab[i] = val;
 		i++;
 	}
-	return (nbr);
 }

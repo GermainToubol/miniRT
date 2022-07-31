@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*   rt_get_type2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 21:37:24 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 19:51:00 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/05/26 20:46:27 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/07/31 19:59:33 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft.h"
+#include "init.h"
 
-double	ft_atod(const char *str)
+float	rt_get_ratio(char *str)
 {
-	double	nbr;
-	double	exponent;
-	int		i;
+	return (ft_atof(str));
+}
 
-	nbr = (double) ft_atoi(str);
-	i = 0;
-	while (str[i] && str[i] != '.')
-		i++;
-	exponent = 0.1;
-	if (str[i])
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		nbr += (str[i] - '0') * exponent;
-		exponent *= 0.1;
-		i++;
-	}
-	return (nbr);
+float	rt_get_fov(char *str)
+{
+	return (ft_atof(str));
+}
+
+float	rt_get_diameter(char *str)
+{
+	return (ft_atof(str));
+}
+
+float	rt_get_height(char *str)
+{
+	return (ft_atof(str));
 }

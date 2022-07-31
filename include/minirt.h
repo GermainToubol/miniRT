@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:04:37 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:05:37 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/07/31 18:15:21 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "scene.h"
 
-typedef struct
+typedef struct s_data
 {
 	void	*mlx;
 	void	*win;

@@ -8,6 +8,7 @@ NAME		= libft.a
 HEADER_NAMES= libft
 SRC_NAMES	= ft_error_base \
 			  ft_atod \
+			  ft_atof \
 			  ft_arraylen \
 			  ft_atoi \
 			  ft_bzero \
@@ -19,15 +20,19 @@ SRC_NAMES	= ft_error_base \
 			  ft_isalnum \
 			  ft_isascii \
 			  ft_isdouble \
+			  ft_isfloat \
 			  ft_isint \
+			  ft_islower \
 			  ft_islong \
 			  ft_isprint \
+			  ft_isupper \
 			  ft_itoa \
 			  ft_memchr \
 			  ft_memcmp \
 			  ft_memcpy \
 			  ft_memmove \
 			  ft_memset \
+			  ft_memset_int \
 			  ft_putchar_fd \
 			  ft_putstr_fd \
 			  ft_putendl_fd \
