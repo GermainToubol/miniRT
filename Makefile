@@ -7,7 +7,8 @@ NAME		= miniRT
 
 LIB_NAMES	= ft \
 			  mlx \
-			  t_math
+			  t_math \
+			  t_random
 
 LIBEXT_NAMES= m \
 			  X11 \
