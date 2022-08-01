@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_intersection.c                                 :+:      :+:    :+:   */
+/*   set_intersection_normal.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:15:07 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/01 19:43:12 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/01 19:28:38 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/01 19:54:03 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
 #include "intersection.h"
+#include "minirt.h"
 
-int	set_intersection(t_intersection *intersection, t_ray *ray, t_data *data)
+int	set_intersection_normal(t_pos *pos, t_dir *normal, t_obj *obj_seen)
 {
-	if(set_intersection_pos(
-			&intersection->pos,
-			&intersection->obj_seen,
-			ray,
-			data) != 0)
-		return (1);
-	return (0);
+	const t_normal_func	get_normal[] = {set_normal_sphere};
+
+	return ((*get_normal[obj_seen->tag])(pos, normal, obj_seen));
 }

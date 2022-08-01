@@ -13,7 +13,7 @@ LIBEXT_NAMES= m \
 			  X11 \
 			  Xext
 
-HEADER_NAMES= 
+HEADER_NAMES=
 
 SRC_NAMES	= main \
 			  events/close_window \
@@ -33,7 +33,11 @@ SRC_NAMES	= main \
 			  init/parse_scene/rt_get_type2 \
 			  init/parse_scene/rt_set_elem \
 			  init/parse_scene/rt_set_elem2 \
-			  render/render \
+			  render/render\
+			  render/set_intersection/set_intersection_pos \
+			  render/set_intersection/set_intersection_sphere \
+			  render/set_intersection/set_intersection_normal \
+			  render/set_intersection/set_normal_sphere \
 			  terminate/terminate
 
 LIB_DIR		= lib
@@ -52,7 +56,7 @@ INCLUDE		= $(INCLUDE_DIRS:%=-I%)
 
 HEADER		= $(HEADER_NAMES:%=$(HEADER_DIR)/%.h)
 OBJ			= $(SRC_NAMES:%=$(OBJ_DIR)/%.o)
-LIB_OBJS	= 
+LIB_OBJS	=
 
 LIB_FILES	= $(foreach l,$(LIB_NAMES),$(LIB_DIR)/$l/lib$l.a)
 

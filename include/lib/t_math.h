@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 00:53:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 08:27:01 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 19:50:33 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_vect	v_scalar_product(t_vect v1, t_vect v2);
 void	v_normalize(t_vect *v);
 void	v_translate(t_vect *pos, t_vect move);
 void	v_rotate(t_vect *dir, t_vect dir_rot, float theta);
+void	v_copy(t_vect *dest, t_vect src);
 
 // Quaternions
 

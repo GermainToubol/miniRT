@@ -7,7 +7,9 @@ SRCS	= q_operations.c \
 		  vector.c \
 		  v_operations.c \
 		  v_operations2.c \
-		  v_transformation.c
+		  v_transformation.c\
+		  v_copy.c
+
 OBJS	= ${SRCS:%.c=%.o}
 
 .PHONY: all clean fclean re
