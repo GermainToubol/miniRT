@@ -34,7 +34,9 @@ SRC_NAMES	= main \
 			  init/parse_scene/rt_get_type2 \
 			  init/parse_scene/rt_set_elem \
 			  init/parse_scene/rt_set_elem2 \
-			  render/render\
+			  render/render \
+			  render/set_color \
+			  render/set_intersection/set_intersection \
 			  render/set_intersection/set_intersection_pos \
 			  render/set_intersection/set_intersection_sphere \
 			  render/set_intersection/set_intersection_normal \

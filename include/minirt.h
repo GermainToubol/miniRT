@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:04:37 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 18:15:21 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 19:00:50 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_data
 	void	*mlx;
 	void	*win;
 	void	*frame_buffer;
+	int		to_render;
 	t_scene	scene;
 }	t_data;
 
