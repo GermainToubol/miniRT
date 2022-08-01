@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:39:18 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 08:29:02 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 int		init(t_data *data, int argc, char **argv);
 int		init_mlx(t_data *data);
 int		init_scene(t_scene *scene, int argc, char **argv);
+void	init_scene_derivates(t_scene *scene);
 
 //	CHECK_SCENE
 

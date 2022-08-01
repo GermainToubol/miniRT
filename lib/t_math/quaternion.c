@@ -6,13 +6,13 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:21:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/06/01 02:11:42 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 08:26:49 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_math.h"
 
-t_quat	q_get(double w, double x, double y, double z)
+t_quat	q_get(float w, float x, float y, float z)
 {
 	t_quat	q;
 
@@ -23,7 +23,7 @@ t_quat	q_get(double w, double x, double y, double z)
 	return (q);
 }
 
-t_quat	get_quat_from_vect(double w, t_vect v)
+t_quat	get_quat_from_vect(float w, t_vect v)
 {
 	t_quat	q;
 

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:41:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:27:33 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 08:35:13 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "init.h"
 #include "scene.h"
 #include "terminate.h"
-
-#include <stdio.h>
 
 static void	count_nb_elem_category(int *nb_elem_category, char **scene_lines)
 {
@@ -106,12 +104,9 @@ static int	set_scene(t_scene *scene, char **scene_lines)
 
 int	parse_scene(t_scene *scene, char **scene_lines)
 {
-	printf("bonjour1\n");
 	if (malloc_scene(scene, scene_lines) == -1)
 		return (ft_putstr_fd("Error malloc scene\n", 2), -1);
-	printf("bonjour2\n");
 	if (set_scene(scene, scene_lines) == -1)
 		return (free_scene(scene), ft_putstr_fd("Error set scene\n", 2), -1);
-	printf("bonjour3\n");
 	return (0);
 }

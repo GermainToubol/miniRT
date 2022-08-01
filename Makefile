@@ -9,7 +9,8 @@ LIB_NAMES	= ft \
 			  mlx \
 			  t_math
 
-LIBEXT_NAMES= X11 \
+LIBEXT_NAMES= m \
+			  X11 \
 			  Xext
 
 HEADER_NAMES= 
@@ -26,6 +27,7 @@ SRC_NAMES	= main \
 			  init/init \
 			  init/init_mlx \
 			  init/init_scene \
+			  init/init_scene_derivates \
 			  init/parse_scene/parse_scene \
 			  init/parse_scene/rt_get_type \
 			  init/parse_scene/rt_get_type2 \

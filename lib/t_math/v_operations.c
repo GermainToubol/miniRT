@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:07:21 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/31 13:48:09 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 08:33:28 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_vect	v_inv_add(t_vect v1, t_vect v2)
 	return (v_res);
 }
 
-t_vect	v_scalar(double lambda, t_vect v)
+t_vect	v_scalar(float lambda, t_vect v)
 {
 	t_vect	v_res;
 
@@ -53,7 +53,7 @@ t_vect	v_scalar(double lambda, t_vect v)
 	return (v_res);
 }
 
-double	v_norm(t_vect v)
+float	v_norm(t_vect v)
 {
-	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+	return (sqrtf(v.x * v.x + v.y * v.y + v.z * v.z));
 }

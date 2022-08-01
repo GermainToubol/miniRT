@@ -6,15 +6,15 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:17:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/06/02 18:20:24 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 08:27:17 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_math.h"
 
-double	v_dot_product(t_vect v1, t_vect v2)
+float	v_dot_product(t_vect v1, t_vect v2)
 {
-	double	res;
+	float	res;
 
 	res = v1.x * v2.x;
 	res += v1.y * v2.y;

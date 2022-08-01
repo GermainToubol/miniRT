@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:36:02 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 07:52:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ typedef struct s_camera
 	t_pos	pos;
 	t_dir	dir;
 	float	fov;
+	t_pos	anchor;
+	t_vect	ux;
+	t_vect	uy;
 }	t_camera;
 
 typedef struct s_scene

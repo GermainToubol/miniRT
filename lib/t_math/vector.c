@@ -6,13 +6,13 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:20:28 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/06/01 02:10:17 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 08:27:35 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_math.h"
 
-t_vect	v_get(double x, double y, double z)
+t_vect	v_get(float x, float y, float z)
 {
 	t_vect	v;
 

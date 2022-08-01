@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:23:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 21:06:57 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/01 08:29:16 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int	init_scene(t_scene *scene, int argc, char **argv)
 	if (parse_scene(scene, scene_lines) == -1)
 		return (ft_free_tab(scene_lines), 1);
 	ft_free_tab(scene_lines);
+	init_scene_derivates(scene);
 	return (0);
 }
