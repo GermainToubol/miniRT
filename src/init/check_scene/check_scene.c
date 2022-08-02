@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:39:54 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:26:51 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:52:36 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 static int	error_elem_format_any_type(char **elem, int *nb_elem_type)
 {
-	const char						*rt_elem[] = {RT_AMBIENT_LIGHT, RT_CAMERA,
-		RT_LIGHT, RT_SPHERE, RT_PLANE, RT_CYLINDER, NULL};
-	const t_rt_error_elem_format	rt_error_elem_format[] = {
+	static char	*rt_elem[] = {RT_AMBIENT_LIGHT, RT_CAMERA, RT_LIGHT, RT_SPHERE,
+		RT_PLANE, RT_CYLINDER, NULL};
+	static int	(*rt_error_elem_format[])(char **) = {
 		rt_error_ambient_light_format, rt_error_camera_format,
 		rt_error_light_format, rt_error_sphere_format, rt_error_plane_format,
 		rt_error_cylinder_format};
-	int								i;
+	int			i;
 
 	if (elem[0] == NULL)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 23:26:09 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:24:13 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:56:32 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int	rt_error_ambient_light_format(char **elem)
 {
-	const t_rt_is_type	rt_is_correct_type[] = {NULL, rt_is_ratio, rt_is_color,
-		NULL};
-	const char			*error_message[] = {NULL,
+	static int	(*rt_is_correct_type[])(char *) = {NULL, rt_is_ratio,
+		rt_is_color, NULL};
+	static char	*error_message[] = {NULL,
 		"Error format: Ratio ambient light\n",
 		"Error format: Color ambient light\n"};
-	int					i;
+	int			i;
 
 	i = 1;
 	while (rt_is_correct_type[i])
@@ -38,13 +38,13 @@ int	rt_error_ambient_light_format(char **elem)
 
 int	rt_error_camera_format(char **elem)
 {
-	const t_rt_is_type	rt_is_correct_type[] = {NULL, rt_is_pos, rt_is_dir,
+	static int	(*rt_is_correct_type[])(char *) = {NULL, rt_is_pos, rt_is_dir,
 		rt_is_fov, NULL};
-	const char			*error_message[] = {NULL,
+	static char	*error_message[] = {NULL,
 		"Error format: Position camera\n",
 		"Error format: Direction camera\n",
 		"Error format: FOV camera\n"};
-	int					i;
+	int			i;
 
 	i = 1;
 	while (rt_is_correct_type[i])
@@ -62,13 +62,13 @@ int	rt_error_camera_format(char **elem)
 
 int	rt_error_light_format(char **elem)
 {
-	const t_rt_is_type	rt_is_correct_type[] = {NULL, rt_is_pos, rt_is_ratio,
+	static int	(*rt_is_correct_type[])(char *) = {NULL, rt_is_pos, rt_is_ratio,
 		rt_is_color, NULL};
-	const char			*error_message[] = {NULL,
+	static char	*error_message[] = {NULL,
 		"Error format: Position light\n",
 		"Error format: Ratio light\n",
 		"Error format: Color light\n"};
-	int					i;
+	int			i;
 
 	i = 1;
 	while (rt_is_correct_type[i])
@@ -86,13 +86,13 @@ int	rt_error_light_format(char **elem)
 
 int	rt_error_sphere_format(char **elem)
 {
-	const t_rt_is_type	rt_is_correct_type[] = {NULL, rt_is_pos, rt_is_diameter,
-		rt_is_color, NULL};
-	const char			*error_message[] = {NULL,
+	static int	(*rt_is_correct_type[])(char *) = {NULL, rt_is_pos,
+		rt_is_diameter, rt_is_color, NULL};
+	static char	*error_message[] = {NULL,
 		"Error format: Position sphere\n",
 		"Error format: Diameter sphere\n",
 		"Error format: Color sphere\n"};
-	int					i;
+	int			i;
 
 	i = 1;
 	while (rt_is_correct_type[i])
@@ -110,13 +110,13 @@ int	rt_error_sphere_format(char **elem)
 
 int	rt_error_plane_format(char **elem)
 {
-	const t_rt_is_type	rt_is_correct_type[] = {NULL, rt_is_pos,
+	static int	(*rt_is_correct_type[])(char *) = {NULL, rt_is_pos,
 		rt_is_dir, rt_is_color, NULL};
-	const char			*error_message[] = {NULL,
+	static char	*error_message[] = {NULL,
 		"Error format: Position plane\n",
 		"Error format: Direction plane\n",
 		"Error format: Color plane\n"};
-	int					i;
+	int			i;
 
 	i = 1;
 	while (rt_is_correct_type[i])

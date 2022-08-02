@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 08:29:02 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:59:34 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ void	init_scene_derivates(t_scene *scene);
 # define ANSI_SGR_RESET "\033[0m"
 # define ANSI_SGR_UNDERLINE "\033[4m"
 
-typedef int	(*t_rt_error_elem_format)(char **);
-typedef int	(*t_rt_is_type)(char *);
-
 int		check_scene(char **scene_lines);
 //	rt_error_elem
 int		rt_error_ambient_light_format(char **elem);
@@ -61,8 +58,6 @@ int		rt_is_height(char *str);
 int		rt_print_error(const char *str_error, char **elem, int i_error_elem);
 
 //	PARSE_SCENE
-
-typedef int	(*t_rt_set_elem)(t_scene *, char **, int *);
 
 int		parse_scene(t_scene *scene, char **scene_lines);
 //	rt_set_elem

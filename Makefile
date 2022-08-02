@@ -19,6 +19,7 @@ HEADER_NAMES=
 SRC_NAMES	= main \
 			  events/close_window \
 			  events/manage_keypress \
+			  events/manage_keyrelease \
 			  events/move \
 			  init/check_scene/check_scene \
 			  init/check_scene/rt_error_elem_format \
