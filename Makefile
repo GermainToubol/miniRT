@@ -36,6 +36,9 @@ SRC_NAMES	= main \
 			  init/parse_scene/rt_set_elem2 \
 			  render/render \
 			  render/set_color \
+			  render/light_contribution/set_light_contribution \
+			  render/light_contribution/set_ambient_light_contribution \
+			  render/light_contribution/set_direct_light_contribution \
 			  render/set_intersection/set_intersection \
 			  render/set_intersection/set_intersection_pos \
 			  render/set_intersection/set_intersection_sphere \
