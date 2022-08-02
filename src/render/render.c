@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 20:09:34 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 15:47:13 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 	img = (t_img *) frame_buffer;
 	color_int = (unsigned char) color->r * 256;
 	color_int = color_int << 8;
-	color_int = (unsigned char) color->g * 256;
+	color_int += (unsigned char) color->g * 256;
 	color_int = color_int << 8;
-	color_int = (unsigned char) color->b * 256;
+	color_int += (unsigned char) color->b * 256;
 	color_int = color_int >> 8;
 	pos = (y * img->size_line + x * (img->bpp / 8));
 	*((unsigned int *)(img->data + pos)) = color_int;
