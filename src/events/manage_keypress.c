@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:01 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 20:19:25 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:10:21 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 int	manage_keypress(int keysym, t_data *data)
 {
 	const t_keypress_correspondance	key_corres[] = {{XK_Escape, close_window},
+	{XK_Left, move_left}, {XK_A, move_left}, {XK_a, move_left},
+	{XK_Up, move_up}, {XK_W, move_up}, {XK_w, move_up},
+	{XK_Right, move_right}, {XK_D, move_right}, {XK_d, move_right},
+	{XK_Down, move_down}, {XK_S, move_down}, {XK_s, move_down},
 	{0, NULL}};
 	int								i;
 
