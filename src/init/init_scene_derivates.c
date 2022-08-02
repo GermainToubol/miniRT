@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 08:36:10 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:43:11 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	init_camera_derivates(t_camera *camera)
 	v_normalize(&camera->ux);
 	camera->uy = v_cross_product(camera->dir, camera->ux);
 	dist_to_screen = (float) WIDTH / 2;
-	dist_to_screen /= tanf(camera->fov * 2 * M_PI / 360);
+	dist_to_screen /= tanf(camera->fov * M_PI / 360);
 	camera->anchor = v_scalar(dist_to_screen, camera->dir);
 	x_offset = (float)(WIDTH - 1) / 2;
 	camera->anchor = v_sub(camera->anchor, v_scalar(x_offset, camera->ux));
