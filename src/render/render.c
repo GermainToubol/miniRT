@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 20:09:34 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:33:49 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "ray.h"
 #include "render.h"
 #include "scene.h"
+
+#include <stdio.h>
 
 static void	set_ray(t_ray *ray, t_camera *camera, int x, int y)
 {
@@ -34,12 +36,11 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 	int					pos;
 
 	img = (t_img *) frame_buffer;
-	color_int = (unsigned char) color->r * 256;
+	color_int = (unsigned char) color->r;
 	color_int = color_int << 8;
-	color_int = (unsigned char) color->g * 256;
+	color_int += (unsigned char) color->g;
 	color_int = color_int << 8;
-	color_int = (unsigned char) color->b * 256;
-	color_int = color_int >> 8;
+	color_int += (unsigned char) color->b;
 	pos = (y * img->size_line + x * (img->bpp / 8));
 	*((unsigned int *)(img->data + pos)) = color_int;
 }

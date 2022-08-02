@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:26:09 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/01 19:16:11 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/02 11:35:45 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static float	get_discriminant(t_ray *ray, t_pos *p_sphere, float r)
 
 	obj_to_cam = v_sub(ray->pos, *p_sphere);
 	delta = 4 * v_dot_product(ray->dir, obj_to_cam)
+		* v_dot_product(ray->dir, obj_to_cam)
 		- 4 * (v_dot_product(obj_to_cam, obj_to_cam) - r * r)
 		* (v_dot_product(ray->dir, ray->dir));
 	return (delta);
@@ -35,7 +36,7 @@ static float	get_position_distance(t_obj *obj, t_ray *ray, float delta)
 
 	if (delta < 0)
 		return (-1.0f);
-	obj_to_cam = v_sub(ray->pos, obj->sphere.pos);
+	obj_to_cam = v_sub(obj->sphere.pos, ray->pos);
 	b = 2 * sqrtf(v_dot_product(ray->dir, obj_to_cam));
 	root = sqrtf(delta);
 	if (b >= 0)
