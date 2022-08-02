@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:23:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 08:29:16 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:00:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 #include "ft.h"
 #include "init.h"
 #include "minirt.h"
+
+static int	is_empty(char *line)
+{
+	while (*line && *line != '\n')
+	{
+		if (*line != ' ')
+			return (0);
+		line++;
+	}
+	return (1);
+}
 
 static int	set_scene_lines(char ***scene_lines, int argc, char **argv)
 {
@@ -31,7 +42,9 @@ static int	set_scene_lines(char ***scene_lines, int argc, char **argv)
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (ft_strs_append(scene_lines, line) == -1)
+		if (is_empty(line))
+			free(line);
+		else if (ft_strs_append(scene_lines, line) == -1)
 			return (close(fd), ft_free_tab(*scene_lines), free(line), -1);
 		line = get_next_line(fd);
 	}
