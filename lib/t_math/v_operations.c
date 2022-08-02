@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:07:21 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 08:33:28 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 10:49:34 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_vect	v_add(t_vect v1, t_vect v2)
 	t_vect	v_res;
 
 	v_res.x = v1.x + v2.x;
-	v_res.x = v1.y + v2.y;
-	v_res.x = v1.z + v2.z;
+	v_res.y = v1.y + v2.y;
+	v_res.z = v1.z + v2.z;
 	return (v_res);
 }
 
@@ -28,8 +28,8 @@ t_vect	v_sub(t_vect v1, t_vect v2)
 	t_vect	v_res;
 
 	v_res.x = v1.x - v2.x;
-	v_res.x = v1.y - v2.y;
-	v_res.x = v1.z - v2.z;
+	v_res.y = v1.y - v2.y;
+	v_res.z = v1.z - v2.z;
 	return (v_res);
 }
 
