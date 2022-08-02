@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:53:24 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/02 13:09:59 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/02 18:16:31 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	set_ambient_light_contribution(t_color *color,
 	color->r = data->scene.ambient_light.color.r * data->scene.ambient_light.ratio;
 	color->g = data->scene.ambient_light.color.g * data->scene.ambient_light.ratio;
 	color->b = data->scene.ambient_light.color.b * data->scene.ambient_light.ratio;
+	*ratio = data->scene.ambient_light.ratio;
 	return (0);
 }
