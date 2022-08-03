@@ -36,8 +36,8 @@ static float	get_position_distance(t_obj *obj, t_ray *ray, float delta)
 
 	if (delta < 0)
 		return (-1.0f);
-	obj_to_cam = v_sub(obj->sphere.pos, ray->pos);
-	b = 2 * sqrtf(v_dot_product(ray->dir, obj_to_cam));
+	obj_to_cam = v_sub(ray->pos, obj->sphere.pos);
+	b = 2 * v_dot_product(ray->dir, obj_to_cam);
 	root = sqrtf(delta);
 	if (b >= 0)
 		t = -0.5f * (b - root) / v_dot_product(ray->dir, ray->dir);

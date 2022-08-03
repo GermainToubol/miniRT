@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "light_contribution.h"
 #include "t_math.h"
 
@@ -29,7 +30,7 @@ int	set_direct_light_contribution(t_color *color,
 		light = &data->scene.light[i];
 		intersect_to_light = v_sub(light->pos, intersection->pos);
 		v_normalize(&intersect_to_light);
-		r_color = light->ratio * v_dot_product(intersection->norm, intersect_to_light);
+		r_color = v_dot_product(intersection->norm, intersect_to_light);
 		if (r_color < 0)
 		{
 			i++;
@@ -40,6 +41,5 @@ int	set_direct_light_contribution(t_color *color,
 		color->b += r_color * light->color.b;
 		i++;
 	}
-	color->r *= data->scene.ambient_light.ratio / (data->scene.nb_lights + 1);
 	return (0);
 }
