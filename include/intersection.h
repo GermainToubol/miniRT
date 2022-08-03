@@ -37,6 +37,7 @@ int		set_intersection_pos(t_pos *pos, t_obj **obj_seen, t_ray *ray,
 
 float	set_intersection_sphere(t_obj *obj, t_ray *ray);
 float	set_intersection_plane(t_obj *obj, t_ray *ray);
+float	set_intersection_cylinder(t_obj *obj, t_ray *ray);
 
 /* Intersection Normal */
 int		set_intersection_normal(t_ray *ray, t_pos *pos, t_dir *normal,
@@ -45,6 +46,8 @@ int		set_intersection_normal(t_ray *ray, t_pos *pos, t_dir *normal,
 int		set_normal_sphere(t_ray *ray, t_pos *pos, t_dir *normal,
 			t_obj *obj_seen);
 int		set_normal_plane(t_ray *ray, t_pos *pos, t_dir *normal,
+			t_obj *obj_seen);
+int		set_normal_cylinder(t_ray *ray, t_pos *pos, t_dir *normal,
 			t_obj *obj_seen);
 
 #endif /* INTERSECTION_H */
