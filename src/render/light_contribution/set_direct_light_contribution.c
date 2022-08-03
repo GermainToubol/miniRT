@@ -14,6 +14,36 @@
 #include "light_contribution.h"
 #include "t_math.h"
 
+static int	intersection_on_path(t_vect to_light, t_intersection *intersection,
+				t_data *data)
+{
+	int							i;
+	float						tmp_dist;
+	float						dist_light;
+	t_ray						ray;
+	const t_intersection_func	intersect[] = {set_intersection_sphere};
+
+	i = 0;
+	ray.pos = intersection->pos;
+	ray.dir = to_light;
+	dist_light = sqrtf(v_dot_product(to_light, to_light));
+	while (i < data->scene.nb_objs)
+	{
+		if (data->scene.obj + i == intersection->obj_seen)
+		{
+			i++;
+			continue ;
+		}
+		tmp_dist = (*intersect[data->scene.obj[i].tag])(data->scene.obj + i, &ray);
+		if (tmp_dist >= 0 && tmp_dist < dist_light)
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
 int	set_direct_light_contribution(t_color *color,
 		float *ratio, t_intersection *intersection, t_data *data)
 {
@@ -24,21 +54,24 @@ int	set_direct_light_contribution(t_color *color,
 
 	i = 0;
 	(void)ratio;
-	(void)color;
 	while (i < data->scene.nb_lights)
 	{
 		light = &data->scene.light[i];
 		intersect_to_light = v_sub(light->pos, intersection->pos);
 		v_normalize(&intersect_to_light);
 		r_color = v_dot_product(intersection->norm, intersect_to_light);
+		intersect_to_light = v_sub(light->pos, intersection->pos);
 		if (r_color < 0)
 		{
 			i++;
 			continue;
 		}
-		color->r += r_color * light->color.r;
-		color->g += r_color * light->color.g;
-		color->b += r_color * light->color.b;
+		if (intersection_on_path(intersect_to_light, intersection, data) != 0)
+		{
+			color->r += *ratio * r_color * light->color.r;
+			color->g += *ratio * r_color * light->color.g;
+			color->b += *ratio * r_color * light->color.b;
+		}
 		i++;
 	}
 	return (0);

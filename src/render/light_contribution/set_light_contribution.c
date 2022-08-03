@@ -20,6 +20,7 @@ int	set_light_contribution(t_color *color,
 	color->r = 0;
 	color->g = 0;
 	color->b = 0;
+	*ratio = 1.0f / (float)(data->scene.nb_lights + 1);
 	set_ambient_light_contribution(color, ratio, intersection, data);
 	set_direct_light_contribution(color, ratio, intersection, data);
 	return (0);

@@ -17,9 +17,11 @@ int	set_ambient_light_contribution(t_color *color,
 {
 	(void)ratio;
 	(void)intersection;
-	color->r = data->scene.ambient_light.color.r * data->scene.ambient_light.ratio;
-	color->g = data->scene.ambient_light.color.g * data->scene.ambient_light.ratio;
-	color->b = data->scene.ambient_light.color.b * data->scene.ambient_light.ratio;
-	*ratio = data->scene.ambient_light.ratio;
+	color->r = *ratio * data->scene.ambient_light.color.r
+		* data->scene.ambient_light.ratio;
+	color->g = *ratio * data->scene.ambient_light.color.g
+		* data->scene.ambient_light.ratio;
+	color->b = *ratio * data->scene.ambient_light.color.b
+		* data->scene.ambient_light.ratio;
 	return (0);
 }
