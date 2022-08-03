@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
 #include "intersection.h"
+#include "ray.h"
+#include "scene.h"
 #include "t_math.h"
 
-int	set_normal_sphere(t_pos *pos, t_dir *normal, t_obj *obj_seen)
+int	set_normal_sphere(t_ray *ray, t_pos *pos, t_dir *normal, t_obj *obj_seen)
 {
+	(void)ray;
 	v_copy(normal, v_sub(*pos, obj_seen->sphere.pos));
 	v_normalize(normal);
 	return (0);

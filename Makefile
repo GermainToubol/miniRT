@@ -44,8 +44,10 @@ SRC_NAMES	= main \
 			  render/set_intersection/set_intersection \
 			  render/set_intersection/set_intersection_pos \
 			  render/set_intersection/set_intersection_sphere \
+			  render/set_intersection/set_intersection_plane \
 			  render/set_intersection/set_intersection_normal \
 			  render/set_intersection/set_normal_sphere \
+			  render/set_intersection/set_normal_plane \
 			  terminate/terminate
 
 LIB_DIR		= lib

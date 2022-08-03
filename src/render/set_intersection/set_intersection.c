@@ -21,7 +21,8 @@ int	set_intersection(t_intersection *intersection, t_ray *ray, t_data *data)
 			ray,
 			data) != 0)
 		return (1);
-	if (set_intersection_normal(&intersection->pos, &intersection->norm, intersection->obj_seen))
+	if (set_intersection_normal(ray, &intersection->pos, &intersection->norm,
+			intersection->obj_seen))
 		return (1);
 	return (0);
 }

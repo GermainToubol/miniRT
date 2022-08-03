@@ -21,7 +21,7 @@ static int	intersection_on_path(t_vect to_light, t_intersection *intersection,
 	float						tmp_dist;
 	float						dist_light;
 	t_ray						ray;
-	const t_intersection_func	intersect[] = {set_intersection_sphere};
+	const t_intersection_func	intersect[] = {set_intersection_sphere, set_intersection_plane};
 
 	i = 0;
 	ray.pos = intersection->pos;

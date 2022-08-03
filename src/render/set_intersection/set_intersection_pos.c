@@ -23,7 +23,8 @@ int	set_intersection_pos(t_pos *pos, t_obj **obj_seen, t_ray *ray, t_data *data)
 	int							i;
 	float						dist_min;
 	float						tmp_dist;
-	const t_intersection_func	intersect[] = {set_intersection_sphere};
+	const t_intersection_func	intersect[] = {set_intersection_sphere,
+	set_intersection_plane};
 
 	i = 0;
 	dist_min = -1.0f;

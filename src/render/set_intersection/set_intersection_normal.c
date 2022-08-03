@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 
 #include "intersection.h"
-#include "minirt.h"
+#include "ray.h"
+#include "scene.h"
 
-int	set_intersection_normal(t_pos *pos, t_dir *normal, t_obj *obj_seen)
+int	set_intersection_normal(t_ray *ray, t_pos *pos, t_dir *normal,
+		t_obj *obj_seen)
 {
-	const t_normal_func	get_normal[] = {set_normal_sphere};
+	const t_normal_func	get_normal[] = {set_normal_sphere, set_normal_plane};
 
-	return ((*get_normal[obj_seen->tag])(pos, normal, obj_seen));
+	return ((*get_normal[obj_seen->tag])(ray, pos, normal, obj_seen));
 }
