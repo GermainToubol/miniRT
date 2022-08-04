@@ -16,13 +16,16 @@
 #include "ray.h"
 #include "scene.h"
 
+#include <stdio.h>
+
 static int	set_color_seen(t_color *color, float ratio,
 	t_ray *ray, t_intersection *intersection)
 {
-	(void) color;
 	(void) ratio;
 	(void) ray;
-	(void) intersection;
+	color->r *= intersection->obj_seen->color.r;
+	color->g *= intersection->obj_seen->color.g;
+	color->b *= intersection->obj_seen->color.b;
 	return (0);
 }
 

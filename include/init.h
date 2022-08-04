@@ -18,7 +18,7 @@
 
 # define RT_AMBIENT_LIGHT "A"
 # define RT_CAMERA "C"
-# define RT_LIGHT "L"
+# define RT_LIGHT "l"
 # define RT_SPHERE "sp"
 # define RT_PLANE "pl"
 # define RT_CYLINDER "cy"
