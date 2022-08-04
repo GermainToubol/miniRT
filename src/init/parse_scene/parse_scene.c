@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:41:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/02 16:59:07 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:16:35 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 static void	count_nb_elem_category(int *nb_elem_category, char **scene_lines)
 {
-	static char	*rt_elem_category[3][4] = {{RT_SPHERE, RT_PLANE, RT_CYLINDER,
-		NULL}, {RT_LIGHT, NULL}, {RT_CAMERA, NULL}};
+	static char	*rt_elem_category[3][5] = {{RT_SPHERE, RT_PLANE, RT_CYLINDER,
+		RT_TRIANGLE, NULL}, {RT_LIGHT, NULL}, {RT_CAMERA, NULL}};
 	char		*rt_elem;
 	int			i;
 	int			j;
@@ -68,10 +68,10 @@ static int	set_elem_any_type(t_scene *scene, char **elem,
 	int *i_elem_category)
 {
 	static char	*rt_elem[] = {RT_AMBIENT_LIGHT, RT_CAMERA, RT_LIGHT,
-		RT_SPHERE, RT_PLANE, RT_CYLINDER, NULL};
+		RT_SPHERE, RT_PLANE, RT_CYLINDER, RT_TRIANGLE, NULL};
 	static int	(*rt_set_elem[])(t_scene *, char **, int *) = {
 		rt_set_ambient_light, rt_set_camera, rt_set_light, rt_set_sphere,
-		rt_set_plane, rt_set_cylinder};
+		rt_set_plane, rt_set_cylinder, rt_set_triangle};
 	int			i;
 
 	i = 0;

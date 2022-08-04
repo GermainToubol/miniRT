@@ -6,12 +6,14 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 00:06:07 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:16:19 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
+#include "parameters.h"
 #include "scene.h"
+#include "t_math.h"
 
 static void	init_camera_derivates(t_camera *camera)
 {
@@ -45,7 +47,28 @@ static void	init_cameras_derivates(t_camera *camera, int nb_cameras)
 	}
 }
 
+static void	init_triangles_derivates(t_obj *obj, int nb_objs)
+{
+	t_triangle	*triangle;
+	int			i;
+
+	i = 0;
+	while (i < nb_objs)
+	{
+		if (obj[i].tag == triangle_tag)
+		{
+			triangle = &obj[i].triangle;
+			triangle->normal = v_cross_product(
+					v_sub(triangle->edge[0], triangle->edge[1]),
+					v_sub(triangle->edge[0], triangle->edge[2]));
+			v_normalize(&triangle->normal);
+		}
+		i++;
+	}
+}
+
 void	init_scene_derivates(t_scene *scene)
 {
 	init_cameras_derivates(scene->camera, scene->nb_cameras);
+	init_triangles_derivates(scene->obj, scene->nb_objs);
 }

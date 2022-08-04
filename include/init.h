@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/02 16:59:34 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:14:44 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define RT_SPHERE "sp"
 # define RT_PLANE "pl"
 # define RT_CYLINDER "cy"
+# define RT_TRIANGLE "tr"
 
 int		init(t_data *data, int argc, char **argv);
 int		init_mlx(t_data *data);
@@ -46,6 +47,7 @@ int		rt_error_light_format(char **elem);
 int		rt_error_sphere_format(char **elem);
 int		rt_error_plane_format(char **elem);
 int		rt_error_cylinder_format(char **elem);
+int		rt_error_triangle_format(char **elem);
 //	rt_is_type
 int		rt_is_pos(char *str);
 int		rt_is_dir(char *str);
@@ -67,6 +69,7 @@ int		rt_set_light(t_scene *scene, char **elem, int *i_elem_category);
 int		rt_set_sphere(t_scene *scene, char **elem, int *i_elem_category);
 int		rt_set_plane(t_scene *scene, char **elem, int *i_elem_category);
 int		rt_set_cylinder(t_scene *scene, char **elem, int *i_elem_category);
+int		rt_set_triangle(t_scene *scene, char **elem, int *i_elem_category);
 //rt_get_type
 t_vect	rt_get_pos(char *str);
 t_vect	rt_get_dir(char *str);

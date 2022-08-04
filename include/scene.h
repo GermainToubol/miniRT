@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 07:52:46 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:09:36 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,18 @@ typedef struct s_cylinder
 	float	h;
 }	t_cylinder;
 
+typedef struct s_triangle
+{
+	t_pos	edge[3];
+	t_dir	normal;
+}	t_triangle;
+
 typedef enum e_obj_tag
 {
 	sphere_tag,
 	plane_tag,
-	cylinder_tag
+	cylinder_tag,
+	triangle_tag
 }	t_obj_tag;
 
 typedef struct s_color
@@ -61,6 +68,7 @@ typedef struct s_obj
 		t_sphere	sphere;
 		t_plane		plane;
 		t_cylinder	cylinder;
+		t_triangle	triangle;
 	};
 	t_color		color;
 }	t_obj;
