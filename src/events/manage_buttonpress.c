@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:50:29 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 03:55:27 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 04:16:27 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	manage_left_press(int mouse_x, int mouse_y, t_data *data)
 		return (0);
 	event_state->last_buttonpress_x = mouse_x;
 	event_state->last_buttonpress_y = mouse_y;
-	event_state->is_translation_in_progress = 1;
+	event_state->is_rotation_in_progress = 1;
 	return (0);
 }
 
@@ -46,7 +46,7 @@ int	manage_right_press(int mouse_x, int mouse_y, t_data *data)
 		return (0);
 	event_state->last_buttonpress_x = mouse_x;
 	event_state->last_buttonpress_y = mouse_y;
-	event_state->is_rotation_in_progress = 1;
+	event_state->is_translation_in_progress = 1;
 	return (0);
 }
 
