@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:50:48 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 04:17:00 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:23:32 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	manage_left_release(int mouse_x, int mouse_y, t_data *data)
 	t_vect			camera_anchor_relative;
 
 	event_state = &data->ui_state.event_state;
-	if (!event_state->is_rotation_in_progress)
+	if (!event_state->is_rotation_in_progress
+		|| (mouse_x - event_state->last_buttonpress_x) * (mouse_x - event_state->last_buttonpress_x)
+			+ (mouse_y - event_state->last_buttonpress_y) * (mouse_y - event_state->last_buttonpress_y) < 100)
 		return (0);
 	camera = data->scene.camera;
 	set_ray(&ray_last, camera, event_state->last_buttonpress_x,
@@ -62,7 +64,9 @@ int	manage_right_release(int mouse_x, int mouse_y, t_data *data)
 	float			move_y;
 
 	event_state = &data->ui_state.event_state;
-	if (!event_state->is_translation_in_progress)
+	if (!event_state->is_translation_in_progress
+		|| (mouse_x - event_state->last_buttonpress_x) * (mouse_x - event_state->last_buttonpress_x)
+			+ (mouse_y - event_state->last_buttonpress_y) * (mouse_y - event_state->last_buttonpress_y) < 100)
 		return (0);
 	camera = data->scene.camera;
 	move_x = (float) -(mouse_x - event_state->last_buttonpress_x) * 8 / WIDTH;
