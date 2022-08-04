@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_keyrelease.c                                :+:      :+:    :+:   */
+/*   rotate2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 16:32:57 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/02 16:34:38 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/04 00:19:19 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/04 00:19:32 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "events.h"
+#include <math.h>
 #include "minirt.h"
+#include "t_math.h"
 
-int	manage_keyrelease(int keysym, t_data *data)
+int	rotate_yaw_reverse(t_data *data)
 {
-	(void) keysym;
-	(void) data;
+	t_camera	*camera;
+	t_dir		anchor_dir;
+
+	camera = data->scene.camera;
+	v_rotate(&camera->dir, camera->uy, -M_PI / 12);
+	v_rotate(&camera->ux, camera->uy, -M_PI / 12);
+	anchor_dir = v_sub(camera->anchor, camera->pos);
+	v_rotate(&anchor_dir, camera->uy, -M_PI / 12);
+	camera->anchor = v_add(camera->pos, anchor_dir);
 	return (0);
 }

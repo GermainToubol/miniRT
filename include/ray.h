@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 13:09:30 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/01 13:57:09 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/04 03:30:08 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "scene.h"
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	t_pos	pos;
 	t_dir	dir;

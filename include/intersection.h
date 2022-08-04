@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:14:16 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/01 19:54:50 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/04 03:31:04 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ray.h"
 # include "scene.h"
 
-typedef struct	s_intersection
+typedef struct s_intersection
 {
 	t_pos	pos;
 	t_dir	norm;
@@ -25,8 +25,8 @@ typedef struct	s_intersection
 	t_obj	*obj_seen;
 }	t_intersection;
 
-typedef float (*t_intersection_func) (t_obj *, t_ray *);
-typedef int (*t_normal_func) (t_ray *, t_pos *, t_dir *, t_obj *);
+typedef float	(*t_intersection_func) (t_obj *, t_ray *);
+typedef int		(*t_normal_func) (t_ray *, t_pos *, t_dir *, t_obj *);
 
 int		set_intersection(t_intersection *intersection, t_ray *ray,
 			t_data *data);

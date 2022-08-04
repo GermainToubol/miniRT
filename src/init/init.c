@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:34:58 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 03:00:35 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@ static int	check_input(int argc, char **argv)
 	return (0);
 }
 
+static void	init_ui_state(t_ui_state *ui_state)
+{
+	t_event_state	*event_state;
+
+	ui_state->to_render = 1;
+	event_state = &ui_state->event_state;
+	event_state->last_buttonpress_x = 0;
+	event_state->last_buttonpress_y = 0;
+	event_state->is_translation_in_progress = 0;
+	event_state->is_rotation_in_progress = 0;
+}
+
 int	init(t_data *data, int argc, char **argv)
 {
 	int	ret_value;
@@ -35,6 +47,7 @@ int	init(t_data *data, int argc, char **argv)
 	ret_value = init_scene(&data->scene, argc, argv);
 	if (ret_value != 0)
 		return (ret_value);
+	init_ui_state(&data->ui_state);
 	if (init_mlx(data) == -1)
 		return (free_scene(&data->scene), 1);
 	return (0);

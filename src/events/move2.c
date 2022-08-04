@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.h                                           :+:      :+:    :+:   */
+/*   move2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:53:48 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 03:29:39 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/02 16:13:01 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/03 22:41:29 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_H
-# define RENDER_H
+#include "events.h"
+#include "minirt.h"
 
-# include "minirt.h"
-# include "ray.h"
-# include "scene.h"
+int	move_backward(t_data *data)
+{
+	t_camera	*camera;
 
-int		set_color(t_color *color, t_ray *ray, t_data *data);
-void	set_ray(t_ray *ray, t_camera *camera, int x, int y);
-int		render(t_data *data);
-
-#endif
+	camera = data->scene.camera;
+	camera->pos = v_add(camera->pos, v_scalar(-1, camera->dir));
+	return (0);
+}

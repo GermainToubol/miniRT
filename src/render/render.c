@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/02 17:25:07 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/04 03:40:17 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 #include "render.h"
 #include "scene.h"
 
-static void	set_ray(t_ray *ray, t_camera *camera, int x, int y)
+void	set_ray(t_ray *ray, t_camera *camera, int x, int y)
 {
 	ray->pos = camera->pos;
 	ray->dir = camera->anchor;
 	ray->dir = v_add(ray->dir, v_scalar((float) x, camera->ux));
-	ray->dir = v_add(ray->dir, v_scalar((float) y, camera->uy));
+	ray->dir = v_add(ray->dir, v_scalar((float) -y, camera->uy));
 	ray->dir = v_sub(ray->dir, camera->pos);
+	v_normalize(&ray->dir);
 }
 
 static void	put_color(int x, int y, t_color *color, void *frame_buffer)
@@ -34,11 +35,11 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 	int					pos;
 
 	img = (t_img *) frame_buffer;
-	color_int = (unsigned char) (color->r * 255.0f);
+	color_int = (unsigned char)(color->r * 255.0f);
 	color_int = color_int << 8;
-	color_int += (unsigned char) (color->g * 255.0f);
+	color_int += (unsigned char)(color->g * 255.0f);
 	color_int = color_int << 8;
-	color_int += (unsigned char) (color->b * 255.0f);
+	color_int += (unsigned char)(color->b * 255.0f);
 	pos = (y * img->size_line + x * (img->bpp / 8));
 	*((unsigned int *)(img->data + pos)) = color_int;
 }
@@ -69,7 +70,7 @@ static int	set_image(t_data *data)
 
 int	render(t_data *data)
 {
-	if (data->to_render == 0)
+	if (data->ui_state.to_render == 0)
 		return (0);
 	if (set_image(data) == -1)
 		return (close_window(data), 1);

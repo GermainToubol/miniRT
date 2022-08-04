@@ -6,12 +6,13 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:50:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 19:58:59 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:55:03 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 #include "init.h"
+#include "t_math.h"
 
 static void	rt_skip_to_next_number(char **str)
 {
@@ -40,7 +41,11 @@ t_pos	rt_get_pos(char *str)
 
 t_dir	rt_get_dir(char *str)
 {
-	return ((t_dir) rt_get_vect(str));
+	t_dir	dir;
+
+	dir = rt_get_vect(str);
+	v_normalize(&dir);
+	return (dir);
 }
 
 t_color	rt_get_color(char *str)
