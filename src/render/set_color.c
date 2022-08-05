@@ -16,8 +16,6 @@
 #include "ray.h"
 #include "scene.h"
 
-#include <stdio.h>
-
 static int	set_color_seen(t_color *color, float ratio,
 	t_ray *ray, t_intersection *intersection)
 {
@@ -29,12 +27,18 @@ static int	set_color_seen(t_color *color, float ratio,
 	return (0);
 }
 
+/*
+  Ratio is set to get a color of [...] at max intensity of one light
+  using a (1 - exp(-I/I0)) light scaling.
+*/
+
 int	set_color(t_color *color, t_ray *ray, t_data *data)
 {
 	t_intersection	intersection;
 	float			ratio;
 	int				ret_value;
 
+	ratio = -1.2f;
 	ret_value = set_intersection(&intersection, ray, data);
 	if (ret_value == -1)
 		return (-1);

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "events.h"
 #include "mlx.h"
 #include "mlx_int.h"
@@ -35,11 +36,11 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 	int					pos;
 
 	img = (t_img *) frame_buffer;
-	color_int = (unsigned char)(color->r * 255.0f);
+	color_int = (unsigned char)((1 - expf(color->r)) * 255.0f);
 	color_int = color_int << 8;
-	color_int += (unsigned char)(color->g * 255.0f);
+	color_int += (unsigned char)((1 - expf(color->g)) * 255.0f);
 	color_int = color_int << 8;
-	color_int += (unsigned char)(color->b * 255.0f);
+	color_int += (unsigned char)((1 - expf(color->b)) * 255.0f);
 	pos = (y * img->size_line + x * (img->bpp / 8));
 	*((unsigned int *)(img->data + pos)) = color_int;
 }
