@@ -12,10 +12,12 @@
 
 #include "light_contribution.h"
 
-int	set_light_contribution(t_color *color,
-						   float *ratio,
-						   t_intersection *intersection,
-						   t_data *data)
+int	set_light_contribution(
+		t_color *color,
+		float *ratio,
+		t_intersection *intersection,
+		t_data *data
+	)
 {
 	color->r = 0;
 	color->g = 0;

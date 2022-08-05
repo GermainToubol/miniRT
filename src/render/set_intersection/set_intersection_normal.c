@@ -21,7 +21,7 @@ int	set_intersection_normal(t_ray *ray, t_pos *pos, t_dir *normal,
 	const t_normal_func	get_normal[] = {
 		set_normal_sphere,
 		set_normal_plane,
-		NULL,
+		set_normal_cylinder,
 		set_normal_triangle};
 
 	return ((*get_normal[obj_seen->tag])(ray, pos, normal, obj_seen));

@@ -49,10 +49,12 @@ SRC_NAMES	= main \
 			  render/set_intersection/set_intersection_pos \
 			  render/set_intersection/set_intersection_sphere \
 			  render/set_intersection/set_intersection_plane \
+			  render/set_intersection/set_intersection_cylinder \
 			  render/set_intersection/set_intersection_triangle \
 			  render/set_intersection/set_intersection_normal \
 			  render/set_intersection/set_normal_sphere \
 			  render/set_intersection/set_normal_plane \
+			  render/set_intersection/set_normal_cylinder \
 			  render/set_intersection/set_normal_triangle \
 			  terminate/terminate
 
@@ -72,6 +74,7 @@ INCLUDE		= $(INCLUDE_DIRS:%=-I%)
 
 HEADER		= $(HEADER_NAMES:%=$(HEADER_DIR)/%.h)
 OBJ			= $(SRC_NAMES:%=$(OBJ_DIR)/%.o)
+DEPS		= $(SRCS_NAMES:%=$(OBJ_DIR)/%.d)
 LIB_OBJS	=
 
 LIB_FILES	= $(foreach l,$(LIB_NAMES),$(LIB_DIR)/$l/lib$l.a)
@@ -128,8 +131,10 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER) start_compiling
 	@if [ ! -d $(dir $@) ]; then \
 		mkdir -p $(dir $@); \
 	fi
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) -MMD $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 %.a:
 	@echo "\n$(_GREEN)$(dir $@): make$(_NO_COLOR)"
 	@$(MAKE) --no-print-directory -C $(dir $@)
+
+-include $(DEPS)
