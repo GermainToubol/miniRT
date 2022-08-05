@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move2.c                                            :+:      :+:    :+:   */
+/*   switch_ui_mode.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 16:13:01 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/03 22:41:29 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/05 17:08:26 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/06 01:34:26 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "events.h"
 #include "minirt.h"
 
-int	move_backward(t_data *data)
+int	switch_ui_mode(t_data *data)
 {
-	t_camera	*camera;
+	t_ui_state	*ui_state;
 
-	camera = data->scene.camera;
-	camera->pos = v_add(camera->pos, v_scalar(-1, camera->dir));
+	ui_state = &data->ui_state;
+	ui_state->mode++;
+	ui_state->mode /= NB_UI_MODES;
 	return (0);
 }

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_cam.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:50:47 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 00:19:12 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/06 01:28:03 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "minirt.h"
+#include "scene.h"
 #include "t_math.h"
 
-int	rotate_roll(t_data *data)
+int	rotate_cam_roll(t_data *data)
 {
 	t_camera	*camera;
 	t_dir		anchor_dir;
@@ -28,7 +29,7 @@ int	rotate_roll(t_data *data)
 	return (0);
 }
 
-int	rotate_roll_reverse(t_data *data)
+int	rotate_cam_reverse_roll(t_data *data)
 {
 	t_camera	*camera;
 	t_dir		anchor_dir;
@@ -42,7 +43,7 @@ int	rotate_roll_reverse(t_data *data)
 	return (0);
 }
 
-int	rotate_pitch(t_data *data)
+int	rotate_cam_pitch(t_data *data)
 {
 	t_camera	*camera;
 	t_dir		anchor_dir;
@@ -56,7 +57,7 @@ int	rotate_pitch(t_data *data)
 	return (0);
 }
 
-int	rotate_pitch_reverse(t_data *data)
+int	rotate_cam_reverse_pitch(t_data *data)
 {
 	t_camera	*camera;
 	t_dir		anchor_dir;
@@ -70,7 +71,7 @@ int	rotate_pitch_reverse(t_data *data)
 	return (0);
 }
 
-int	rotate_yaw(t_data *data)
+int	rotate_cam_yaw(t_data *data)
 {
 	t_camera	*camera;
 	t_dir		anchor_dir;

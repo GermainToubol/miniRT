@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 03:00:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/06 01:44:30 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static void	init_ui_state(t_ui_state *ui_state)
 {
 	t_event_state	*event_state;
 
+	ui_state->mode = mode_default;
 	ui_state->to_render = 1;
 	event_state = &ui_state->event_state;
 	event_state->last_buttonpress_x = 0;
 	event_state->last_buttonpress_y = 0;
-	event_state->is_translation_in_progress = 0;
-	event_state->is_rotation_in_progress = 0;
+	event_state->action_in_progress = none;
 }
 
 int	init(t_data *data, int argc, char **argv)
