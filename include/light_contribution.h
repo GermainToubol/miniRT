@@ -17,11 +17,14 @@
 # include "minirt.h"
 # include "scene.h"
 
-int	set_light_contribution(t_color *color, float *ratio,
-		t_intersection *intersection, t_data *data);
-int	set_ambient_light_contribution(t_color *color,
-		float *ratio, t_intersection *intersection, t_data *data);
-int	set_direct_light_contribution(t_color *color,
-		float *ratio, t_intersection *intersection, t_data *data);
+# define BRIGHTNESS 100
 
+int		set_light_contribution(t_color *color, float *ratio,
+			t_intersection *intersection, t_data *data);
+int		set_ambient_light_contribution(t_color *color,
+			float *ratio, t_intersection *intersection, t_data *data);
+int		set_direct_light_contribution(t_color *color,
+			float *ratio, t_intersection *intersection, t_data *data);
+float	set_specular_contribution(t_intersection *intersection,
+			t_vect *intersect_light);
 #endif /* LIGHT_CONTRIBUTION_H */

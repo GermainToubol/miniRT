@@ -64,6 +64,7 @@ int	set_direct_light_contribution(t_color *color,
 		if (r_color >= 0
 			&& intersection_on_path(&intersect_light, intersection, data) != 0)
 		{
+			r_color += set_specular_contribution(intersection, &intersect_light);
 			color->r += *ratio * r_color * light->color.r;
 			color->g += *ratio * r_color * light->color.g;
 			color->b += *ratio * r_color * light->color.b;

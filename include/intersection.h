@@ -22,6 +22,7 @@ typedef struct s_intersection
 	t_pos	pos;
 	t_dir	norm;
 	t_color	color_absorption;
+	t_ray	*ray;
 	t_obj	*obj_seen;
 }	t_intersection;
 

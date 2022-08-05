@@ -45,6 +45,7 @@ SRC_NAMES	= main \
 			  render/light_contribution/set_light_contribution \
 			  render/light_contribution/set_ambient_light_contribution \
 			  render/light_contribution/set_direct_light_contribution \
+			  render/light_contribution/set_specular_contribution \
 			  render/set_intersection/set_intersection \
 			  render/set_intersection/set_intersection_pos \
 			  render/set_intersection/set_intersection_sphere \
