@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <math.h>
+#include <stddef.h>
 #include "light_contribution.h"
 #include "t_math.h"
 
@@ -22,7 +23,7 @@ static int	intersection_on_path(t_vect *to_light, t_intersection *intersection,
 	float						dist_light;
 	t_ray						ray;
 	const t_intersection_func	intersect[] = {set_intersection_sphere,
-										set_intersection_plane};
+		set_intersection_plane, NULL, set_intersection_triangle};
 
 	i = 0;
 	ray.pos = intersection->pos;
