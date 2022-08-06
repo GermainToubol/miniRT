@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:04:37 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/06 01:49:05 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/06 02:03:55 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "scene.h"
 
-# define NB_UI_MODES 2
+# define NB_UI_MODES 3
 
 typedef struct s_event_state	t_event_state;
 
