@@ -1,5 +1,5 @@
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -g
 MAKE		= /bin/make
 
 
@@ -57,17 +57,24 @@ SRC_NAMES	= main \
 			  render/light_contribution/set_light_contribution \
 			  render/light_contribution/set_ambient_light_contribution \
 			  render/light_contribution/set_direct_light_contribution \
+			  render/light_contribution/set_specular_contribution \
 			  render/set_intersection/set_intersection \
 			  render/set_intersection/set_intersection_pos \
 			  render/set_intersection/set_intersection_sphere \
 			  render/set_intersection/set_intersection_plane \
+			  render/set_intersection/set_intersection_cylinder \
+			  render/set_intersection/set_intersection_triangle \
 			  render/set_intersection/set_intersection_normal \
 			  render/set_intersection/set_normal_sphere \
 			  render/set_intersection/set_normal_plane \
+			  render/set_intersection/set_normal_cylinder \
+			  render/set_intersection/set_normal_triangle \
 			  terminate/terminate
 
 OBJ_DIR		= obj
 OBJ			= $(SRC_NAMES:%=$(OBJ_DIR)/%.o)
+
+DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
 
 _GREY		= \033[30m
 _RED		= \033[31m
@@ -87,6 +94,8 @@ all: $(NAME)
 clean:
 	@echo "$(_GREEN)Removing objects$(_NO_COLOR)"
 	rm -f $(OBJ)
+	@echo "$(_GREEN)Removing dependencies$(_NO_COLOR)"
+	rm -f $(DEPS)
 	@for obj_dir in $(dir $(OBJ)); do \
 		if [ -d $${obj_dir} ] ; then \
 			rmdir -p --ignore-fail-on-non-empty $${obj_dir}; \
@@ -117,7 +126,7 @@ $(NAME): $(LIB_FILES) $(OBJ) $(HEADER)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER) start_compiling
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) -MMD $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 .INTERMEDIATE: start_compiling
 start_compiling:
@@ -127,3 +136,5 @@ start_compiling:
 	@echo "$(_GREEN)$(dir $@): make$(_NO_COLOR)"
 	@$(MAKE) --no-print-directory -C $(dir $@)
 	@echo ""
+
+-include $(DEPS)

@@ -19,6 +19,8 @@ int	set_normal_sphere(t_ray *ray, t_pos *pos, t_dir *normal, t_obj *obj_seen)
 {
 	(void)ray;
 	v_copy(normal, v_sub(*pos, obj_seen->sphere.pos));
+	if (v_dot_product(ray->dir, *normal) > 0)
+		v_copy(normal, v_sub(obj_seen->sphere.pos, *pos));
 	v_normalize(normal);
 	return (0);
 }
