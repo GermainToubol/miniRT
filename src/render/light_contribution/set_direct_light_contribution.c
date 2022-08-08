@@ -26,17 +26,12 @@ static int	intersection_on_path(t_vect *to_light, t_intersection *intersection,
 		set_intersection_plane, set_intersection_cylinder, set_intersection_triangle};
 
 	i = 0;
-	ray.pos = intersection->pos;
 	ray.dir = *to_light;
+	ray.pos = v_add(intersection->pos, v_scalar(0.00001, ray.dir));
 	v_normalize(&ray.dir);
 	dist_light = v_dot_product(*to_light, *to_light);
 	while (i < data->scene.nb_objs)
 	{
-		if (data->scene.obj + i == intersection->obj_seen)
-		{
-			i++;
-			continue ;
-		}
 		tmp_dist = (*isect[data->scene.obj[i].tag])(data->scene.obj + i, &ray);
 		if (tmp_dist > 0 && tmp_dist * tmp_dist < dist_light * 0.999)
 			return (0);
