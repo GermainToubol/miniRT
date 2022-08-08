@@ -25,8 +25,8 @@ float	set_specular_contribution(
 	if (pw < 0)
 		return (0.0f);
 	pw = powf(pw, BRIGHTNESS);
-	intersection->specular.r = *ratio * pw * light->color.r;
-	intersection->specular.g = *ratio * pw * light->color.g;
-	intersection->specular.b = *ratio * pw * light->color.b;
+	intersection->specular.r += *ratio * pw * light->color.r;
+	intersection->specular.g += *ratio * pw * light->color.g;
+	intersection->specular.b += *ratio * pw * light->color.b;
 	return (pw);
 }

@@ -17,7 +17,7 @@
 # include "minirt.h"
 # include "scene.h"
 
-# define BRIGHTNESS 10
+# define BRIGHTNESS 100
 
 int		set_light_contribution(t_color *color, float *ratio,
 			t_intersection *intersection, t_data *data);
