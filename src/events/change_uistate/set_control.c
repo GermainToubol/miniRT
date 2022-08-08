@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_cam2.c                                      :+:      :+:    :+:   */
+/*   set_control.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/04 00:19:19 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/07 21:25:17 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/07 21:39:19 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/07 21:44:45 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "minirt.h"
-#include "scene.h"
-#include "t_math.h"
 
-int	rotate_cam_reverse_yaw(t_data *data)
+int	set_control(t_data *data)
 {
-	t_camera	*camera;
-	t_dir		anchor_dir;
+	data->ui_state.event_state.control_set = 1;
+	return (0);
+}
 
-	camera = data->scene.camera;
-	v_rotate(&camera->dir, camera->uy, -M_PI / 12);
-	v_rotate(&camera->ux, camera->uy, -M_PI / 12);
-	anchor_dir = v_sub(camera->anchor, camera->pos);
-	v_rotate(&anchor_dir, camera->uy, -M_PI / 12);
-	camera->anchor = v_add(camera->pos, anchor_dir);
-	data->ui_state.to_render = 1;
+int	unset_control(t_data *data)
+{
+	data->ui_state.event_state.control_set = 0;
 	return (0);
 }

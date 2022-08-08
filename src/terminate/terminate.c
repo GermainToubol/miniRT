@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/31 20:36:27 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/08 09:49:21 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	free_scene(t_scene *scene)
 		return ;
 	free(scene->obj);
 	free(scene->light);
+	free(scene->ambient_light);
 	free(scene->camera);
 }
 

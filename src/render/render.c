@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 03:40:17 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:34:52 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	render(t_data *data)
 {
 	if (data->ui_state.to_render == 0)
 		return (0);
+	data->ui_state.to_render = 0;
 	if (set_image(data) == -1)
 		return (close_window(data), 1);
 	mlx_put_image_to_window(data->mlx, data->win, data->frame_buffer, 0, 0);

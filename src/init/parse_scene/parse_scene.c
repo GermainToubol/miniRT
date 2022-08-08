@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:41:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 19:16:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:35:52 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,16 @@ static int	malloc_scene(t_scene *scene, char **scene_lines)
 	scene->light = malloc(sizeof(t_light) * scene->nb_lights);
 	if (!scene->light)
 		return (free(scene->obj), -1);
+	scene->nb_ambient_lights = 1;
+	scene->ambient_light = malloc(sizeof(t_ambient_light)
+			* scene->nb_ambient_lights);
+	if (!scene->ambient_light)
+		return (free(scene->obj), free(scene->light), -1);
 	scene->nb_cameras = nb_elem_category[2];
 	scene->camera = malloc(sizeof(t_camera) * scene->nb_cameras);
 	if (!scene->camera)
-		return (free(scene->obj), free(scene->light), -1);
+		return (free(scene->obj), free(scene->light),
+			free(scene->ambient_light), -1);
 	return (0);
 }
 

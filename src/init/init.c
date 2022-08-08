@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/06 01:44:30 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:35:41 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ static int	check_input(int argc, char **argv)
 	return (0);
 }
 
-static void	init_ui_state(t_ui_state *ui_state)
+static void	init_ui_state(t_ui_state *ui_state, t_scene *scene)
 {
-	t_event_state	*event_state;
-
 	ui_state->mode = mode_default;
 	ui_state->to_render = 1;
-	event_state = &ui_state->event_state;
-	event_state->last_buttonpress_x = 0;
-	event_state->last_buttonpress_y = 0;
-	event_state->action_in_progress = none;
+	ui_state->event_state = (t_event_state){none, 0, 0, 0};
+	ui_state->modifier_state = (t_modifier_state){type_obj,
+	{scene->nb_objs, scene->nb_lights, scene->nb_ambient_lights,
+		scene->nb_cameras},
+	{0, 0, 0, 0}};
 }
 
 int	init(t_data *data, int argc, char **argv)
@@ -47,7 +46,7 @@ int	init(t_data *data, int argc, char **argv)
 	ret_value = init_scene(&data->scene, argc, argv);
 	if (ret_value != 0)
 		return (ret_value);
-	init_ui_state(&data->ui_state);
+	init_ui_state(&data->ui_state, &data->scene);
 	if (init_mlx(data) == -1)
 		return (free_scene(&data->scene), 1);
 	return (0);

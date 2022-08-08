@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 19:09:36 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:33:01 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_color
 
 typedef struct s_obj
 {
+	char		name[16];
 	t_obj_tag	tag;
 	union
 	{
@@ -75,6 +76,7 @@ typedef struct s_obj
 
 typedef struct s_light
 {
+	char	name[16];
 	t_pos	pos;
 	float	ratio;
 	t_color	color;
@@ -82,12 +84,14 @@ typedef struct s_light
 
 typedef struct s_ambient_light
 {
+	char	name[16];
 	float	ratio;
 	t_color	color;
 }	t_ambient_light;
 
 typedef struct s_camera
 {
+	char	name[16];
 	t_pos	pos;
 	t_dir	dir;
 	float	fov;
@@ -102,7 +106,8 @@ typedef struct s_scene
 	t_obj			*obj;
 	int				nb_lights;
 	t_light			*light;
-	t_ambient_light	ambient_light;
+	int				nb_ambient_lights;
+	t_ambient_light	*ambient_light;
 	int				nb_cameras;
 	t_camera		*camera;
 }	t_scene;

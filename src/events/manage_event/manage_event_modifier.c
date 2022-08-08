@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/06 01:42:20 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/07 21:42:57 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,9 @@ int	manage_keypress_modifier(int keysym, t_data *data)
 	static t_correspondence_key_keyevent	correspondence[] = {
 	{XK_Escape, close_window},
 	{XK_Tab, switch_ui_mode},
-	{XK_Left, move_cam_left}, {XK_Right, move_cam_right},
-	{XK_Down, move_cam_down}, {XK_Up, move_cam_up},
-	{XK_Z, move_cam_forward}, {XK_z, move_cam_forward},
-	{XK_X, move_cam_backward}, {XK_x, move_cam_backward},
-	{XK_E, rotate_cam_roll}, {XK_e, rotate_cam_roll},
-	{XK_Q, rotate_cam_reverse_roll}, {XK_q, rotate_cam_reverse_roll},
-	{XK_W, rotate_cam_pitch}, {XK_w, rotate_cam_pitch},
-	{XK_S, rotate_cam_reverse_pitch}, {XK_s, rotate_cam_reverse_pitch},
-	{XK_A, rotate_cam_yaw}, {XK_a, rotate_cam_yaw},
-	{XK_D, rotate_cam_reverse_yaw}, {XK_d, rotate_cam_reverse_yaw},
+	{XK_Control_L, set_control}, {XK_Control_R, set_control},
+	{XK_Left, hand_focus_to_previous},
+	{XK_Right, hand_focus_to_next},
 	{0, NULL}};
 	int										i;
 
@@ -90,7 +83,18 @@ int	manage_keypress_modifier(int keysym, t_data *data)
 
 int	manage_keyrelease_modifier(int keysym, t_data *data)
 {
-	(void) keysym;
-	(void) data;
+	static t_correspondence_key_keyevent	correspondence[] = {
+	{XK_Control_L, unset_control}, {XK_Control_R, unset_control},
+	{0, NULL}};
+	int										i;
+
+	i = 0;
+	while (correspondence[i].keysym)
+	{
+		if (keysym == correspondence[i].keysym)
+			return ((correspondence[i].manage_keyevent)(data));
+		i++;
+	}
+	return (0);
 	return (0);
 }

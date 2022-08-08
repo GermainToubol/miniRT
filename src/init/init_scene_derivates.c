@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 19:16:19 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/07 18:47:25 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static void	init_triangles_derivates(t_obj *obj, int nb_objs)
 		{
 			triangle = &obj[i].triangle;
 			triangle->normal = v_cross_product(
-				v_sub(triangle->edge[1], triangle->edge[0]),
-				v_sub(triangle->edge[2], triangle->edge[0]));
+					v_sub(triangle->edge[1], triangle->edge[0]),
+					v_sub(triangle->edge[2], triangle->edge[0]));
 		}
 		i++;
 	}

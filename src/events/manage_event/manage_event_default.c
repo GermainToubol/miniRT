@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/06 01:40:28 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/07 21:42:41 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	manage_keypress_default(int keysym, t_data *data)
 	static t_correspondence_key_keyevent	correspondence[] = {
 	{XK_Escape, close_window},
 	{XK_Tab, switch_ui_mode},
+	{XK_Control_L, set_control}, {XK_Control_R, set_control},
 	{XK_Left, move_cam_left}, {XK_Right, move_cam_right},
 	{XK_Down, move_cam_down}, {XK_Up, move_cam_up},
 	{XK_Z, move_cam_forward}, {XK_z, move_cam_forward},
@@ -90,7 +91,18 @@ int	manage_keypress_default(int keysym, t_data *data)
 
 int	manage_keyrelease_default(int keysym, t_data *data)
 {
-	(void) keysym;
-	(void) data;
+	static t_correspondence_key_keyevent	correspondence[] = {
+	{XK_Control_L, unset_control}, {XK_Control_R, unset_control},
+	{0, NULL}};
+	int										i;
+
+	i = 0;
+	while (correspondence[i].keysym)
+	{
+		if (keysym == correspondence[i].keysym)
+			return ((correspondence[i].manage_keyevent)(data));
+		i++;
+	}
+	return (0);
 	return (0);
 }

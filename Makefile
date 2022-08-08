@@ -25,11 +25,13 @@ SRC_DIR		= src
 SRC_NAMES	= main \
 			  events/change_uistate/close_window \
 			  events/change_uistate/switch_ui_mode \
+			  events/change_uistate/set_control \
 			  events/manage_event/manage_buttonpress_default \
 			  events/manage_event/manage_buttonrelease_default \
 			  events/manage_event/manage_event \
 			  events/manage_event/manage_event_default \
 			  events/manage_event/manage_event_modifier \
+			  events/modifier/hand_focus \
 			  events/transform_camera/buttonmove_cam \
 			  events/transform_camera/buttonrotate_cam \
 			  events/transform_camera/move_cam \
@@ -47,6 +49,7 @@ SRC_NAMES	= main \
 			  init/init_mlx \
 			  init/init_scene \
 			  init/init_scene_derivates \
+			  init/name_scene_elems \
 			  init/parse_scene/parse_scene \
 			  init/parse_scene/rt_get_type \
 			  init/parse_scene/rt_get_type2 \
