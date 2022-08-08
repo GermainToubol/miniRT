@@ -1,9 +1,10 @@
-CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -g
-MAKE		= /bin/make
-
-
 NAME		= miniRT
+
+# List of all inclusions (.h and .a)
+# -------------------------------------------------------------------------
+HEADER_DIR	= include
+HEADER_NAMES=
+HEADER		= $(HEADER_NAMES:%=$(HEADER_DIR)/%.h)
 
 INCLUDE_DIRS= include \
 			  include/lib
@@ -17,64 +18,72 @@ LIB			= $(LIBEXT_NAMES:%=-l%) \
 			  $(LIB_NAMES:%=-L$(LIB_DIR)/%) \
 			  $(LIB_NAMES:%=-l%)
 
-HEADER_DIR	= include
-HEADER_NAMES=
-HEADER		= $(HEADER_NAMES:%=$(HEADER_DIR)/%.h)
+# List of all sources (.c)
+# -------------------------------------------------------------------------
+SRC_DIR		=	src
+SRC_NAMES	=	main \
+				$(addprefix events/change_uistate/,	close_window				\
+													switch_ui_mode)				\
+				$(addprefix events/manage_event/,	manage_buttonpress_default	\
+													manage_buttonrelease_default\
+													manage_event				\
+													manage_event_default		\
+													manage_event_modifier)		\
+				$(addprefix events/transform_camera/,buttonmove_cam				\
+													buttonrotate_cam			\
+													move_cam					\
+													move_cam2					\
+													rollmove_cam				\
+													rotate_cam					\
+													rotate_cam2)				\
+				$(addprefix init/check_scene/,		check_scene					\
+													rt_error_elem_format		\
+													rt_error_elem_format2		\
+													rt_is_type					\
+													rt_is_type2					\
+													rt_print_error)				\
+				$(addprefix init/,					init						\
+													init_mlx					\
+													init_scene 					\
+													init_scene_derivates)		\
+				$(addprefix init/parse_scene/,		parse_scene					\
+													rt_get_type					\
+													rt_get_type2				\
+													rt_set_elem					\
+													rt_set_elem2)				\
+				$(addprefix render/,				render						\
+													set_color)					\
+				$(addprefix render/light_contribution/,set_light_contribution	\
+													set_ambient_light_contribution\
+													set_direct_light_contribution\
+													set_specular_contribution)	\
+				$(addprefix render/set_intersection/,set_intersection			\
+													set_intersection_pos		\
+													set_intersection_sphere		\
+													set_intersection_plane		\
+													set_intersection_cylinder	\
+													set_intersection_triangle	\
+													set_intersection_normal		\
+													set_normal_sphere			\
+													set_normal_plane			\
+													set_normal_cylinder			\
+													set_normal_triangle)		\
+				$(addprefix terminate/,				terminate)
 
-SRC_DIR		= src
-SRC_NAMES	= main \
-			  events/change_uistate/close_window \
-			  events/change_uistate/switch_ui_mode \
-			  events/manage_event/manage_buttonpress_default \
-			  events/manage_event/manage_buttonrelease_default \
-			  events/manage_event/manage_event \
-			  events/manage_event/manage_event_default \
-			  events/manage_event/manage_event_modifier \
-			  events/transform_camera/buttonmove_cam \
-			  events/transform_camera/buttonrotate_cam \
-			  events/transform_camera/move_cam \
-			  events/transform_camera/move_cam2 \
-			  events/transform_camera/rollmove_cam \
-			  events/transform_camera/rotate_cam \
-			  events/transform_camera/rotate_cam2 \
-			  init/check_scene/check_scene \
-			  init/check_scene/rt_error_elem_format \
-			  init/check_scene/rt_error_elem_format2 \
-			  init/check_scene/rt_is_type \
-			  init/check_scene/rt_is_type2 \
-			  init/check_scene/rt_print_error \
-			  init/init \
-			  init/init_mlx \
-			  init/init_scene \
-			  init/init_scene_derivates \
-			  init/parse_scene/parse_scene \
-			  init/parse_scene/rt_get_type \
-			  init/parse_scene/rt_get_type2 \
-			  init/parse_scene/rt_set_elem \
-			  init/parse_scene/rt_set_elem2 \
-			  render/render \
-			  render/set_color \
-			  render/light_contribution/set_light_contribution \
-			  render/light_contribution/set_ambient_light_contribution \
-			  render/light_contribution/set_direct_light_contribution \
-			  render/light_contribution/set_specular_contribution \
-			  render/set_intersection/set_intersection \
-			  render/set_intersection/set_intersection_pos \
-			  render/set_intersection/set_intersection_sphere \
-			  render/set_intersection/set_intersection_plane \
-			  render/set_intersection/set_intersection_cylinder \
-			  render/set_intersection/set_intersection_triangle \
-			  render/set_intersection/set_intersection_normal \
-			  render/set_intersection/set_normal_sphere \
-			  render/set_intersection/set_normal_plane \
-			  render/set_intersection/set_normal_cylinder \
-			  render/set_intersection/set_normal_triangle \
-			  terminate/terminate
+# List of all object files (.o)
+# -------------------------------------------------------------------------
 
 OBJ_DIR		= obj
 OBJ			= $(SRC_NAMES:%=$(OBJ_DIR)/%.o)
 
 DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
+
+# List of all compilation options
+# -------------------------------------------------------------------------
+CC			= cc
+CFLAGS		= -Wall -Werror -Wextra
+MAKE		= /bin/make
+SHELL		= /bin/zsh
 
 _GREY		= \033[30m
 _RED		= \033[31m
@@ -86,24 +95,29 @@ _CYAN		= \033[36m
 _WHITE		= \033[37m
 _NO_COLOR	= \033[0m
 
+vpath %.c $(SRCS_DIR)
+vpath %.h $(HEAD_DIR)
 
-.PHONY: all
-all: $(NAME)
+# General rules
+# -------------------------------------------------------------------------
+.PHONY:		all
+all:		$(NAME)
 
-.PHONY: clean
+.PHONY:		clean
 clean:
-	@echo "$(_GREEN)Removing objects$(_NO_COLOR)"
-	rm -f $(OBJ)
-	@echo "$(_GREEN)Removing dependencies$(_NO_COLOR)"
-	rm -f $(DEPS)
-	@for obj_dir in $(dir $(OBJ)); do \
-		if [ -d $${obj_dir} ] ; then \
-			rmdir -p --ignore-fail-on-non-empty $${obj_dir}; \
-		fi; \
-	done
+			@echo "$(_GREEN)Removing objects$(_NO_COLOR)"
+			rm -f $(OBJ)
+			@echo ""
+			@echo "$(_GREEN)Removing dependencies$(_NO_COLOR)"
+			rm -f $(DEPS)
+			@for obj_dir in $(dir $(OBJ)); do							\
+				if [ -d $${obj_dir} ] ; then							\
+					rmdir -p --ignore-fail-on-non-empty $${obj_dir}; 	\
+				fi;														\
+			done
 
-.PHONY: fclean
-fclean: clean
+.PHONY:		fclean
+fclean:		clean
 	@echo ""
 	@echo "$(_GREEN)Removing $(NAME)$(_NO_COLOR)"
 	rm -f $(NAME)
@@ -115,26 +129,35 @@ fclean: clean
 		|| echo "Cannot be clean"; \
 	done
 
-.PHONY: re
-re: fclean all
+.PHONY:		re
+re:			fclean all
 
 
-$(NAME): $(LIB_FILES) $(OBJ) $(HEADER)
-	@echo ""
-	@echo "$(_BLUE)Linkage $(NAME)$(_NO_COLOR)"
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
+$(NAME):	$(LIB_FILES) $(OBJ)
+			@echo ""
+			@echo "$(_BLUE)Linkage $(NAME)$(_NO_COLOR)"
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER) start_compiling
-	@mkdir -p $(dir $@)
-	$(CC) -MMD $(CFLAGS) $(INCLUDE) -c $< -o $@
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c start_compiling
+			@mkdir -p $(dir $@)
+			$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-.INTERMEDIATE: start_compiling
+.INTERMEDIATE:start_compiling
 start_compiling:
-	@echo "$(_GREEN)Start Compiling $(_NO_COLOR)"
+			@echo "$(_GREEN)Start Compiling $(_NO_COLOR)"
 
+# Libraries
+# -------------------------------------------------------------------------
 %.a:
-	@echo "$(_GREEN)$(dir $@): make$(_NO_COLOR)"
-	@$(MAKE) --no-print-directory -C $(dir $@)
-	@echo ""
+			@echo "$(_GREEN)$(dir $@): make$(_NO_COLOR)"
+			@$(MAKE) --no-print-directory -C $(dir $@)
+			@echo ""
+
+# Dependencies
+# -------------------------------------------------------------------------
+.SILENT:	$(DEPS)
+$(OBJ_DIR)/%.d: $(SRC_DIR)/%.c
+				@mkdir -p $(dir $@)
+				$(CC) -MM -MT $(@:.d=.o) $(CFLAGS) $(INCLUDE) $< > $@
 
 -include $(DEPS)
