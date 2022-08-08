@@ -63,15 +63,13 @@ static float distance_edges(float d, t_obj *obj, t_ray *ray)
 	tmp.plane.pos = v_add(obj->cylinder.pos, v_scalar(obj->cylinder.h / 2,
 			tmp.plane.normal));
 	d1 = distance_discs(&tmp, ray, obj->cylinder.r);
-	if (d1 < d && d1 > 0)
-	return (d1);
 	tmp.plane.pos = v_add(obj->cylinder.pos, v_scalar(-obj->cylinder.h / 2,
 			tmp.plane.normal));
 	d2 = distance_discs(&tmp, ray, obj->cylinder.r);
-	if (d2 < d && d2 > 0)
-		return (d2);
-	if (d < 0)
-		return (d2);
+	if (d1 > 0 && (d1 < d2 || d2 <= 0) && (d1 < d || d <= 0))
+			return(d1);
+	else if (d2 > 0 && (d2 < d1 || d1 <= 0) && (d2 < d || d <= 0))
+			return (d2);
 	return (d);
 }
 

@@ -4,9 +4,9 @@
 
 int	apply_texture(t_color *color, t_ray *ray, t_intersection *intersection)
 {
-	const t_cboard	cboard[] = {cboard_sphere, cboard_plane};
+	const t_cboard	cboard[] = {cboard_sphere, cboard_plane, cboard_cylinder};
 	(void)ray;
-	if (intersection->obj_seen->tag <= plane_tag)
+	if (intersection->obj_seen->tag <= cylinder_tag)
 		(*cboard[intersection->obj_seen->tag])(color, intersection);
 	else
 	{
