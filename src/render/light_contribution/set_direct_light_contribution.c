@@ -38,7 +38,7 @@ static int	intersection_on_path(t_vect *to_light, t_intersection *intersection,
 			continue ;
 		}
 		tmp_dist = (*isect[data->scene.obj[i].tag])(data->scene.obj + i, &ray);
-		if (tmp_dist > 0 && tmp_dist * tmp_dist < dist_light)
+		if (tmp_dist > 0 && tmp_dist * tmp_dist < dist_light * 0.999)
 			return (0);
 		i++;
 	}
