@@ -22,8 +22,11 @@ static int	set_color_seen(t_color *color, float ratio,
 	(void) ratio;
 	(void) ray;
 	color->r *= intersection->obj_seen->color.r;
+	color->r += intersection->specular.r;
 	color->g *= intersection->obj_seen->color.g;
+	color->g += intersection->specular.g;
 	color->b *= intersection->obj_seen->color.b;
+	color->b += intersection->specular.b;
 	return (0);
 }
 
