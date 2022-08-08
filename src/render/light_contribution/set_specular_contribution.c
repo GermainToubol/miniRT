@@ -4,7 +4,9 @@
 
 float	set_specular_contribution(
 		t_intersection	*intersection,
-		t_vect			*intersect_light
+		float			*ratio,
+		t_vect			*intersect_light,
+		t_light			*light
 	)
 {
 	t_vect	reflexion;
@@ -23,5 +25,8 @@ float	set_specular_contribution(
 	if (pw < 0)
 		return (0.0f);
 	pw = powf(pw, BRIGHTNESS);
+	intersection->specular.r += *ratio * pw * light->color.r;
+	intersection->specular.g += *ratio * pw * light->color.g;
+	intersection->specular.b += *ratio * pw * light->color.b;
 	return (pw);
 }

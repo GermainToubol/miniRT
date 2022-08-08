@@ -25,6 +25,6 @@ int		set_ambient_light_contribution(t_color *color,
 			float *ratio, t_intersection *intersection, t_data *data);
 int		set_direct_light_contribution(t_color *color,
 			float *ratio, t_intersection *intersection, t_data *data);
-float	set_specular_contribution(t_intersection *intersection,
-			t_vect *intersect_light);
+float	set_specular_contribution(t_intersection *intersection, float *ratio,
+								  t_vect *intersect_light, t_light *light);
 #endif /* LIGHT_CONTRIBUTION_H */

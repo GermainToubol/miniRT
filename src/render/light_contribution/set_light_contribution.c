@@ -22,6 +22,7 @@ int	set_light_contribution(
 	color->r = 0;
 	color->g = 0;
 	color->b = 0;
+	intersection->specular = (t_color){0, 0, 0};
 	set_ambient_light_contribution(color, ratio, intersection, data);
 	set_direct_light_contribution(color, ratio, intersection, data);
 	return (0);

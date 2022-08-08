@@ -24,6 +24,7 @@ typedef struct s_intersection
 	t_color	color_absorption;
 	t_ray	*ray;
 	t_obj	*obj_seen;
+	t_color	specular;
 }	t_intersection;
 
 typedef float	(*t_intersection_func) (t_obj *, t_ray *);
