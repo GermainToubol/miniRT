@@ -71,6 +71,9 @@ SRC_NAMES	=	main \
 													set_normal_plane			\
 													set_normal_cylinder			\
 													set_normal_triangle)		\
+				$(addprefix render/texture/,		apply_texture				\
+													cboard_sphere				\
+													cboard_plane)				\
 				$(addprefix terminate/,				terminate)
 
 # List of all object files (.o)

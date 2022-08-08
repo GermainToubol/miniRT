@@ -15,17 +15,17 @@
 #include "minirt.h"
 #include "ray.h"
 #include "scene.h"
+#include "texture.h"
 
 static int	set_color_seen(t_color *color, float ratio,
 	t_ray *ray, t_intersection *intersection)
 {
 	(void) ratio;
 	(void) ray;
-	color->r *= intersection->obj_seen->color.r;
+	if (apply_texture(color, ray, intersection) != 0)
+		return (-1);
 	color->r += intersection->specular.r;
-	color->g *= intersection->obj_seen->color.g;
 	color->g += intersection->specular.g;
-	color->b *= intersection->obj_seen->color.b;
 	color->b += intersection->specular.b;
 	return (0);
 }
