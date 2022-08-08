@@ -6,11 +6,12 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 20:18:28 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 10:35:24 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:47:35 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include "ui_state.h"
 
 #include <stdio.h>
 
