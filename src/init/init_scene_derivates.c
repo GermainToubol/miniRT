@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/07 18:47:25 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:10:20 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ static void	init_camera_derivates(t_camera *camera)
 	float		x_offset;
 	float		y_offset;
 
-	camera->ux.x = camera->dir.y;
-	camera->ux.y = -camera->dir.x;
-	camera->ux.z = 0;
+	if (camera->dir.x == 0)
+		camera->ux = (t_dir){1, 0, 0};
+	else
+		camera->ux = (t_dir){camera->dir.y, -camera->dir.x, 0};
 	v_normalize(&camera->ux);
 	camera->uy = v_cross_product(camera->ux, camera->dir);
 	dist_to_screen = (float) WIDTH / 2;
