@@ -6,14 +6,25 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 20:18:28 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 13:47:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:18:51 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "events.h"
 #include "minirt.h"
 #include "ui_state.h"
 
-#include <stdio.h>
+void	render_menu(t_data *data, t_modifier_state *modifier_state)
+{
+	(void) data;
+	(void) modifier_state;
+}
+
+void	set_menu(t_data *data, t_modifier_state *modifier_state)
+{
+	(void) data;
+	(void) modifier_state;
+}
 
 static int	hand_focus_to_next_type(t_modifier_state *modifier_state)
 {
@@ -35,15 +46,8 @@ int	hand_focus_to_next(t_data *data)
 	modifier_state->i_elem[e_type]++;
 	if (modifier_state->i_elem[e_type] == modifier_state->nb_elems[e_type])
 		modifier_state->i_elem[e_type] = 0;
-	if (modifier_state->elem_type == type_obj)
-		printf("%s\n", data->scene.obj[modifier_state->i_elem[e_type]].name);
-	if (modifier_state->elem_type == type_light)
-		printf("%s\n", data->scene.light[modifier_state->i_elem[e_type]].name);
-	if (modifier_state->elem_type == type_ambient_light)
-		printf("%s\n",
-			data->scene.ambient_light[modifier_state->i_elem[e_type]].name);
-	if (modifier_state->elem_type == type_camera)
-		printf("%s\n", data->scene.camera[modifier_state->i_elem[e_type]].name);
+	set_menu(data, modifier_state);
+	render_menu(data, modifier_state);
 	return (0);
 }
 
@@ -67,14 +71,7 @@ int	hand_focus_to_previous(t_data *data)
 	modifier_state->i_elem[e_type]--;
 	if (modifier_state->i_elem[e_type] < 0)
 		modifier_state->i_elem[e_type] = modifier_state->nb_elems[e_type] - 1;
-	if (modifier_state->elem_type == type_obj)
-		printf("%s\n", data->scene.obj[modifier_state->i_elem[e_type]].name);
-	if (modifier_state->elem_type == type_light)
-		printf("%s\n", data->scene.light[modifier_state->i_elem[e_type]].name);
-	if (modifier_state->elem_type == type_ambient_light)
-		printf("%s\n",
-			data->scene.ambient_light[modifier_state->i_elem[e_type]].name);
-	if (modifier_state->elem_type == type_camera)
-		printf("%s\n", data->scene.camera[modifier_state->i_elem[e_type]].name);
+	set_menu(data, modifier_state);
+	render_menu(data, modifier_state);
 	return (0);
 }

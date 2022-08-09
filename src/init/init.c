@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 13:55:05 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/09 22:23:16 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,12 @@ static int	check_input(int argc, char **argv)
 
 static void	init_ui_state(t_ui_state *ui_state, t_scene *scene)
 {
-	t_menu	menu;
-
 	ui_state->mode = mode_default;
 	ui_state->to_render = 1;
 	ui_state->event_state = (t_event_state){none, 0, 0, 0};
-	menu = (t_menu){0};
 	ui_state->modifier_state = (t_modifier_state){
 		NULL,
-		menu,
+		{0},
 		type_obj,
 		{scene->nb_objs, scene->nb_lights, scene->nb_ambient_lights,
 			scene->nb_cameras},
