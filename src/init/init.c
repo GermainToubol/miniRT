@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/09 22:23:16 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/10 04:43:02 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ static void	init_ui_state(t_ui_state *ui_state, t_scene *scene)
 	ui_state->mode = mode_default;
 	ui_state->to_render = 1;
 	ui_state->event_state = (t_event_state){none, 0, 0, 0};
-	ui_state->modifier_state = (t_modifier_state){
-		NULL,
-		{0},
+	ui_state->modifier_state = (t_modifier_state){{0},
 		type_obj,
-		{scene->nb_objs, scene->nb_lights, scene->nb_ambient_lights,
-			scene->nb_cameras},
-		{0, 0, 0, 0}};
+	{scene->nb_objs, scene->nb_lights, scene->nb_ambient_lights,
+		scene->nb_cameras},
+	{0, 0, 0, 0}};
 }
 
 int	init(t_data *data, int argc, char **argv)

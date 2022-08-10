@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/07 21:42:57 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/10 05:07:29 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ int	manage_buttonpress_modifier(int buttonsym, int mouse_x, int mouse_y,
 	t_data *data)
 {
 	static t_correspondence_button_buttonevent	correspondence[] = {
-	{Button1, manage_buttonpress_left_default},
-	{Button2, manage_buttonpress_middle_default},
-	{Button3, manage_buttonpress_right_default},
-	{Button4, rollmove_cam_forward},
-	{Button5, rollmove_cam_backward},
 	{0, NULL}};
 	int											i;
 
@@ -43,9 +38,6 @@ int	manage_buttonrelease_modifier(int buttonsym, int mouse_x, int mouse_y,
 	t_data *data)
 {
 	static t_correspondence_button_buttonevent	correspondence[] = {
-	{Button1, manage_buttonrelease_left_default},
-	{Button2, manage_buttonpress_middle_default},
-	{Button3, manage_buttonrelease_right_default},
 	{0, NULL}};
 	int											i;
 

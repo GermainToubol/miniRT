@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 09:49:21 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/10 04:31:56 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	terminate_mlx(t_data *data)
 {
 	if (!data || !data->mlx)
 		return ;
+	if (data->ui_state.modifier_state.menu.img)
+		mlx_destroy_image(data->mlx, data->ui_state.modifier_state.menu.img);
 	if (data->frame_buffer)
 		mlx_destroy_image(data->mlx, data->frame_buffer);
 	if (data->win)

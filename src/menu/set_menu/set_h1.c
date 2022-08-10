@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_li.c                                           :+:      :+:    :+:   */
+/*   set_h1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 20:13:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/09 20:45:58 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/10 04:04:31 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/10 04:06:54 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
-#include "ui_state.h"
+#include "menu.h"
 
-void	set_li(t_li *li, t_var_type var_type, void *ptr, char *name)
+void	set_h1(t_h1 *h1, char *name)
 {
-	ft_strlcpy(li->name, name, 16);
-	set_input_box(&li->input_box, var_type, ptr);
+	set_input_box(&h1->input_box, type_str, name);
 }

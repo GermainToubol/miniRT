@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:56:25 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/09 21:14:42 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/10 04:01:24 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	set_input_float(char *input, void *ptr)
 	while (i++ < 3)
 	{
 		f *= 10;
-		input[len_input + i] = '0' + (int) f;
+		input[len + i] = '0' + (int) f;
 		f -= (int) f;
 	}
 	input[len + i] = 0;

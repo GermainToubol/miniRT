@@ -6,51 +6,50 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:46:39 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/09 20:12:18 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/10 04:13:35 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
-#include "modifier.h"
+#include "menu.h"
 #include "scene.h"
 #include "t_math.h"
-#include "ui_state.h"
-
-void	set_ul_vect(t_ul *ul, t_vect *v, char *name)
-{
-	ft_strlcpy(ul->name, name, 16);
-	ul->nb_li = 3;
-	set_li_float(&ul->li[0], &v->x, "x");
-	set_li_float(&ul->li[1], &v->y, "y");
-	set_li_float(&ul->li[2], &v->z, "z");
-}
 
 void	set_ul_color(t_ul *ul, t_color *color, char *name)
 {
 	ft_strlcpy(ul->name, name, 16);
 	ul->nb_li = 3;
-	set_li_ratio(&ul->li[0], &color->x, "r");
-	set_li_ratio(&ul->li[1], &color->y, "g");
-	set_li_ratio(&ul->li[2], &color->z, "b");
+	set_li(&ul->li[0], type_ratio, &color->r, "r");
+	set_li(&ul->li[1], type_ratio, &color->g, "g");
+	set_li(&ul->li[2], type_ratio, &color->b, "b");
 }
 
 void	set_ul_float(t_ul *ul, float *f, char *name)
 {
 	ft_strlcpy(ul->name, name, 16);
 	ul->nb_li = 1;
-	set_li_float(&ul->li[0], f, "");
-}
-
-void	set_ul_ratio(t_ul *ul, float *ratio, char *name)
-{
-	ft_strlcpy(ul->name, name, 16);
-	ul->nb_li = 1;
-	set_li_ratio(&ul->li[0], ratio, "");
+	set_li(&ul->li[0], type_float, f, "");
 }
 
 void	set_ul_fov(t_ul *ul, float *fov, char *name)
 {
 	ft_strlcpy(ul->name, name, 16);
 	ul->nb_li = 1;
-	set_li_fov(&ul->li[0], fov, "");
+	set_li(&ul->li[0], type_fov, fov, "");
+}
+
+void	set_ul_ratio(t_ul *ul, float *ratio, char *name)
+{
+	ft_strlcpy(ul->name, name, 16);
+	ul->nb_li = 1;
+	set_li(&ul->li[0], type_ratio, ratio, "");
+}
+
+void	set_ul_vect(t_ul *ul, t_vect *v, char *name)
+{
+	ft_strlcpy(ul->name, name, 16);
+	ul->nb_li = 3;
+	set_li(&ul->li[0], type_float, &v->x, "x");
+	set_li(&ul->li[1], type_float, &v->y, "y");
+	set_li(&ul->li[2], type_float, &v->z, "z");
 }

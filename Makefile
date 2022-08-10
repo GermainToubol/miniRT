@@ -20,62 +20,80 @@ LIB			= $(LIBEXT_NAMES:%=-l%) \
 
 # List of all sources (.c)
 # -------------------------------------------------------------------------
-SRC_DIR		=	src
-SRC_NAMES	=	main \
-				$(addprefix events/change_uistate/,	close_window				\
-													set_control					\
-													switch_ui_mode)				\
-				$(addprefix events/manage_event/,	manage_buttonpress_default	\
-													manage_buttonrelease_default\
-													manage_event				\
-													manage_event_default		\
-													manage_event_modifier)		\
-				$(addprefix events/modifier/,		hand_focus)					\
-				$(addprefix events/transform_camera/,buttonmove_cam				\
-													buttonrotate_cam			\
-													move_cam					\
-													move_cam2					\
-													rollmove_cam				\
-													rotate_cam					\
-													rotate_cam2)				\
-				$(addprefix init/check_scene/,		check_scene					\
-													rt_error_elem_format		\
-													rt_error_elem_format2		\
-													rt_is_type					\
-													rt_is_type2					\
-													rt_print_error)				\
-				$(addprefix init/,					init						\
-													init_mlx					\
-													init_scene 					\
-													init_scene_derivates		\
-													name_scene_elems)			\
-				$(addprefix init/parse_scene/,		parse_scene					\
-													rt_get_type					\
-													rt_get_type2				\
-													rt_set_elem					\
-													rt_set_elem2)				\
-				$(addprefix render/,				render						\
-													set_color)					\
-				$(addprefix render/light_contribution/,set_light_contribution	\
-													set_ambient_light_contribution\
-													set_direct_light_contribution\
-													set_specular_contribution)	\
-				$(addprefix render/set_intersection/,set_intersection			\
-													set_intersection_pos		\
-													set_intersection_sphere		\
-													set_intersection_plane		\
-													set_intersection_cylinder	\
-													set_intersection_triangle	\
-													set_intersection_normal		\
-													set_normal_sphere			\
-													set_normal_plane			\
-													set_normal_cylinder			\
-													set_normal_triangle)		\
-				$(addprefix render/texture/,		apply_texture				\
-													cboard_sphere				\
-													cboard_plane				\
-													cboard_cylinder)			\
-				$(addprefix terminate/,				terminate)
+SRC_DIR		= src
+SRC_NAMES	=									main							\
+			$(addprefix events/,												\
+				$(addprefix change_uistate/,	close_window					\
+												set_control						\
+												switch_ui_mode)					\
+				$(addprefix manage_event/,		manage_buttonpress_default		\
+												manage_buttonrelease_default	\
+												manage_event					\
+												manage_event_default			\
+												manage_event_modifier)			\
+				$(addprefix modifier/,			hand_focus)						\
+				$(addprefix transform_camera/,	buttonmove_cam					\
+												buttonrotate_cam				\
+												move_cam						\
+												move_cam2						\
+												rollmove_cam					\
+												rotate_cam						\
+												rotate_cam2))					\
+			$(addprefix init/,													\
+												init							\
+												init_mlx						\
+												init_scene						\
+												init_scene_derivates			\
+												name_scene_elems				\
+				$(addprefix check_scene/,		check_scene						\
+												rt_error_elem_format			\
+												rt_error_elem_format2			\
+												rt_is_type						\
+												rt_is_type2						\
+												rt_print_error)					\
+				$(addprefix parse_scene/,		parse_scene						\
+												rt_get_type						\
+												rt_get_type2					\
+												rt_set_elem						\
+												rt_set_elem2))					\
+			$(addprefix menu/,													\
+				$(addprefix render_menu/,										\
+												render_h1						\
+												render_menu						\
+												render_ul)						\
+				$(addprefix set_menu/,											\
+												set_h1							\
+												set_input_box					\
+												set_input_type					\
+												set_li							\
+												set_menu						\
+												set_menu_obj					\
+												set_menu_viewports				\
+												set_ul_type))					\
+			$(addprefix render/,												\
+												render							\
+												set_color						\
+				$(addprefix light_contribution/,set_light_contribution			\
+												set_ambient_light_contribution	\
+												set_direct_light_contribution	\
+												set_specular_contribution)		\
+				$(addprefix set_intersection/,	set_intersection				\
+												set_intersection_pos			\
+												set_intersection_sphere			\
+												set_intersection_plane			\
+												set_intersection_cylinder		\
+												set_intersection_triangle		\
+												set_intersection_normal			\
+												set_normal_sphere				\
+												set_normal_plane				\
+												set_normal_cylinder				\
+												set_normal_triangle)			\
+				$(addprefix texture/,			apply_texture					\
+												cboard_sphere					\
+												cboard_plane					\
+												cboard_cylinder))				\
+			$(addprefix terminate/,												\
+												terminate)
 
 # List of all object files (.o)
 # -------------------------------------------------------------------------
