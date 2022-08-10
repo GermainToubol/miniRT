@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:56:39 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 04:00:34 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/10 06:07:56 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	copy_img(t_img *dst, t_viewport *v_dst, t_img *src,
 	char	*dst_line;
 	char	*src_line;
 	int		i;
+	int		j;
 
 	dst_line = dst->data + v_dst->y * dst->size_line + v_dst->x * dst->bpp / 8;
 	src_line = src->data + v_src->y * src->size_line + v_src->x * src->bpp / 8;
@@ -29,6 +30,12 @@ static void	copy_img(t_img *dst, t_viewport *v_dst, t_img *src,
 	while (i < v_src->h)
 	{
 		ft_memcpy(dst_line, src_line, v_src->w * src->bpp / 8);
+		j = 0;
+		while (j < v_src->w * dst->bpp / 8)
+		{
+			dst_line[j] = (char)((unsigned char) dst_line[j] / 2);
+			j++;
+		}
 		dst_line += dst->size_line;
 		src_line += src->size_line;
 		i++;
