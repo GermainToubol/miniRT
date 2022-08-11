@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_normal_sphere.c                                :+:      :+:    :+:   */
+/*   init_triangle_derivates.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 19:36:58 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 14:38:25 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/11 13:15:32 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/11 18:04:20 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "intersection.h"
-#include "ray.h"
+#include "derivates.h"
 #include "scene.h"
 #include "t_math.h"
 
-int	set_normal_sphere(t_ray *ray, t_pos *pos, t_dir *normal, t_obj *obj_seen)
+void	init_triangle_derivates(t_obj *obj)
 {
-	v_copy(normal, v_sub(*pos, obj_seen->sphere.pos));
-	if (v_dot_product(ray->dir, *normal) > 0)
-		v_copy(normal, v_sub(obj_seen->sphere.pos, *pos));
-	v_normalize(normal);
-	return (0);
+	t_triangle	*triangle;
+
+	triangle = &obj->triangle;
+	triangle->ux = v_sub(triangle->edge[1], triangle->edge[0]);
+	triangle->uy = v_sub(triangle->edge[2], triangle->edge[0]);
+	triangle->normal = v_cross_product(triangle->ux, triangle->uy);
 }

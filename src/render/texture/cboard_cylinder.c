@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:58:27 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/10 16:01:20 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/11 17:57:21 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <math.h>
@@ -19,23 +19,20 @@ int	cboard_cylinder(t_color *color, t_intersection *intersection)
 {
 	t_pos	cartesian;
 	t_pos	cylindrical;
-	t_vect	ux;
-	t_vect	uy;
+	t_vect	*ux;
+	t_vect	*uy;
 
-	ux = v_cross_product(intersection->obj_seen->cylinder.dir,
-			(t_vect){1, 0, 0});
-	if (v_dot_product(ux, ux) == 0)
-		ux = v_cross_product(intersection->obj_seen->cylinder.dir,
-				(t_vect){0, 1, 0});
-	uy = v_cross_product(intersection->obj_seen->cylinder.dir, ux);
+	ux = &intersection->obj_seen->cylinder.ux;
+	uy = &intersection->obj_seen->cylinder.uy;
 	cartesian = v_sub(intersection->pos, intersection->obj_seen->cylinder.pos);
-	cartesian = (t_pos){v_dot_product(cartesian, ux),
-						v_dot_product(cartesian, uy),
+	cartesian = (t_pos){v_dot_product(cartesian, *ux),
+						v_dot_product(cartesian, *uy),
 						v_dot_product(cartesian, intersection->obj_seen->cylinder.dir)};
 	cylindrical.x = sqrtf(cartesian.x * cartesian.x + cartesian.y * cartesian.y);
 	cylindrical.y = atan2f(cartesian.x / cylindrical.x, cartesian.y / cylindrical.x);
 	cylindrical.z =cartesian.z;
-	if ((int)(roundf(cylindrical.z + 0.0001f) + roundf(cylindrical.y * 5 / 3.142f)) % 2 == 0)
+	if (((int)(roundf(cylindrical.z + 0.0001f)
+			   + roundf(cylindrical.y * 5 * INV_PI)) & 0x1) == 0)
 	{
 		color->r *= intersection->obj_seen->color.r;
 		color->g *= intersection->obj_seen->color.g;

@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:03:36 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 10:45:05 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:01:17 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static float	get_distance(float delta, float *params)
 		t = -0.5f * (b + root) / (params[2] * params[2]);
 		c = params[3] + t * params[4];
 	}
-	if (b < 0 && (-b < root || (c * c > params[6] * params[6] / 4)))
+	if (b < 0 && (-b < root || (c * c > params[6] * params[6] * 0.25f)))
 		t = -0.5f * (b - root) / (params[2] * params[2]);
 	c = params[3] + t * params[4];
-	if (c * c > params[6] * params[6] / 4)
+	if (c * c > params[6] * params[6] * 0.25f)
 		return (-2.0f);
 	if (t < 0)
 		return (-1.0f);
@@ -71,12 +71,9 @@ static float	distance_edges(float d, t_obj *obj, t_ray *ray)
 	if (d == -1.0f)
 		return (-1.0f);
 	tmp.plane.normal = obj->cylinder.dir;
-	v_normalize(&tmp.plane.normal);
-	tmp.plane.pos = v_add(obj->cylinder.pos, v_scalar(obj->cylinder.h / 2,
-				tmp.plane.normal));
+	tmp.plane.pos = obj->cylinder.up_face;
 	d1 = distance_discs(&tmp, ray, obj->cylinder.r);
-	tmp.plane.pos = v_add(obj->cylinder.pos, v_scalar(-obj->cylinder.h / 2,
-				tmp.plane.normal));
+	tmp.plane.pos = obj->cylinder.down_face;
 	d2 = distance_discs(&tmp, ray, obj->cylinder.r);
 	if (d1 > 0 && (d1 < d2 || d2 <= 0) && (d1 < d || d <= 0))
 		return (d1);

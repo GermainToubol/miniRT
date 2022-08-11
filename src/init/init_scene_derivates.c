@@ -6,20 +6,21 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 12:10:20 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:33:18 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
+#include "derivates.h"
 #include "parameters.h"
 #include "scene.h"
 #include "t_math.h"
 
 static void	init_camera_derivates(t_camera *camera)
 {
-	float		dist_to_screen;
-	float		x_offset;
-	float		y_offset;
+	float	dist_to_screen;
+	float	x_offset;
+	float	y_offset;
 
 	if (camera->dir.x == 0)
 		camera->ux = (t_dir){1, 0, 0};
@@ -48,27 +49,20 @@ static void	init_cameras_derivates(t_camera *camera, int nb_cameras)
 	}
 }
 
-static void	init_triangles_derivates(t_obj *obj, int nb_objs)
-{
-	t_triangle	*triangle;
-	int			i;
-
-	i = 0;
-	while (i < nb_objs)
-	{
-		if (obj[i].tag == triangle_tag)
-		{
-			triangle = &obj[i].triangle;
-			triangle->normal = v_cross_product(
-					v_sub(triangle->edge[1], triangle->edge[0]),
-					v_sub(triangle->edge[2], triangle->edge[0]));
-		}
-		i++;
-	}
-}
-
 void	init_scene_derivates(t_scene *scene)
 {
+	int						i;
+	const t_derivate_func	derivates[] = {
+		init_sphere_derivates,
+		init_plane_derivates,
+		init_cylinder_derivates,
+		init_triangle_derivates};
+
+	i = 0;
 	init_cameras_derivates(scene->camera, scene->nb_cameras);
-	init_triangles_derivates(scene->obj, scene->nb_objs);
+	while (i < scene->nb_objs)
+	{
+		(*derivates[scene->obj[i].tag])(scene->obj + i);
+		i++;
+	}
 }

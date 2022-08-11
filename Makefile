@@ -46,6 +46,10 @@ SRC_NAMES	=									main							\
 												init_scene						\
 												init_scene_derivates			\
 												name_scene_elems				\
+				$(addprefix scene_derivates/,	init_sphere_derivates			\
+												init_plane_derivates			\
+												init_cylinder_derivates			\
+												init_triangle_derivates)		\
 				$(addprefix check_scene/,		check_scene						\
 												rt_error_elem_format			\
 												rt_error_elem_format2			\
@@ -110,7 +114,7 @@ DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
 # List of all compilation options
 # -------------------------------------------------------------------------
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -O2
 MAKE		= /bin/make
 SHELL		= /bin/zsh
 

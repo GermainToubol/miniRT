@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:26:09 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/02 11:35:45 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/11 18:00:47 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static float	get_position_distance(t_obj *obj, t_ray *ray, float delta)
 {
 	float	t;
 	float	root;
+	float	a;
 	float	b;
 	t_vect	obj_to_cam;
 
@@ -38,13 +39,14 @@ static float	get_position_distance(t_obj *obj, t_ray *ray, float delta)
 		return (-1.0f);
 	obj_to_cam = v_sub(ray->pos, obj->sphere.pos);
 	b = 2 * v_dot_product(ray->dir, obj_to_cam);
+	a = 1 / v_dot_product(ray->dir, ray->dir);
 	root = sqrtf(delta);
 	if (b >= 0)
-		t = -0.5f * (b - root) / v_dot_product(ray->dir, ray->dir);
+		t = -0.5f * (b - root) * a;
 	else if (-b >= root)
-		t = -0.5f * (b + root) / v_dot_product(ray->dir, ray->dir);
+		t = -0.5f * (b + root) * a;
 	else
-		t = -0.5f * (b - root) / v_dot_product(ray->dir, ray->dir);
+		t = -0.5f * (b - root) * a;
 	if (t < 0)
 		return (-1.0f);
 	return (t);

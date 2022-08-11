@@ -3,5 +3,5 @@
 FILES="./demo/*.rt"
 for f in $FILES; do
 	echo "Proceding $f...";
-	./miniRT $f;
+	./miniRT -v $f;
 done
