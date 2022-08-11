@@ -72,6 +72,7 @@ SRC_NAMES	=									main							\
 												set_ul_type))					\
 			$(addprefix render/,												\
 												render							\
+												print_progress					\
 												set_color						\
 				$(addprefix light_contribution/,set_light_contribution			\
 												set_ambient_light_contribution	\

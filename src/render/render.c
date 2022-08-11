@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 10:34:52 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:26:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ static int	set_image(t_data *data)
 			y++;
 		}
 		x++;
+		if (data->ui_state.verbose)
+			print_progress(x);
 	}
 	return (0);
 }

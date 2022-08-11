@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 04:43:02 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:28:50 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 
 static int	check_input(int argc, char **argv)
 {
-	(void) argv;
 	if (argc < 2)
 		return (ft_putstr_fd("Too few arguments\n", 2), -1);
-	if (argc > 2)
+	if (argc > 2 && (argc == 3 && ft_strcmp(argv[1], "-v") != 0))
 		return (ft_putstr_fd("Too many arguments\n", 2), -1);
 	return (0);
 }
 
-static void	init_ui_state(t_ui_state *ui_state, t_scene *scene)
+static void	init_ui_state(t_ui_state *ui_state, t_scene *scene, char **argv)
 {
 	ui_state->mode = mode_default;
+	ui_state->verbose = (ft_strcmp(argv[1], "-v") == 0);
 	ui_state->to_render = 1;
 	ui_state->event_state = (t_event_state){none, 0, 0, 0};
 	ui_state->modifier_state = (t_modifier_state){{0},
@@ -49,7 +49,7 @@ int	init(t_data *data, int argc, char **argv)
 	ret_value = init_scene(&data->scene, argc, argv);
 	if (ret_value != 0)
 		return (ret_value);
-	init_ui_state(&data->ui_state, &data->scene);
+	init_ui_state(&data->ui_state, &data->scene, argv);
 	if (init_mlx(data) == -1)
 		return (free_scene(&data->scene), 1);
 	return (0);

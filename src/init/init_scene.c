@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:23:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/07 19:05:48 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:27:09 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ static int	is_empty(char *line)
 	return (1);
 }
 
-static int	set_scene_lines(char ***scene_lines, int argc, char **argv)
+static int	set_scene_lines(char ***scene_lines, char *pathfile)
 {
 	int		fd;
 	char	*line;
 
-	(void) argc;
-	fd = open(argv[1], O_RDONLY);
+	fd = open(pathfile, O_RDONLY);
 	if (fd == -1)
 		return (perror("miniRT"), -1);
 	*scene_lines = NULL;
@@ -58,8 +57,10 @@ int	init_scene(t_scene *scene, int argc, char **argv)
 {
 	char	**scene_lines;
 	int		ret_value;
+	char	*pathfile;
 
-	if (set_scene_lines(&scene_lines, argc, argv) == -1)
+	pathfile = argv[argc - 1];
+	if (set_scene_lines(&scene_lines, pathfile) == -1)
 		return (ft_putstr_fd("Error while reading input file\n", 2), -1);
 	ret_value = check_scene(scene_lines);
 	if (ret_value != 0)

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 10:57:08 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 03:52:38 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:26:03 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_ui_state
 	t_ui_mode			mode;
 	t_modifier_state	modifier_state;
 	t_event_state		event_state;
+	int					verbose;
 	int					to_render;
 }	t_ui_state;
 
