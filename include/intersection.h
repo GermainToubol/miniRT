@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:14:16 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/04 03:31:04 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/10 15:34:51 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "minirt.h"
 # include "ray.h"
 # include "scene.h"
+
+# define SHIFT 0.001f
 
 typedef struct s_intersection
 {

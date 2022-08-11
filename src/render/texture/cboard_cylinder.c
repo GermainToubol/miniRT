@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cboard_cylinder.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/10 15:58:27 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/10 16:01:20 by gtoubol          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <math.h>
 #include "light_contribution.h"
 #include "scene.h"
@@ -23,7 +34,7 @@ int	cboard_cylinder(t_color *color, t_intersection *intersection)
 						v_dot_product(cartesian, intersection->obj_seen->cylinder.dir)};
 	cylindrical.x = sqrtf(cartesian.x * cartesian.x + cartesian.y * cartesian.y);
 	cylindrical.y = atan2f(cartesian.x / cylindrical.x, cartesian.y / cylindrical.x);
-	cylindrical.z = v_dot_product(cartesian, intersection->obj_seen->cylinder.dir);
+	cylindrical.z =cartesian.z;
 	if ((int)(roundf(cylindrical.z + 0.0001f) + roundf(cylindrical.y * 5 / 3.142f)) % 2 == 0)
 	{
 		color->r *= intersection->obj_seen->color.r;

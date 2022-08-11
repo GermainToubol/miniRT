@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cboard_sphere.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/11 10:08:21 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/11 10:08:34 by gtoubol          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <math.h>
 #include "light_contribution.h"
 #include "scene.h"
@@ -15,7 +27,7 @@ int	cboard_sphere(t_color *color, t_intersection *intersection)
 	theta = acosf(tmp.z / intersection->obj_seen->sphere.r);
 	phi = atan2f(tmp.x, tmp.y);
 	if ((int)(roundf(theta / 3.142f * SPHERE_PART)
-			+ roundf(phi / 3.142f * SPHERE_PART)) % 2 == 0)
+		+ roundf(phi / 3.142f * SPHERE_PART)) % 2 == 0)
 	{
 		color->r *= intersection->obj_seen->color.r;
 		color->g *= intersection->obj_seen->color.g;

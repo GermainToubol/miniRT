@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_intersection_cylinder.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/10 17:03:36 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/11 10:45:05 by gtoubol          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <math.h>
 #include "intersection.h"
 #include "ray.h"
@@ -32,7 +44,7 @@ static float	get_distance(float delta, float *params)
 	return (t);
 }
 
-float distance_discs(t_obj *obj, t_ray *ray, float radius)
+float	distance_discs(t_obj *obj, t_ray *ray, float radius)
 {
 	float	norm_scal_dir;
 	float	dist;
@@ -50,7 +62,7 @@ float distance_discs(t_obj *obj, t_ray *ray, float radius)
 	return (dist);
 }
 
-static float distance_edges(float d, t_obj *obj, t_ray *ray)
+static float	distance_edges(float d, t_obj *obj, t_ray *ray)
 {
 	float	d1;
 	float	d2;
@@ -61,15 +73,15 @@ static float distance_edges(float d, t_obj *obj, t_ray *ray)
 	tmp.plane.normal = obj->cylinder.dir;
 	v_normalize(&tmp.plane.normal);
 	tmp.plane.pos = v_add(obj->cylinder.pos, v_scalar(obj->cylinder.h / 2,
-			tmp.plane.normal));
+				tmp.plane.normal));
 	d1 = distance_discs(&tmp, ray, obj->cylinder.r);
 	tmp.plane.pos = v_add(obj->cylinder.pos, v_scalar(-obj->cylinder.h / 2,
-			tmp.plane.normal));
+				tmp.plane.normal));
 	d2 = distance_discs(&tmp, ray, obj->cylinder.r);
 	if (d1 > 0 && (d1 < d2 || d2 <= 0) && (d1 < d || d <= 0))
-			return(d1);
+		return (d1);
 	else if (d2 > 0 && (d2 < d1 || d1 <= 0) && (d2 < d || d <= 0))
-			return (d2);
+		return (d2);
 	return (d);
 }
 

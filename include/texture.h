@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 03:23:01 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 03:23:03 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 10:06:43 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "light_contribution.h"
 # include "scene.h"
 
-typedef int (*t_cboard)(t_color *, t_intersection *);
+typedef int	(*t_cboard)(t_color *, t_intersection *);
 
 int	apply_texture(t_color *color, t_ray *ray, t_intersection *intersection);
 

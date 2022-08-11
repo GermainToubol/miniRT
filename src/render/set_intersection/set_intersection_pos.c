@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:17:32 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/02 11:10:08 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/11 10:49:01 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ int	set_intersection_pos(t_pos *pos, t_obj **obj_seen, t_ray *ray, t_data *data)
 	float						dist_min;
 	float						tmp_dist;
 	const t_intersection_func	intersect[] = {set_intersection_sphere,
-		set_intersection_plane, set_intersection_cylinder, set_intersection_triangle};
+		set_intersection_plane, set_intersection_cylinder,
+		set_intersection_triangle};
 
-	i = 0;
+	i = -1;
 	dist_min = -1.0f;
-	while (i < data->scene.nb_objs)
+	while (++i < data->scene.nb_objs)
 	{
 		tmp_dist = (*intersect[data->scene.obj[i].tag])(data->scene.obj
 				+ i, ray);
@@ -38,7 +39,6 @@ int	set_intersection_pos(t_pos *pos, t_obj **obj_seen, t_ray *ray, t_data *data)
 			dist_min = tmp_dist;
 			*obj_seen = data->scene.obj + i;
 		}
-		i++;
 	}
 	if (dist_min >= 0)
 	{

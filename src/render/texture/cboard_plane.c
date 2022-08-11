@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cboard_plane.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/11 10:08:48 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/11 10:09:12 by gtoubol          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <math.h>
 #include "light_contribution.h"
 #include "scene.h"
@@ -18,7 +29,7 @@ int	cboard_plane(t_color *color, t_intersection *intersection)
 	uy = v_cross_product(intersection->obj_seen->plane.normal, ux);
 	coord = v_sub(intersection->pos, intersection->obj_seen->plane.pos);
 	if ((int)(roundf(v_dot_product(coord, ux))
-			+ roundf(v_dot_product(coord, uy))) % 2 == 0)
+		+ roundf(v_dot_product(coord, uy))) % 2 == 0)
 	{
 		color->r *= intersection->obj_seen->color.r;
 		color->g *= intersection->obj_seen->color.g;

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 09:01:37 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:47:13 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 10:07:23 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	set_input_box_list_uls(t_menu *menu, t_input_box **prev)
 	}
 }
 
-static void	set_input_box_list(t_menu * menu)
+static void	set_input_box_list(t_menu *menu)
 {
 	t_input_box	*prev;
 
