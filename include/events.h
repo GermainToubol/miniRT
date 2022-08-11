@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:46:43 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 02:00:27 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 09:21:16 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ int		manage_keyrelease_modifier(int keysym, t_data *data);
 //	hand_focus
 int		hand_focus_to_next(t_data *data);
 int		hand_focus_to_previous(t_data *data);
+//	hand_focus_input_box
+int		hand_focus_to_next_input_box(t_data *data);
+int		hand_focus_to_previous_input_box(t_data *data);
 
 //	TRANSFORM_CAMERA
 //	buttonmove_cam

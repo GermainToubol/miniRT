@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_ul.c                                        :+:      :+:    :+:   */
+/*   render_li.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 03:00:34 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:38:52 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/11 09:39:04 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/11 09:44:34 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,20 @@
 
 #include <stdio.h>
 
-void	render_ul_background(t_ul *ul, t_img *img, t_viewport *offset)
+void	render_li_background(t_li *li, t_img *img, t_viewport *offset)
 {
-	int	i;
-
-	i = 0;
-	while (i < ul->nb_li)
-	{
-		render_li_background(&ul->li[i], img, offset);
-		i++;
-	}
+	(void) li;
+	(void) img;
+	(void) offset;
 }
 
-void	render_ul_text(t_ul *ul, t_img *img, t_viewport *offset)
+void	render_li_text(t_li *li, t_img *img, t_viewport *offset)
 {
-	int	i;
-
-	printf("%s\n", ul->name);
-	i = 0;
-	while (i < ul->nb_li)
-	{
-		render_li_text(&ul->li[i], img, offset);
-		i++;
-	}
+	(void) img;
+	(void) offset;
+	if (li->input_box.has_focus)
+		printf("%s: \033[48;2;100;100;100m%s\033[49m\n", li->name,
+			li->input_box.input);
+	else
+		printf("%s: %s\n", li->name, li->input_box.input);
 }

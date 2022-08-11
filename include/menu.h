@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 05:08:37 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 09:41:34 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,13 @@ typedef struct s_viewport
 
 typedef struct s_input_box
 {
-	char		input[16];
-	t_var_type	type;
-	void		*ptr;
-	t_viewport	viewport;
+	char				input[16];
+	t_var_type			type;
+	void				*ptr;
+	t_viewport			viewport;
+	int					has_focus;
+	struct s_input_box	*next;
+	struct s_input_box	*prev;
 }	t_input_box;
 
 typedef struct s_h1
@@ -103,6 +106,7 @@ typedef struct s_menu
 	int			nb_ul;
 	t_ul		ul[8];
 	t_viewport	viewport;
+	t_input_box	*input_box_focus;
 }	t_menu;
 
 typedef struct s_data			t_data;
@@ -121,6 +125,8 @@ void	set_input_str(char *str, void *ptr);
 void	set_li(t_li *li, t_var_type var_type, void *ptr, char *name);
 //	set_menu
 void	set_menu(t_data *data, t_modifier_state *modifier_state);
+//	set_menu_focus
+void	set_menu_focus(t_menu *menu);
 //	set_menu_obj
 void	set_menu_sphere(t_menu *menu, t_obj *obj);
 void	set_menu_plane(t_menu *menu, t_obj *obj);
@@ -139,6 +145,9 @@ void	set_ul_vect(t_ul *ul, t_vect *v, char *name);
 //	render_h1
 void	render_h1_background(t_h1 *h1, t_img *img, t_viewport *offset);
 void	render_h1_text(t_h1 *h1, t_img *img, t_viewport *offset);
+//	render_li
+void	render_li_background(t_li *li, t_img *img, t_viewport *offset);
+void	render_li_text(t_li *li, t_img *img, t_viewport *offset);
 //	render_menu
 void	render_menu(t_data *data, t_menu *menu);
 //	render_ul

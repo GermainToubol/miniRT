@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 05:07:29 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 09:19:12 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	manage_keypress_modifier(int keysym, t_data *data)
 	{XK_Control_L, set_control}, {XK_Control_R, set_control},
 	{XK_Left, hand_focus_to_previous},
 	{XK_Right, hand_focus_to_next},
+	{XK_Up, hand_focus_to_previous_input_box},
+	{XK_Down, hand_focus_to_next_input_box},
 	{0, NULL}};
 	int										i;
 

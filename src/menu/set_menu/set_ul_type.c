@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:46:39 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 04:13:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 09:50:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ void	set_ul_float(t_ul *ul, float *f, char *name)
 {
 	ft_strlcpy(ul->name, name, 16);
 	ul->nb_li = 1;
-	set_li(&ul->li[0], type_float, f, "");
+	set_li(&ul->li[0], type_float, f, "f");
 }
 
 void	set_ul_fov(t_ul *ul, float *fov, char *name)
 {
 	ft_strlcpy(ul->name, name, 16);
 	ul->nb_li = 1;
-	set_li(&ul->li[0], type_fov, fov, "");
+	set_li(&ul->li[0], type_fov, fov, "f");
 }
 
 void	set_ul_ratio(t_ul *ul, float *ratio, char *name)
 {
 	ft_strlcpy(ul->name, name, 16);
 	ul->nb_li = 1;
-	set_li(&ul->li[0], type_ratio, ratio, "");
+	set_li(&ul->li[0], type_ratio, ratio, "f");
 }
 
 void	set_ul_vect(t_ul *ul, t_vect *v, char *name)

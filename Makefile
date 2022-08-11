@@ -31,7 +31,8 @@ SRC_NAMES	=									main							\
 												manage_event					\
 												manage_event_default			\
 												manage_event_modifier)			\
-				$(addprefix modifier/,			hand_focus)						\
+				$(addprefix modifier/,			hand_focus						\
+												hand_focus_input_box)			\
 				$(addprefix transform_camera/,	buttonmove_cam					\
 												buttonrotate_cam				\
 												move_cam						\
@@ -59,6 +60,7 @@ SRC_NAMES	=									main							\
 			$(addprefix menu/,													\
 				$(addprefix render_menu/,										\
 												render_h1						\
+												render_li						\
 												render_menu						\
 												render_ul)						\
 				$(addprefix set_menu/,											\
@@ -67,6 +69,7 @@ SRC_NAMES	=									main							\
 												set_input_type					\
 												set_li							\
 												set_menu						\
+												set_menu_focus					\
 												set_menu_obj					\
 												set_menu_viewports				\
 												set_ul_type))					\

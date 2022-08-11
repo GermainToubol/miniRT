@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:56:25 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 04:01:24 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 09:32:40 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	set_input_int(char *input, void *ptr)
 	nbr = *((int *) ptr);
 	sign = 1 - 2 * (nbr < 0);
 	i = 10;
-	while (i != 10 && nbr != 0)
+	while (i == 10 || nbr != 0)
 	{
 		buffer[--i] = '0' + sign * nbr % 10;
 		nbr /= 10;

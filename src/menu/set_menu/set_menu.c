@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 03:01:03 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 04:07:44 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/11 09:23:02 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,15 @@ void	set_menu(t_data *data, t_modifier_state *modifier_state)
 	static void	(*set_menu_type[])(t_menu *, t_scene *, int) = {
 		set_menu_any_obj, set_menu_light, set_menu_ambient_light,
 		set_menu_camera};
+	t_menu		*menu;
 	t_elem_type	e_type;
 
+	menu = &modifier_state->menu;
 	e_type = modifier_state->elem_type;
 	(set_menu_type[e_type])(
-		&modifier_state->menu,
+		menu,
 		&data->scene,
 		modifier_state->i_elem[e_type]);
-	set_menu_viewports(&modifier_state->menu);
+	set_menu_viewports(menu);
+	set_menu_focus(menu);
 }
