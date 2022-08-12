@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 13:33:18 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/12 13:49:43 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,12 @@ void	init_scene_derivates(t_scene *scene)
 	while (i < scene->nb_objs)
 	{
 		(*derivates[scene->obj[i].tag])(scene->obj + i);
+		i++;
+	}
+	i = 0;
+	while (i < scene->nb_lights)
+	{
+		init_light_derivates(scene, scene->light + i);
 		i++;
 	}
 }

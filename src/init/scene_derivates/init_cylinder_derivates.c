@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:35:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 18:17:09 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/12 13:49:11 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_cylinder_derivates(t_obj *obj)
 	obj->cylinder.ux = ux;
 	obj->cylinder.uy = uy;
 	obj->cylinder.up_face = v_add(obj->cylinder.pos,
-		v_scalar(0.5f * obj->cylinder.h, obj->cylinder.dir));
+			v_scalar(0.5f * obj->cylinder.h, obj->cylinder.dir));
 	obj->cylinder.down_face = v_add(obj->cylinder.pos,
-		v_scalar(-0.5f * obj->cylinder.h, obj->cylinder.dir));
+			v_scalar(-0.5f * obj->cylinder.h, obj->cylinder.dir));
 }

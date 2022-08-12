@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_normal_plane.c                                 :+:      :+:    :+:   */
+/*   raster.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 10:12:17 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/12 13:51:29 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/12 13:38:15 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/12 13:48:37 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "intersection.h"
-#include "ray.h"
-#include "scene.h"
-#include "t_math.h"
 
-int	set_normal_plane(t_ray *ray, t_pos *pos, t_dir *normal, t_obj *obj_seen)
-{
-	(void)pos;
-	if (v_dot_product(ray->dir, obj_seen->plane.normal) > 0)
-	{
-		v_copy(normal, v_scalar(-1, obj_seen->plane.normal));
-		return (0);
-	}
-	v_copy(normal, obj_seen->plane.normal);
-	return (0);
-}
+#ifndef RASTER_H
+# define RASTER_H
+
+#endif /* RASTER_H */

@@ -114,7 +114,7 @@ DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
 # List of all compilation options
 # -------------------------------------------------------------------------
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -O2
+CFLAGS		= -Wall -Werror -Wextra -O3 -pg -g
 MAKE		= /bin/make
 SHELL		= /bin/zsh
 

@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 10:12:53 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 10:13:29 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/12 12:29:17 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "intersection.h"
@@ -18,8 +18,6 @@ int	set_normal_cylinder(t_ray *ray, t_pos *pos, t_dir *normal, t_obj *obj_seen)
 {
 	t_vect	tmp;
 
-	(void)ray;
-	(void)pos;
 	tmp = v_sub(*pos, obj_seen->cylinder.pos);
 	v_copy(normal, v_sub(tmp, v_scalar(v_dot_product(tmp,
 					obj_seen->cylinder.dir), obj_seen->cylinder.dir)));

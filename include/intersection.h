@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:14:16 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/10 15:34:51 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/12 12:16:50 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_intersection
 	t_ray	*ray;
 	t_obj	*obj_seen;
 	t_color	specular;
+	int		on_face;
 }	t_intersection;
 
 typedef float	(*t_intersection_func) (t_obj *, t_ray *);

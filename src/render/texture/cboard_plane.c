@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 10:08:48 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 17:50:31 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/12 13:50:41 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <math.h>
@@ -25,7 +25,7 @@ int	cboard_plane(t_color *color, t_intersection *intersection)
 	uy = &intersection->obj_seen->plane.uy;
 	coord = v_sub(intersection->pos, intersection->obj_seen->plane.pos);
 	if (((int)(roundf(v_dot_product(coord, *ux))
-			   + roundf(v_dot_product(coord, *uy))) & 0x1) == 0)
+			+ roundf(v_dot_product(coord, *uy))) & 0x1) == 0)
 	{
 		color->r *= intersection->obj_seen->color.r;
 		color->g *= intersection->obj_seen->color.g;

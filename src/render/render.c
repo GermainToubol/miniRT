@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 08:26:46 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:51:04 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 void	set_ray(t_ray *ray, t_camera *camera, int x, int y)
 {
-	ray->pos = camera->pos;
 	ray->dir = camera->anchor;
 	ray->dir = v_add(ray->dir, v_scalar((float) x, camera->ux));
 	ray->dir = v_add(ray->dir, v_scalar((float) -y, camera->uy));
@@ -35,7 +34,7 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 	unsigned int		color_int;
 	int					pos;
 
-	img = (t_img *) frame_buffer;
+	img = (t_img *)frame_buffer;
 	color_int = (unsigned char)((1 - expf(color->r)) * 255.0f);
 	color_int = color_int << 8;
 	color_int += (unsigned char)((1 - expf(color->g)) * 255.0f);
@@ -52,19 +51,20 @@ static int	set_image(t_data *data)
 	int		x;
 	int		y;
 
-	x = 0;
-	while (x < WIDTH)
+	y = 0;
+	ray.pos = data->scene.camera->pos;
+	while (y < HEIGHT)
 	{
-		y = 0;
-		while (y < HEIGHT)
+		x = 0;
+		while (x < WIDTH)
 		{
 			set_ray(&ray, data->scene.camera, x, y);
 			if (set_color(&color, &ray, data) == -1)
 				return (-1);
 			put_color(x, y, &color, data->frame_buffer);
-			y++;
+			x++;
 		}
-		x++;
+		y++;
 		if (data->ui_state.verbose)
 			print_progress(x);
 	}
