@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:19:12 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/16 23:35:53 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ int	manage_keypress_modifier(int keysym, t_data *data)
 	static t_correspondence_key_keyevent	correspondence[] = {
 	{XK_Escape, close_window},
 	{XK_Tab, switch_ui_mode},
+	{XK_Return, update_scene},
 	{XK_Control_L, set_control}, {XK_Control_R, set_control},
 	{XK_Left, hand_focus_to_previous},
 	{XK_Right, hand_focus_to_next},
 	{XK_Up, hand_focus_to_previous_input_box},
 	{XK_Down, hand_focus_to_next_input_box},
+	{XK_BackSpace, erase_input_last_char},
 	{0, NULL}};
 	int										i;
 
@@ -72,7 +74,7 @@ int	manage_keypress_modifier(int keysym, t_data *data)
 			return ((correspondence[i].manage_keyevent)(data));
 		i++;
 	}
-	return (0);
+	return (add_char_to_input(keysym, data));
 }
 
 int	manage_keyrelease_modifier(int keysym, t_data *data)
@@ -89,6 +91,5 @@ int	manage_keyrelease_modifier(int keysym, t_data *data)
 			return ((correspondence[i].manage_keyevent)(data));
 		i++;
 	}
-	return (0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:41:34 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/16 22:51:25 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,5 +153,15 @@ void	render_menu(t_data *data, t_menu *menu);
 //	render_ul
 void	render_ul_background(t_ul *ul, t_img *img, t_viewport *offset);
 void	render_ul_text(t_ul *ul, t_img *img, t_viewport *offset);
+
+//	UPDATE_SCENE
+//	update_input_type
+int		update_input_float(char *input, void *ptr);
+int		update_input_fov(char *input, void *ptr);
+int		update_input_int(char *input, void *ptr);
+int		update_input_ratio(char *input, void *ptr);
+int		update_input_str(char *input, void *ptr);
+//	update_scene
+int		update_scene(t_data *data);
 
 #endif

@@ -31,7 +31,9 @@ SRC_NAMES	=									main							\
 												manage_event					\
 												manage_event_default			\
 												manage_event_modifier)			\
-				$(addprefix modifier/,			hand_focus						\
+				$(addprefix modifier/,			add_char_to_input				\
+												erase_input_last_char			\
+												hand_focus						\
 												hand_focus_input_box)			\
 				$(addprefix transform_camera/,	buttonmove_cam					\
 												buttonrotate_cam				\
@@ -82,7 +84,10 @@ SRC_NAMES	=									main							\
 												set_menu_focus					\
 												set_menu_obj					\
 												set_menu_viewports				\
-												set_ul_type))					\
+												set_ul_type)					\
+				$(addprefix update_scene/,										\
+												update_scene					\
+												update_input_type))				\
 			$(addprefix render/,												\
 												render							\
 												print_progress					\

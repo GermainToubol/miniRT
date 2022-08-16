@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:46:43 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:21:16 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/16 23:37:37 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,10 @@ int		manage_keypress_modifier(int keysym, t_data *data);
 int		manage_keyrelease_modifier(int keysym, t_data *data);
 
 //	MODIFIER
+//	add_char_to_input
+int		add_char_to_input(int keysym, t_data *data);
+//	erase_input_last_char
+int		erase_input_last_char(t_data *data);
 //	hand_focus
 int		hand_focus_to_next(t_data *data);
 int		hand_focus_to_previous(t_data *data);
