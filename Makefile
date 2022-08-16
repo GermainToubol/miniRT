@@ -62,6 +62,11 @@ SRC_NAMES	=									main							\
 												rt_get_type2					\
 												rt_set_elem						\
 												rt_set_elem2))					\
+			$(addprefix mask/,					set_default_mask				\
+												set_sphere_mask					\
+												set_plane_mask					\
+												update_mask_light				\
+												update_mask_camera)				\
 			$(addprefix menu/,													\
 				$(addprefix render_menu/,										\
 												render_h1						\
