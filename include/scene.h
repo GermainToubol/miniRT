@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 12:22:33 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 14:02:51 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SCENE_H
 
 # include "parameters.h"
-# include "raster.h"
 # include "t_math.h"
 
 typedef t_vect	t_pos;
@@ -83,6 +82,13 @@ typedef struct s_obj
 	t_color		color;
 }	t_obj;
 
+
+typedef struct s_mask
+{
+	t_dir	dir;
+	float	angle;
+}	t_mask;
+
 typedef struct s_light
 {
 	char	name[16];
@@ -108,6 +114,7 @@ typedef struct s_camera
 	t_pos	anchor;
 	t_vect	ux;
 	t_vect	uy;
+	t_mask	*mask;
 }	t_camera;
 
 typedef struct s_scene

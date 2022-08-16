@@ -6,17 +6,36 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/12 13:49:43 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 15:31:42 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include <math.h>
 #include "derivates.h"
+#include "ft.h"
 #include "parameters.h"
+#include "raster.h"
 #include "scene.h"
 #include "t_math.h"
 
-static void	init_camera_derivates(t_camera *camera)
+static int	init_camera_mask(t_scene *scene, t_camera *camera)
+{
+	int					i;
+
+	camera->mask = ft_calloc(scene->nb_objs, sizeof(t_mask));
+	if (camera->mask == NULL)
+		return (-1);
+	i = 0;
+	while (i < scene->nb_objs)
+	{
+		update_mask_camera(scene->obj, camera, i);
+		i++;
+	}
+	return (0);
+}
+
+static int	init_camera_derivates(t_scene *scene, t_camera *camera)
 {
 	float	dist_to_screen;
 	float	x_offset;
@@ -35,18 +54,7 @@ static void	init_camera_derivates(t_camera *camera)
 	camera->anchor = v_sub(camera->anchor, v_scalar(x_offset, camera->ux));
 	y_offset = (float)(HEIGHT - 1) / 2;
 	camera->anchor = v_sub(camera->anchor, v_scalar(-y_offset, camera->uy));
-}
-
-static void	init_cameras_derivates(t_camera *camera, int nb_cameras)
-{
-	int			i;
-
-	i = 0;
-	while (i < nb_cameras)
-	{
-		init_camera_derivates(camera + i);
-		i++;
-	}
+	return (init_camera_mask(scene, camera));
 }
 
 void	init_scene_derivates(t_scene *scene)
@@ -59,7 +67,12 @@ void	init_scene_derivates(t_scene *scene)
 		init_triangle_derivates};
 
 	i = 0;
-	init_cameras_derivates(scene->camera, scene->nb_cameras);
+	while (i < scene->nb_cameras)
+	{
+		init_camera_derivates(scene, scene->camera + i);
+		i++;
+	}
+	i = 0;
 	while (i < scene->nb_objs)
 	{
 		(*derivates[scene->obj[i].tag])(scene->obj + i);

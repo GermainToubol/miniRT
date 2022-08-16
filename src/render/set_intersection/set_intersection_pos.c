@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:17:32 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 10:49:01 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 15:57:26 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	set_intersection_pos(t_pos *pos, t_obj **obj_seen, t_ray *ray, t_data *data)
 	dist_min = -1.0f;
 	while (++i < data->scene.nb_objs)
 	{
+		if (v_dot_product(ray->dir, data->scene.camera[0].mask[i].dir)
+			< data->scene.camera[0].mask[i].angle)
+			continue ;
 		tmp_dist = (*intersect[data->scene.obj[i].tag])(data->scene.obj
 				+ i, ray);
 		if (tmp_dist > 0 && (dist_min < 0 || (tmp_dist < dist_min)))

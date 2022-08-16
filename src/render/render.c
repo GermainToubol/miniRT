@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 12:51:57 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 15:40:59 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "mlx.h"
 #include "mlx_int.h"
 #include "minirt.h"
+#include "raster.h"
 #include "ray.h"
 #include "render.h"
 #include "scene.h"
@@ -57,6 +58,7 @@ static int	set_image(t_data *data)
 
 	y = 0;
 	gettimeofday(&start, NULL);
+	update_masks_camera(&data->scene, data->scene.camera);
 	ray.pos = data->scene.camera->pos;
 	while (y < HEIGHT)
 	{

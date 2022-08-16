@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_light_derivates.c                             :+:      :+:    :+:   */
+/*   set_plane_mask.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 09:00:46 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/16 15:46:02 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/16 15:44:32 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/16 15:44:52 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stddef.h>
-#include "ft.h"
 #include "raster.h"
 #include "scene.h"
+#include "t_math.h"
 
-int	init_light_derivates(t_scene *scene, t_light *light)
+void	set_plane_mask(t_obj *obj, t_light *light, t_mask *mask)
 {
-	int	i;
+	t_dir	obj_to_light;
 
-	light->mask = ft_calloc(scene->nb_objs, sizeof(t_mask));
-	if (light->mask == NULL)
-		return (-1);
-	i = 0;
-	while (i < scene->nb_objs)
-	{
-		update_mask_light(scene->obj, light, i);
-		i++;
-	}
-	return (0);
+	obj_to_light = v_sub(light->pos, obj->plane.pos);
+	mask->angle = 0;
+	if (v_dot_product(obj_to_light, obj->plane.normal) >= 0)
+		mask->dir = obj->plane.normal;
+	else
+		mask->dir = v_scalar(-1.0f, obj->plane.normal);
 }
