@@ -6,14 +6,15 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 07:48:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 08:19:38 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/16 10:00:27 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "parameters.h"
+#include "render.h"
 
-void	print_progress(int x)
+void	print_progress(int x, int max)
 {
 	static char	str[30] = "[....................] XXX%\n";
 	int			p;
@@ -23,7 +24,7 @@ void	print_progress(int x)
 		printf("Rendering...\n");
 	else
 		printf("\033[1F\033[2K");
-	p = 100 * x / WIDTH;
+	p = 100 * x / max;
 	i = 0;
 	while (i++ < p / 5)
 		str[i] = '#';

@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:19:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 20:48:23 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 12:58:49 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include <stddef.h>
 #include "intersection.h"
 #include "light_contribution.h"
+#include "scene.h"
 #include "t_math.h"
 
 static int	intersection_on_path(t_vect *to_light, t_intersection *intersection,
-				t_data *data)
+				t_data *data, t_light *light)
 {
 	int							i;
 	float						tmp_dist;
@@ -34,6 +35,11 @@ static int	intersection_on_path(t_vect *to_light, t_intersection *intersection,
 	dist_light = v_dot_product(*to_light, *to_light);
 	while (i < data->scene.nb_objs)
 	{
+		if (v_dot_product(ray.dir, light->mask[i].dir) < light->mask[i].angle)
+		{
+			i++;
+			continue ;
+		}
 		tmp_dist = (*isect[data->scene.obj[i].tag])(data->scene.obj + i, &ray);
 		if (tmp_dist > 0 && tmp_dist * tmp_dist < dist_light)
 			return (0);
@@ -59,7 +65,7 @@ int	set_direct_light_contribution(t_color *color,
 		r_color = v_dot_product(intersection->norm, intersect_light);
 		intersect_light = v_sub(light->pos, intersection->pos);
 		if (r_color >= 0
-			&& intersection_on_path(&intersect_light, intersection, data) != 0)
+			&& intersection_on_path(&intersect_light, intersection, data, light) != 0)
 		{
 			set_specular_contribution(intersection, ratio, &intersect_light,
 				light);

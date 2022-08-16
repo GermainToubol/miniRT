@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/12 13:37:52 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 12:22:33 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,8 @@ typedef struct s_scene
 	int				nb_cameras;
 	t_camera		*camera;
 }	t_scene;
+
+
+typedef void	(*t_mask_func)(t_obj *, t_light *, t_mask *);
 
 #endif

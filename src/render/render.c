@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/12 13:51:04 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 12:51:57 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,19 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 	*((unsigned int *)(img->data + pos)) = color_int;
 }
 
+#include <stdio.h>
+#include <sys/time.h>
+
 static int	set_image(t_data *data)
 {
 	t_ray	ray;
 	t_color	color;
 	int		x;
 	int		y;
+	struct timeval start, end;
 
 	y = 0;
+	gettimeofday(&start, NULL);
 	ray.pos = data->scene.camera->pos;
 	while (y < HEIGHT)
 	{
@@ -66,8 +71,15 @@ static int	set_image(t_data *data)
 		}
 		y++;
 		if (data->ui_state.verbose)
-			print_progress(x);
+			print_progress(y, HEIGHT);
 	}
+	gettimeofday(&end, NULL);
+	double time_taken;
+
+    time_taken = (end.tv_sec - start.tv_sec) * 1e6;
+    time_taken = (time_taken + (end.tv_usec -
+                              start.tv_usec)) * 1e-6;
+	printf("loop: %f ms\n", time_taken);
 	return (0);
 }
 

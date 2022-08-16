@@ -1,5 +1,5 @@
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -O3 -pg -g
+CFLAGS	= -Wall -Werror -Wextra -g
 
 NAME	= libt_math.a
 SRCS	= q_operations.c \
