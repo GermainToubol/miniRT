@@ -69,6 +69,7 @@ SRC_NAMES	=									main							\
 			$(addprefix mask/,					set_default_mask				\
 												set_sphere_mask					\
 												set_plane_mask					\
+												set_cylinder_mask				\
 												update_mask_light				\
 												update_mask_camera)				\
 			$(addprefix menu/,													\

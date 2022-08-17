@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:26:04 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 23:47:15 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:27:26 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int	update_scene_input_box(t_input_box *input_box)
 		update_input_str};
 
 	return ((update_input_type[input_box->type])(
-			input_box->input,
-			input_box->ptr));
+		input_box->input,
+		input_box->ptr));
 }
 
 static int	update_scene_ul(t_ul *ul)

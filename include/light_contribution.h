@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:16:20 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 17:54:12 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 14:43:09 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include "minirt.h"
 # include "scene.h"
 
-# define BRIGHTNESS 10
+# define BRIGHTNESS 100
+# define RATIO -1.2f
+# define D_SCALE 200.f
 
 int		set_light_contribution(t_color *color, float *ratio,
 			t_intersection *intersection, t_data *data);

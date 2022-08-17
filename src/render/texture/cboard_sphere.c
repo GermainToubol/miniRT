@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 10:08:21 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/12 13:50:22 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 13:21:55 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	cboard_sphere(t_color *color, t_intersection *intersection)
 	}
 	else
 	{
-		color->r *= 0.1 * intersection->obj_seen->color.r;
-		color->g *= 0.1 * intersection->obj_seen->color.g;
-		color->b *= 0.1 * intersection->obj_seen->color.b;
+		color->r *= 0;
+		color->g *= 0;
+		color->b *= 0;
 	}
 	return (0);
 }

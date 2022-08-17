@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 13:49:13 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:26:03 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ typedef struct s_obj
 	t_bumpmap	*bumpmap;
 	int			checkerboard;
 }	t_obj;
-
 
 typedef struct s_mask
 {

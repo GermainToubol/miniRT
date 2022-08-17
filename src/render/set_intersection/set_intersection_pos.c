@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:17:32 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/16 16:27:01 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 14:34:15 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ int	set_intersection_pos(t_pos *pos, t_obj **obj_seen, t_ray *ray, t_data *data)
 		}
 	}
 	if (dist_min >= 0)
-	{
-		v_copy(pos, v_add(ray->pos, v_scalar(dist_min, ray->dir)));
-		return (0);
-	}
+		return (v_copy(pos, v_add(ray->pos, v_scalar(dist_min, ray->dir))), 0);
 	return (1);
 }

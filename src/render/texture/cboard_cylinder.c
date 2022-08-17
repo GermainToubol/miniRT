@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:58:27 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/16 09:52:34 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 13:22:29 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <math.h>
@@ -22,11 +22,11 @@ static void	color_white(t_color *color, t_intersection *intersection)
 	color->b *= intersection->obj_seen->color.b;
 }
 
-static void	color_black(t_color *color, t_intersection *intersection)
+static void	color_black(t_color *color)
 {
-	color->r *= 0.1 * intersection->obj_seen->color.r;
-	color->g *= 0.1 * intersection->obj_seen->color.g;
-	color->b *= 0.1 * intersection->obj_seen->color.b;
+	color->r = 0;
+	color->g = 0;
+	color->b = 0;
 }
 
 int	cboard_cylinder(t_color *color, t_intersection *intersection)
@@ -51,6 +51,6 @@ int	cboard_cylinder(t_color *color, t_intersection *intersection)
 			+ roundf(cylindrical.y * 5 * INV_PI)) & 0x1) == 0)
 		color_white(color, intersection);
 	else
-		color_black(color, intersection);
+		color_black(color);
 	return (0);
 }

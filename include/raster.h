@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 13:38:15 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 10:14:01 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 13:50:16 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 void	set_sphere_mask(t_obj *obj, t_light *light, t_mask *mask);
 void	set_plane_mask(t_obj *obj, t_light *light, t_mask *mask);
+void	set_cylinder_mask(t_obj *obj, t_light *light, t_mask *mask);
 void	set_default_mask(t_obj *obj, t_light *light, t_mask *mask);
 
 void	update_single_mask_single_light(t_obj *obj, t_light *light, int n);

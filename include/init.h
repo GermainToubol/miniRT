@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 13:48:25 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:26:27 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int			rt_is_texture_id(char *str);
 int			rt_is_bumpmap_id(char *str);
 int			rt_is_checkerboard(char *str);
 //	rt_print_error
-int			rt_print_error(const char *str_error, char **elem, int i_error_elem);
+int			rt_print_error(const char *str_error, char **elem,
+				int i_error_elem);
 
 //	PARSE_SCENE
 

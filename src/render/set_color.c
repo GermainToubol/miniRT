@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 19:26:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 12:17:55 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 12:30:16 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	set_color(t_color *color, t_ray *ray, t_data *data)
 	float			ratio;
 	int				ret_value;
 
-	ratio = -1.2f;
+	ratio = RATIO;
 	ret_value = set_intersection(&intersection, ray, data);
 	if (ret_value == -1)
 		return (-1);
