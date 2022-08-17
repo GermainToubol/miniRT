@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:06:13 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 23:38:47 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/16 23:56:20 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	add_char_to_input(int keysym, t_data *data)
 	char	*input;
 	int		len_input;
 
+	if (keysym < ' ' || keysym > '~')
+		return (0);
 	menu = &data->ui_state.modifier_state.menu;
 	input = menu->input_box_focus->input;
 	len_input = ft_strlen(input);
