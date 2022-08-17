@@ -6,11 +6,11 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:41:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 15:25:06 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 16:08:49 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 #include "ft.h"
 #include "init.h"
 #include "scene.h"
@@ -56,7 +56,7 @@ static int	malloc_scene(t_scene *scene, char **scene_lines)
 	scene->light = ft_calloc(scene->nb_lights, sizeof(t_light));
 	scene->nb_ambient_lights = 1;
 	scene->ambient_light = ft_calloc(scene->nb_ambient_lights,
-		sizeof(t_ambient_light));
+			sizeof(t_ambient_light));
 	scene->nb_cameras = nb_elem_category[2];
 	scene->camera = ft_calloc(scene->nb_cameras, sizeof(t_camera));
 	scene->nb_textures = nb_elem_category[3];
@@ -65,7 +65,8 @@ static int	malloc_scene(t_scene *scene, char **scene_lines)
 	scene->bumpmap = ft_calloc(scene->nb_bumpmaps, sizeof(t_bumpmap));
 	if (!scene->obj || !scene->light || !scene->ambient_light || !scene->camera
 		|| (scene->nb_textures > 0 && !scene->texture)
-		|| (scene->nb_bumpmaps > 0 && !scene->bumpmap))
+		|| (scene->nb_bumpmaps > 0 && !scene->bumpmap)
+		|| alloc_masks(scene))
 		return (free_scene(scene), -1);
 	return (0);
 }

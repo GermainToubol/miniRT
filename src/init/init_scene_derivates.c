@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 15:31:42 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 16:04:10 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,11 @@
 
 static int	init_camera_mask(t_scene *scene, t_camera *camera)
 {
-	int					i;
+	int	i;
 
-	camera->mask = ft_calloc(scene->nb_objs, sizeof(t_mask));
-	if (camera->mask == NULL)
-		return (-1);
-	i = 0;
-	while (i < scene->nb_objs)
-	{
+	i = -1;
+	while (++i < scene->nb_objs)
 		update_mask_camera(scene->obj, camera, i);
-		i++;
-	}
 	return (0);
 }
 
@@ -66,22 +60,10 @@ void	init_scene_derivates(t_scene *scene)
 		init_cylinder_derivates,
 		init_triangle_derivates};
 
-	i = 0;
-	while (i < scene->nb_cameras)
-	{
+	i = -1;
+	while (++i < scene->nb_cameras)
 		init_camera_derivates(scene, scene->camera + i);
-		i++;
-	}
-	i = 0;
-	while (i < scene->nb_objs)
-	{
+	i = -1;
+	while (++i < scene->nb_objs)
 		(*derivates[scene->obj[i].tag])(scene->obj + i);
-		i++;
-	}
-	i = 0;
-	while (i < scene->nb_lights)
-	{
-		init_light_derivates(scene, scene->light + i);
-		i++;
-	}
 }

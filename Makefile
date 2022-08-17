@@ -51,8 +51,7 @@ SRC_NAMES	=									main							\
 				$(addprefix scene_derivates/,	init_sphere_derivates			\
 												init_plane_derivates			\
 												init_cylinder_derivates			\
-												init_triangle_derivates			\
-												init_light_derivates)			\
+												init_triangle_derivates)		\
 				$(addprefix check_scene/,		check_scene						\
 												rt_error_elem_format			\
 												rt_error_elem_format2			\
@@ -60,7 +59,8 @@ SRC_NAMES	=									main							\
 												rt_is_type2						\
 												rt_is_type3						\
 												rt_print_error)					\
-				$(addprefix parse_scene/,		parse_scene						\
+				$(addprefix parse_scene/,		alloc_masks						\
+												parse_scene						\
 												rt_get_type						\
 												rt_get_type2					\
 												rt_get_type3					\
@@ -115,6 +115,8 @@ SRC_NAMES	=									main							\
 												cboard_plane					\
 												cboard_cylinder))				\
 			$(addprefix terminate/,												\
+												free_camera						\
+												free_lights						\
 												terminate)
 
 # List of all object files (.o)

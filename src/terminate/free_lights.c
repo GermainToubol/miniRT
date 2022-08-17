@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   derivates.h                                        :+:      :+:    :+:   */
+/*   free_lights.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 13:16:01 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 16:04:34 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/17 15:33:01 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/17 15:37:16 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DERIVATES_H
-# define DERIVATES_H
+#include <stdlib.h>
+#include "scene.h"
+#include "terminate.h"
 
-# include "scene.h"
+void	free_lights(t_light *light, int nb_lights)
+{
+	int	i;
 
-typedef void	(*t_derivate_func) (t_obj *);
-
-void	init_sphere_derivates(t_obj *obj);
-void	init_plane_derivates(t_obj *obj);
-void	init_cylinder_derivates(t_obj *obj);
-void	init_triangle_derivates(t_obj *obj);
-
-#endif /* DERIVATES_H */
+	if (light == NULL)
+		return ;
+	i = -1;
+	while (++i < nb_lights)
+		free(light[i].mask);
+	free(light);
+}

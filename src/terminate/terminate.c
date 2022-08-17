@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 12:17:32 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 15:36:22 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "minirt.h"
 #include "mlx.h"
 #include "parameters.h"
+#include "terminate.h"
 
 void	terminate_mlx(t_data *data)
 {
@@ -46,9 +47,9 @@ void	free_scene(t_scene *scene)
 	if (!scene)
 		return ;
 	free(scene->obj);
-	free(scene->light);
+	free_lights(scene->light, scene->nb_lights);
 	free(scene->ambient_light);
-	free(scene->camera);
+	free_camera(scene->camera, scene->nb_cameras);
 	free_textures(scene->texture, scene->nb_textures);
 	free_bumpmaps(scene->bumpmap, scene->nb_bumpmaps);
 }
