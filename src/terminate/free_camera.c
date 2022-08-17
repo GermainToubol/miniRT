@@ -6,12 +6,13 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 15:31:24 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 15:33:41 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 16:11:26 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "scene.h"
+#include "terminate.h"
 
 void	free_camera(t_camera *camera, int nb_cameras)
 {
