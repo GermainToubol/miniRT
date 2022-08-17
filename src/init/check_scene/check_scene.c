@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:39:54 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 11:59:19 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 17:34:11 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ static int	check_line_format(char *line, int *nb_elem_type)
 
 int	check_scene(char **scene_lines)
 {
-	int	nb_elem_type[6];
+	int	nb_elem_type[NB_ELEM_TYPE];
 	int	ret_value;
 
-	ft_memset_int(nb_elem_type, 0, 6);
-	while (*scene_lines)
+	ft_memset_int(nb_elem_type, 0, NB_ELEM_TYPE);
+	while (*scene_lines != NULL)
 	{
 		ret_value = check_line_format(*scene_lines, nb_elem_type);
 		if (ret_value != 0)

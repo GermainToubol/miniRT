@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 16:00:02 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 17:33:01 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define RT_TRIANGLE "tr"
 # define RT_TEXTURE "_te_"
 # define RT_BUMPMAP "_bm_"
+
+# define NB_ELEM_TYPE 9
 
 int			init(t_data *data, int argc, char **argv);
 int			init_mlx(t_data *data);
