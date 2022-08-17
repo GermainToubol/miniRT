@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:41:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 13:57:20 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 15:25:06 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,22 @@ static int	malloc_scene(t_scene *scene, char **scene_lines)
 
 	count_nb_elem_category(nb_elem_category, scene_lines);
 	scene->nb_objs = nb_elem_category[0];
-	scene->obj = malloc(sizeof(t_obj) * scene->nb_objs);
+	scene->obj = ft_calloc(scene->nb_objs, sizeof(t_obj));
 	scene->nb_lights = nb_elem_category[1];
-	scene->light = malloc(sizeof(t_light) * scene->nb_lights);
+	scene->light = ft_calloc(scene->nb_lights, sizeof(t_light));
 	scene->nb_ambient_lights = 1;
-	scene->ambient_light = malloc(sizeof(t_ambient_light)
-			* scene->nb_ambient_lights);
+	scene->ambient_light = ft_calloc(scene->nb_ambient_lights,
+		sizeof(t_ambient_light));
 	scene->nb_cameras = nb_elem_category[2];
-	scene->camera = malloc(sizeof(t_camera) * scene->nb_cameras);
+	scene->camera = ft_calloc(scene->nb_cameras, sizeof(t_camera));
 	scene->nb_textures = nb_elem_category[3];
-	scene->texture = malloc(sizeof(t_texture) * scene->nb_textures);
+	scene->texture = ft_calloc(scene->nb_textures, sizeof(t_texture));
 	scene->nb_bumpmaps = nb_elem_category[4];
-	scene->bumpmap = malloc(sizeof(t_bumpmap) * scene->nb_bumpmaps);
+	scene->bumpmap = ft_calloc(scene->nb_bumpmaps, sizeof(t_bumpmap));
 	if (!scene->obj || !scene->light || !scene->ambient_light || !scene->camera
 		|| (scene->nb_textures > 0 && !scene->texture)
 		|| (scene->nb_bumpmaps > 0 && !scene->bumpmap))
 		return (free_scene(scene), -1);
-	ft_memset(scene->texture, 0, scene->nb_textures * sizeof(t_texture));
-	ft_memset(scene->bumpmap, 0, scene->nb_bumpmaps * sizeof(t_bumpmap));
 	return (0);
 }
 
