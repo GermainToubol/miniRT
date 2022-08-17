@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:30:29 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/16 15:39:03 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 10:09:57 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "raster.h"
@@ -31,10 +31,7 @@ void	update_masks_camera(t_scene *scene, t_camera *camera)
 {
 	int	i;
 
-	i = 0;
-	while (i < scene->nb_objs)
-	{
+	i = -1;
+	while (++i < scene->nb_objs)
 		update_mask_camera(scene->obj, camera, i);
-		i++;
-	}
 }
