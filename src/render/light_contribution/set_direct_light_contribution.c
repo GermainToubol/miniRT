@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:19:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/16 15:57:17 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/16 19:20:52 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ int	set_direct_light_contribution(t_color *color,
 	t_light	*light;
 	t_vect	intersect_light;
 	float	r_color;
+	float	r0;
 
 	i = 0;
+	r0 = *ratio;
 	while (i < data->scene.nb_lights)
 	{
 		light = &data->scene.light[i];
@@ -64,6 +66,7 @@ int	set_direct_light_contribution(t_color *color,
 		v_normalize(&intersect_light);
 		r_color = v_dot_product(intersection->norm, intersect_light);
 		intersect_light = v_sub(light->pos, intersection->pos);
+		*ratio *= 400 / v_dot_product(intersect_light, intersect_light);
 		if (r_color >= 0
 			&& intersection_on_path(&intersect_light, intersection, data, light) != 0)
 		{
@@ -74,6 +77,7 @@ int	set_direct_light_contribution(t_color *color,
 			color->b += *ratio * r_color * light->ratio * light->color.b;
 		}
 		i++;
+		*ratio = r0;
 	}
 	return (0);
 }
