@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt_is_type2.c                                      :+:      :+:    :+:   */
+/*   rt_is_type3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 01:02:08 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 13:45:45 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/17 13:23:30 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/17 13:45:51 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	rt_is_ratio(char *str)
+int	rt_is_texture_id(char *str)
 {
-	return (ft_isfloat(str));
+	return (ft_isint(str));
 }
 
-int	rt_is_fov(char *str)
+int	rt_is_bumpmap_id(char *str)
 {
-	float	fov;
-
-	if (!ft_isfloat(str))
-		return (0);
-	fov = ft_atof(str);
-	return (fov > 0 && fov <= 180);
+	return (ft_isint(str));
 }
 
-int	rt_is_diameter(char *str)
+int	rt_is_checkerboard(char *str)
 {
-	return (ft_isfloat(str));
-}
-
-int	rt_is_height(char *str)
-{
-	return (ft_isfloat(str));
+	return (ft_isint(str));
 }

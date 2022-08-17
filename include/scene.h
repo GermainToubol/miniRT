@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 16:51:58 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 13:49:13 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,16 @@ typedef struct s_color
 	float	b;
 }	t_color;
 
+typedef struct s_texture
+{
+	void	*img;
+}	t_texture;
+
+typedef struct s_bumpmap
+{
+	void	*img;
+}	t_bumpmap;
+
 typedef struct s_obj
 {
 	char		name[16];
@@ -80,6 +90,9 @@ typedef struct s_obj
 		t_triangle	triangle;
 	};
 	t_color		color;
+	t_texture	*texture;
+	t_bumpmap	*bumpmap;
+	int			checkerboard;
 }	t_obj;
 
 
@@ -127,6 +140,10 @@ typedef struct s_scene
 	t_ambient_light	*ambient_light;
 	int				nb_cameras;
 	t_camera		*camera;
+	int				nb_textures;
+	t_texture		*texture;
+	int				nb_bumpmaps;
+	t_bumpmap		*bumpmap;
 }	t_scene;
 
 typedef void	(*t_mask_func)(t_obj *, t_light *, t_mask *);

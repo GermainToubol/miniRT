@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:28:09 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 09:48:57 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 13:32:05 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ int	rt_set_sphere(t_scene *scene, char **elem, int *i_elem_category)
 	sphere->pos = rt_get_pos(elem[1]);
 	sphere->r = rt_get_diameter(elem[2]) / 2;
 	obj->color = rt_get_color(elem[3]);
+	obj->texture = rt_get_texture(scene, elem, 4);
+	obj->bumpmap = rt_get_bumpmap(scene, elem, 5);
+	obj->checkerboard = rt_get_checkerboard(elem, 6);
 	return (0);
 }
 
@@ -81,5 +84,8 @@ int	rt_set_plane(t_scene *scene, char **elem, int *i_elem_category)
 	plane->pos = rt_get_pos(elem[1]);
 	plane->normal = rt_get_dir(elem[2]);
 	obj->color = rt_get_color(elem[3]);
+	obj->texture = rt_get_texture(scene, elem, 4);
+	obj->bumpmap = rt_get_bumpmap(scene, elem, 5);
+	obj->checkerboard = rt_get_checkerboard(elem, 6);
 	return (0);
 }

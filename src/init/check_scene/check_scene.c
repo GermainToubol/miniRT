@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:39:54 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 19:00:15 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 11:59:19 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 static int	error_elem_format_any_type(char **elem, int *nb_elem_type)
 {
 	static char	*rt_elem[] = {RT_AMBIENT_LIGHT, RT_CAMERA, RT_LIGHT, RT_SPHERE,
-		RT_PLANE, RT_CYLINDER, RT_TRIANGLE, NULL};
+		RT_PLANE, RT_CYLINDER, RT_TRIANGLE, RT_TEXTURE, RT_BUMPMAP, NULL};
 	static int	(*rt_error_elem_format[])(char **) = {
 		rt_error_ambient_light_format, rt_error_camera_format,
 		rt_error_light_format, rt_error_sphere_format, rt_error_plane_format,
-		rt_error_cylinder_format, rt_error_triangle_format};
+		rt_error_cylinder_format, rt_error_triangle_format,
+		rt_error_texture_format, rt_error_bumpmap_format};
 	int			i;
 
 	if (elem[0] == NULL)

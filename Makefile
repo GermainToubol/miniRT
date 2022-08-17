@@ -58,10 +58,12 @@ SRC_NAMES	=									main							\
 												rt_error_elem_format2			\
 												rt_is_type						\
 												rt_is_type2						\
+												rt_is_type3						\
 												rt_print_error)					\
 				$(addprefix parse_scene/,		parse_scene						\
 												rt_get_type						\
 												rt_get_type2					\
+												rt_get_type3					\
 												rt_set_elem						\
 												rt_set_elem2))					\
 			$(addprefix mask/,					set_default_mask				\

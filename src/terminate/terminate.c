@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 04:31:56 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 12:17:32 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ void	terminate_mlx(t_data *data)
 	free(data->mlx);
 }
 
+static void	free_textures(t_texture *texture, int nb_textures)
+{
+	(void) nb_textures;
+	free(texture);
+}
+
+static void	free_bumpmaps(t_bumpmap *bumpmap, int nb_bumpmaps)
+{
+	(void) nb_bumpmaps;
+	free(bumpmap);
+}
+
 void	free_scene(t_scene *scene)
 {
 	if (!scene)
@@ -37,6 +49,8 @@ void	free_scene(t_scene *scene)
 	free(scene->light);
 	free(scene->ambient_light);
 	free(scene->camera);
+	free_textures(scene->texture, scene->nb_textures);
+	free_bumpmaps(scene->bumpmap, scene->nb_bumpmaps);
 }
 
 void	terminate(t_data *data)
