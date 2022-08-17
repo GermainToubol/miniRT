@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 08:28:50 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/17 18:28:12 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	init(t_data *data, int argc, char **argv)
 	if (ret_value != 0)
 		return (ret_value);
 	ret_value = init_scene(&data->scene, argc, argv);
+	data->scene.parent = data;
 	if (ret_value != 0)
 		return (ret_value);
 	init_ui_state(&data->ui_state, &data->scene, argv);

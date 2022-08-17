@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 14:26:03 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/17 18:29:11 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 typedef t_vect	t_pos;
 typedef t_vect	t_dir;
+
+typedef struct s_data	t_data;
 
 typedef struct s_sphere
 {
@@ -71,6 +73,8 @@ typedef struct s_color
 typedef struct s_texture
 {
 	void	*img;
+	int		width;
+	int		height;
 }	t_texture;
 
 typedef struct s_bumpmap
@@ -143,6 +147,7 @@ typedef struct s_scene
 	t_texture		*texture;
 	int				nb_bumpmaps;
 	t_bumpmap		*bumpmap;
+	t_data			*parent;
 }	t_scene;
 
 typedef void	(*t_mask_func)(t_obj *, t_light *, t_mask *);
