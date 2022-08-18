@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 18:54:23 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:06:52 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ static void	free_textures(t_texture *texture, int nb_textures)
 
 static void	free_bumpmaps(t_bumpmap *bumpmap, int nb_bumpmaps)
 {
-	(void) nb_bumpmaps;
+	int	i;
+
+	i = -1;
+	while (++i < nb_bumpmaps)
+		free(bumpmap[i].img);
 	free(bumpmap);
 }
 
