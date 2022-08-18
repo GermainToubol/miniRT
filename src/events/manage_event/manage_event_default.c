@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/07 21:42:41 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:02:03 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	manage_keypress_default(int keysym, t_data *data)
 	{XK_Escape, close_window},
 	{XK_Tab, switch_ui_mode},
 	{XK_Control_L, set_control}, {XK_Control_R, set_control},
+	{XK_P, print_frame_buffer}, {XK_p, print_frame_buffer},
+	{XK_C, change_cam}, {XK_c, change_cam},
 	{XK_Left, move_cam_left}, {XK_Right, move_cam_right},
 	{XK_Down, move_cam_down}, {XK_Up, move_cam_up},
 	{XK_Z, move_cam_forward}, {XK_z, move_cam_forward},
@@ -103,6 +105,5 @@ int	manage_keyrelease_default(int keysym, t_data *data)
 			return ((correspondence[i].manage_keyevent)(data));
 		i++;
 	}
-	return (0);
 	return (0);
 }

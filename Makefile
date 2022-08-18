@@ -35,8 +35,10 @@ SRC_NAMES	=									main							\
 												erase_input_last_char			\
 												hand_focus						\
 												hand_focus_input_box)			\
+				$(addprefix print_frame_buffer/,print_frame_buffer)				\
 				$(addprefix transform_camera/,	buttonmove_cam					\
 												buttonrotate_cam				\
+												change_cam						\
 												move_cam						\
 												move_cam2						\
 												rollmove_cam					\
