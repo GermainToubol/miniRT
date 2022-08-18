@@ -112,6 +112,8 @@ SRC_NAMES	=									main							\
 												set_normal_cylinder				\
 												set_normal_triangle)			\
 				$(addprefix texture/,			apply_texture					\
+												ftext_sphere					\
+												ftext_plane						\
 												cboard_sphere					\
 												cboard_plane					\
 												cboard_cylinder))				\
