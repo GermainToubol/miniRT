@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 11:26:13 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 17:29:53 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ typedef struct s_texture
 
 typedef struct s_bumpmap
 {
-	void	*img;
+	float	*img;
+	int		width;
+	int		height;
 }	t_bumpmap;
 
 typedef struct s_obj

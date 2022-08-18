@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:57:47 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 14:31:49 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 17:40:45 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,24 @@ int	rt_set_texture(t_scene *scene, char **elem, int *i_elem_category)
 
 int	rt_set_bumpmap(t_scene *scene, char **elem, int *i_elem_category)
 {
-	(void) scene;
-	(void) elem;
-	(void) i_elem_category;
+	t_bumpmap	*bumpmap;
+	t_tiff_img	img;
+	int			i;
+	int			size;
+
+	bumpmap = scene->bumpmap + i_elem_category[4];
+	i_elem_category[4] += 1;
+	if (load_tiff_img(elem[1], &img) != 0)
+		return (-1);
+	size = (int32_t)img.width * (int32_t)img.height;
+	bumpmap->img = ft_calloc(size, sizeof(float));
+	if (bumpmap->img == NULL)
+		return (free(img.content), -1);
+	bumpmap->width = img.width;
+	bumpmap->height = img.height;
+	i = -1;
+	while (++i < size)
+		bumpmap->img[i] = ((float)img.content[3 * i] + 126.0f) / 255.f;
+	free(img.content);
 	return (0);
 }

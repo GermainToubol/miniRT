@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:34:40 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/18 16:57:29 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 18:04:49 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <math.h>
@@ -31,5 +31,24 @@ int	ftext_sphere(t_color *color, t_intersection *intersection)
 	color->r *= texture->img[pos].r;
 	color->g *= texture->img[pos].g;
 	color->b *= texture->img[pos].b;
+	return (0);
+}
+
+int fbump_sphere(t_color *color, t_intersection *intersection)
+{
+	int32_t		dx;
+   	int32_t		dy;
+	t_obj		*obj;
+	t_bumpmap	*bumpmap;
+	int			pos;
+
+	obj = intersection->obj_seen;
+	bumpmap = obj->bumpmap;
+	dx = roundf((bumpmap->width - 1) * (0.5f + 0.5f * INV_PI * atan2(-intersection->norm.x, intersection->norm.y)) );
+	dy = roundf((bumpmap->height - 1) * (0.5f + asin(-intersection->norm.z) * INV_PI));
+	pos = dx + dy * bumpmap->width;
+	color->r *= bumpmap->img[pos];
+	color->g *= bumpmap->img[pos];
+	color->b *= bumpmap->img[pos];
 	return (0);
 }
