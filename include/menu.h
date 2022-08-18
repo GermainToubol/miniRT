@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 22:51:25 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 21:56:47 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@
 # define MENU_X 550
 # define MENU_Y 20
 # define MENU_WIDTH 150
-# define MENU_HEIGHT 300
+# define MENU_HEIGHT 400
 # define H1_X 0
 # define H1_Y 0
 # define H1_WIDTH MENU_WIDTH
-# define H1_HEIGHT 30
+# define H1_HEIGHT 20
 # define H1_INPUT_BOX_X 0
 # define H1_INPUT_BOX_Y 0
 # define LI_X 0
 # define LI_Y 0
 # define LI_WIDTH MENU_WIDTH
-# define LI_HEIGHT 50
-# define LI_INPUT_BOX_X 0
+# define LI_HEIGHT 18
+# define LI_INPUT_BOX_X 20
 # define LI_INPUT_BOX_Y 0
 # define UL_X 0
 # define UL_Y 0
 # define UL_WIDTH MENU_WIDTH
-# define UL_HEIGHT 70
+# define UL_HEIGHT 20
 
 typedef enum e_var_type
 {
@@ -99,6 +99,13 @@ typedef struct s_ul
 	t_viewport	viewport;
 }	t_ul;
 
+typedef struct s_font
+{
+	t_img	*img;
+	int		w;
+	int		h;
+}	t_font;
+
 typedef struct s_menu
 {
 	void		*img;
@@ -107,7 +114,16 @@ typedef struct s_menu
 	t_ul		ul[8];
 	t_viewport	viewport;
 	t_input_box	*input_box_focus;
+	t_font		font;
 }	t_menu;
+
+typedef struct s_color_int
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+	unsigned char	a;
+}	t_color_int;
 
 typedef struct s_data			t_data;
 typedef struct s_modifier_state	t_modifier_state;
@@ -141,18 +157,33 @@ void	set_ul_fov(t_ul *ul, float *fov, char *name);
 void	set_ul_ratio(t_ul *ul, float *ratio, char *name);
 void	set_ul_vect(t_ul *ul, t_vect *v, char *name);
 
+//	PUT_MLX
+void	put_mlx_char(unsigned char c, t_viewport *view, t_font *font,
+	void *frame_buffer);
+void	put_mlx_str(char *str, t_viewport *viewport, t_font *font,
+	void *frame_buffer);
+void	put_mlx_nbr(int nbr, t_viewport *viewport, t_font *font,
+	void *frame_buffer);
+
 //	RENDER_MENU
+//	mix_img
+void	copy_img(t_img *dst, t_viewport *v_dst, t_img *src,
+	t_viewport *v_src);
+void	put_background_color(t_img *dst, t_viewport *view, t_color_int *color);
 //	render_h1
-void	render_h1_background(t_h1 *h1, t_img *img, t_viewport *offset);
-void	render_h1_text(t_h1 *h1, t_img *img, t_viewport *offset);
+void	render_h1_background(t_h1 *h1, t_img *img);
+void	render_h1_text(t_h1 *h1, t_img *img, t_font *font);
+//	render_input_box
+void	render_input_box_background(t_input_box *input_box, t_img *img,
+	t_viewport *offset);
 //	render_li
 void	render_li_background(t_li *li, t_img *img, t_viewport *offset);
-void	render_li_text(t_li *li, t_img *img, t_viewport *offset);
+void	render_li_text(t_li *li, t_img *img, t_font *font);
 //	render_menu
 void	render_menu(t_data *data, t_menu *menu);
 //	render_ul
-void	render_ul_background(t_ul *ul, t_img *img, t_viewport *offset);
-void	render_ul_text(t_ul *ul, t_img *img, t_viewport *offset);
+void	render_ul_background(t_ul *ul, t_img *img);
+void	render_ul_text(t_ul *ul, t_img *img, t_font *font);
 
 //	UPDATE_SCENE
 //	update_input_type

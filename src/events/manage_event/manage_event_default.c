@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 17:02:03 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 18:59:18 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ int	manage_buttonrelease_default(int buttonsym, int mouse_x, int mouse_y,
 int	manage_keypress_default(int keysym, t_data *data)
 {
 	static t_correspondence_key_keyevent	correspondence[] = {
-	{XK_Escape, close_window},
-	{XK_Tab, switch_ui_mode},
+	{XK_Escape, close_window}, {XK_Tab, switch_ui_mode},
 	{XK_Control_L, set_control}, {XK_Control_R, set_control},
 	{XK_P, print_frame_buffer}, {XK_p, print_frame_buffer},
 	{XK_C, change_cam}, {XK_c, change_cam},
@@ -77,8 +76,7 @@ int	manage_keypress_default(int keysym, t_data *data)
 	{XK_W, rotate_cam_pitch}, {XK_w, rotate_cam_pitch},
 	{XK_S, rotate_cam_reverse_pitch}, {XK_s, rotate_cam_reverse_pitch},
 	{XK_A, rotate_cam_yaw}, {XK_a, rotate_cam_yaw},
-	{XK_D, rotate_cam_reverse_yaw}, {XK_d, rotate_cam_reverse_yaw},
-	{0, NULL}};
+	{XK_D, rotate_cam_reverse_yaw}, {XK_d, rotate_cam_reverse_yaw}, {0, NULL}};
 	int										i;
 
 	i = 0;

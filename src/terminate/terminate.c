@@ -6,11 +6,12 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 11:36:20 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 18:54:23 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "menu.h"
 #include "minirt.h"
 #include "mlx.h"
 #include "parameters.h"
@@ -18,10 +19,15 @@
 
 void	terminate_mlx(t_data *data)
 {
+	t_menu	*menu;
+
 	if (!data || !data->mlx)
 		return ;
-	if (data->ui_state.modifier_state.menu.img)
-		mlx_destroy_image(data->mlx, data->ui_state.modifier_state.menu.img);
+	menu = &data->ui_state.modifier_state.menu;
+	if (menu->font.img)
+		mlx_destroy_image(data->mlx, menu->font.img);
+	if (menu->img)
+		mlx_destroy_image(data->mlx, menu->img);
 	if (data->frame_buffer)
 		mlx_destroy_image(data->mlx, data->frame_buffer);
 	if (data->win)

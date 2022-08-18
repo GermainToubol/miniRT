@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:28:29 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/10 04:11:42 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 21:29:41 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	set_li_viewports(t_li *li, t_viewport *offset_ext)
 		LI_WIDTH, LI_HEIGHT};
 	offset_ext->y += li->viewport.h;
 	li->input_box.viewport = (t_viewport){LI_INPUT_BOX_X, LI_INPUT_BOX_Y,
-		li->viewport.w, li->viewport.h};
+		li->viewport.w - LI_INPUT_BOX_X, li->viewport.h - LI_INPUT_BOX_Y};
 }
 
 static void	set_ul_viewports(t_ul *ul, t_viewport *offset_ext)

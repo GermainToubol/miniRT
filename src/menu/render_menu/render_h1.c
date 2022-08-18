@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:51:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:48:16 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 21:45:54 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,16 @@
 
 #include <stdio.h>
 
-void	render_h1_background(t_h1 *h1, t_img *img, t_viewport *offset)
+void	render_h1_background(t_h1 *h1, t_img *img)
 {
-	char	*img_line;
-	int		i;
+	static t_color_int	background_color = {200, 200, 200, 100};
 
-	img_line = img->data
-		+ (offset->y + h1->viewport.y) * img->size_line
-		+ (offset->x + h1->viewport.x) * img->bpp / 8;
-	i = 0;
-	while (i < h1->viewport.h)
-	{
-		ft_memset(img_line, 100, h1->viewport.w * img->bpp / 8);
-		img_line += img->size_line;
-		i++;
-	}
+	put_background_color(img, &h1->viewport, &background_color);
 }
 
-void	render_h1_text(t_h1 *h1, t_img *img, t_viewport *offset)
+void	render_h1_text(t_h1 *h1, t_img *img, t_font *font)
 {
-	(void) img;
-	(void) offset;
+	put_mlx_str(h1->input_box.input, &h1->viewport, font, img);
 	printf("\n");
 	if (h1->input_box.has_focus)
 		printf("\033[48;2;100;100;100m%s\033[49m\n", h1->input_box.input);

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:09:20 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 10:04:46 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 19:01:26 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	init_ui_state(t_ui_state *ui_state, t_scene *scene, char **argv)
 		type_obj,
 	{scene->nb_objs, scene->nb_lights, scene->nb_ambient_lights,
 		scene->nb_cameras},
-	{0, 0, 0, 0}};
+	{0}};
 }
 
 int	init(t_data *data, int argc, char **argv)
@@ -46,6 +46,7 @@ int	init(t_data *data, int argc, char **argv)
 	ret_value = check_input(argc, argv);
 	if (ret_value != 0)
 		return (ret_value);
+	*data = (t_data){0};
 	ret_value = init_scene(&data->scene, argc, argv);
 	if (ret_value != 0)
 		return (ret_value);
