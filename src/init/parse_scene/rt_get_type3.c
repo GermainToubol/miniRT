@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:33:08 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 13:36:00 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:00:36 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_texture	*rt_get_texture(t_scene *scene, char **elem, int i)
 	if (!elem[i])
 		return (NULL);
 	i_texture = ft_atoi(elem[i]);
+	if (i_texture < 0 || i_texture >= scene->nb_textures)
+		return (NULL);
 	return (scene->texture + i_texture);
 }
 
@@ -30,6 +32,8 @@ t_bumpmap	*rt_get_bumpmap(t_scene *scene, char **elem, int i)
 	if (!elem[i - 1] || !elem[i])
 		return (NULL);
 	i_bumpmap = ft_atoi(elem[i]);
+	if (i_bumpmap < 0 || i_bumpmap >= scene->nb_bumpmaps)
+		return (NULL);
 	return (scene->bumpmap + i_bumpmap);
 }
 

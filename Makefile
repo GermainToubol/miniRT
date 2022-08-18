@@ -48,6 +48,7 @@ SRC_NAMES	=									main							\
 												init_scene						\
 												init_scene_derivates			\
 												name_scene_elems				\
+												parse_tiff						\
 				$(addprefix scene_derivates/,	init_sphere_derivates			\
 												init_plane_derivates			\
 												init_cylinder_derivates			\

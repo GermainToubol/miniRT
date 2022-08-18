@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 15:36:22 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 11:36:20 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ void	terminate_mlx(t_data *data)
 
 static void	free_textures(t_texture *texture, int nb_textures)
 {
-	(void) nb_textures;
+	int	i;
+
+	i = -1;
+	while (++i < nb_textures)
+		free(texture[i].img);
 	free(texture);
 }
 

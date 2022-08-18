@@ -6,12 +6,15 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:57:47 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 18:43:59 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 14:31:49 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
+#include <stdlib.h>
 #include "ft.h"
 #include "init.h"
+#include "parse_tiff.h"
 #include "scene.h"
 
 int	rt_set_cylinder(t_scene *scene, char **elem, int *i_elem_category)
@@ -57,9 +60,29 @@ int	rt_set_triangle(t_scene *scene, char **elem, int *i_elem_category)
 
 int	rt_set_texture(t_scene *scene, char **elem, int *i_elem_category)
 {
-	(void) scene;
-	(void) elem;
-	(void) i_elem_category;
+	t_texture	*texture;
+	t_tiff_img	img;
+	int			i;
+	int			size;
+
+	texture = scene->texture + i_elem_category[3];
+	i_elem_category[3] += 1;
+	if (load_tiff_img(elem[1], &img) != 0)
+		return (-1);
+	size = (int32_t)img.width * (int32_t)img.height;
+	texture->img = ft_calloc(size, sizeof(t_color));
+	if (texture->img == NULL)
+		return (free(img.content), -1);
+	texture->width = img.width;
+	texture->height = img.height;
+	i = -1;
+	while (++i < size)
+	{
+		texture->img[i].r = (float)(int)img.content[3 * i] / 255.0f;
+		texture->img[i].g = (float)(int)img.content[3 * i + 1] / 255.0f;
+		texture->img[i].b = (float)(int)img.content[3 * i + 2] / 255.0f;
+	}
+	free(img.content);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 03:23:01 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 17:55:25 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/18 14:03:27 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "light_contribution.h"
 # include "scene.h"
+
+# define TEXTURE_SCALE 10.0f
 
 typedef int	(*t_cboard)(t_color *, t_intersection *);
 
