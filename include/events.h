@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:46:43 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 23:37:37 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:01:36 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ int		hand_focus_to_previous(t_data *data);
 int		hand_focus_to_next_input_box(t_data *data);
 int		hand_focus_to_previous_input_box(t_data *data);
 
+//	PRINT_FRAME_BUFFER
+int	print_frame_buffer(t_data *data);
+
 //	TRANSFORM_CAMERA
 //	buttonmove_cam
 void	buttonmove_cam(int mouse_x, int mouse_y, t_camera *camera,
@@ -106,6 +109,8 @@ void	buttonrotate_cam(int mouse_x, int mouse_y, t_camera *camera,
 			t_event_state *event_state);
 void	set_buttonrotate_cam(int mouse_x, int mouse_y,
 			t_event_state *event_state);
+//	change_cam
+int	change_cam(t_data *data);
 //	move_cam
 int		move_cam_left(t_data *data);
 int		move_cam_up(t_data *data);
