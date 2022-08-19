@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   derivates.h                                        :+:      :+:    :+:   */
+/*   init_hyperbol_derivates.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 13:16:01 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 11:02:01 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/19 11:00:37 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/19 11:01:05 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DERIVATES_H
-# define DERIVATES_H
+#include "derivates.h"
+#include "scene.h"
+#include "t_math.h"
 
-# include "scene.h"
+void	init_hyperbol_derivates(t_obj *obj)
+{
+	t_vect	ux;
+	t_vect	uy;
 
-typedef void	(*t_derivate_func) (t_obj *);
-
-void	init_sphere_derivates(t_obj *obj);
-void	init_plane_derivates(t_obj *obj);
-void	init_cylinder_derivates(t_obj *obj);
-void	init_triangle_derivates(t_obj *obj);
-void	init_hyperbol_derivates(t_obj *obj);
-
-#endif /* DERIVATES_H */
+	ux = v_cross_product(obj->hyperbol.dir,
+			(t_vect){1, 0, 0});
+	if (v_dot_product(ux, ux) == 0)
+		ux = v_cross_product(obj->hyperbol.dir,
+				(t_vect){0, 1, 0});
+	uy = v_cross_product(obj->hyperbol.dir, ux);
+	obj->hyperbol.ux = ux;
+	obj->hyperbol.uy = uy;
+}

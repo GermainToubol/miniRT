@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:29:31 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 13:55:23 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 10:59:17 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "raster.h"
@@ -18,6 +18,7 @@ void	update_single_mask_single_light(t_obj *obj, t_light *light, int n)
 		set_sphere_mask,
 		set_plane_mask,
 		set_cylinder_mask,
+		set_default_mask,
 		set_default_mask
 	};
 

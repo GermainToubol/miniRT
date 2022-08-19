@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 00:53:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 19:49:03 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 09:22:11 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ float	v_norm(t_vect v);
 t_vect	v_cross_product(t_vect v1, t_vect v2);
 float	v_dot_product(t_vect v1, t_vect v2);
 t_vect	v_scalar_product(t_vect v1, t_vect v2);
+float	v_star_product(t_vect v1, t_vect v2);
 
 void	v_normalize(t_vect *v);
 void	v_translate(t_vect *pos, t_vect move);

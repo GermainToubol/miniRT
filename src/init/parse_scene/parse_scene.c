@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:41:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 22:05:29 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:22:14 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 static void	count_nb_elem_category(int *nb_elem_category, char **scene_lines)
 {
-	static char	*rt_elem_category[5][5] = {{RT_SPHERE, RT_PLANE, RT_CYLINDER,
-		RT_TRIANGLE, NULL}, {RT_LIGHT, NULL}, {RT_CAMERA, NULL},
+	static char	*rt_elem_category[5][6] = {{RT_SPHERE, RT_PLANE, RT_CYLINDER,
+		RT_TRIANGLE, RT_HYPERBOL, NULL}, {RT_LIGHT, NULL}, {RT_CAMERA, NULL},
 	{RT_TEXTURE, NULL}, {RT_BUMPMAP, NULL}};
 	char		*rt_elem;
 	int			i;
@@ -75,12 +75,12 @@ static int	set_elem_any_type(t_scene *scene, char **elem,
 	int *i_elem_category)
 {
 	static char	*rt_elem[] = {RT_AMBIENT_LIGHT, RT_CAMERA, RT_LIGHT,
-		RT_SPHERE, RT_PLANE, RT_CYLINDER, RT_TRIANGLE, RT_TEXTURE, RT_BUMPMAP,
-		NULL};
+		RT_SPHERE, RT_PLANE, RT_CYLINDER, RT_TRIANGLE, RT_HYPERBOL, RT_TEXTURE,
+		RT_BUMPMAP, NULL};
 	static int	(*rt_set_elem[])(t_scene *, char **, int *) = {
 		rt_set_ambient_light, rt_set_camera, rt_set_light, rt_set_sphere,
-		rt_set_plane, rt_set_cylinder, rt_set_triangle, rt_set_texture,
-		rt_set_bumpmap};
+		rt_set_plane, rt_set_cylinder, rt_set_triangle, rt_set_hyperbol,
+		rt_set_texture, rt_set_bumpmap};
 	int			i;
 
 	i = 0;

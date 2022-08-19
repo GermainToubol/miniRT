@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 02:33:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 10:37:36 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 # define RT_PLANE "pl"
 # define RT_CYLINDER "cy"
 # define RT_TRIANGLE "tr"
+# define RT_HYPERBOL "hb"
 # define RT_TEXTURE "_te_"
 # define RT_BUMPMAP "_bm_"
 
-# define NB_ELEM_TYPE 9
+# define NB_ELEM_TYPE 10
 
 int			init(t_data *data, int argc, char **argv);
 int			init_mlx(t_data *data);
@@ -53,6 +54,7 @@ int			rt_error_sphere_format(char **elem);
 int			rt_error_plane_format(char **elem);
 int			rt_error_cylinder_format(char **elem);
 int			rt_error_triangle_format(char **elem);
+int			rt_error_hyperbol_format(char **elem);
 int			rt_error_texture_format(char **elem);
 int			rt_error_bumpmap_format(char **elem);
 //	rt_is_type
@@ -83,6 +85,7 @@ int			rt_set_sphere(t_scene *scene, char **elem, int *i_elem_category);
 int			rt_set_plane(t_scene *scene, char **elem, int *i_elem_category);
 int			rt_set_cylinder(t_scene *scene, char **elem, int *i_elem_category);
 int			rt_set_triangle(t_scene *scene, char **elem, int *i_elem_category);
+int			rt_set_hyperbol(t_scene *scene, char **elem, int *i_elem_category);
 int			rt_set_texture(t_scene *scene, char **elem, int *i_elem_category);
 int			rt_set_bumpmap(t_scene *scene, char **elem, int *i_elem_category);
 //rt_get_type
