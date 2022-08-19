@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 21:23:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:41:45 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 19:48:20 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,17 @@
 void	render_input_box_background(t_input_box *input_box, t_img *img,
 	t_viewport *offset)
 {
+	static t_color_int	background_color = {
+		INPUT_BOX_BACKGROUND_R,
+		INPUT_BOX_BACKGROUND_G,
+		INPUT_BOX_BACKGROUND_B,
+		INPUT_BOX_BACKGROUND_A};
+	static t_color_int	background_color_focus = {
+		INPUT_BOX_FOCUS_BACKGROUND_R,
+		INPUT_BOX_FOCUS_BACKGROUND_G,
+		INPUT_BOX_FOCUS_BACKGROUND_B,
+		INPUT_BOX_FOCUS_BACKGROUND_A};
 	t_viewport			view;
-	static t_color_int	background_color = {0, 0, 100, 50};
-	static t_color_int	background_color_focus = {20, 20, 150, 50};
 
 	view = input_box->viewport;
 	view.x += offset->x;

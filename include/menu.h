@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:56:27 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 20:13:14 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,31 @@
 # define UL_Y 0
 # define UL_WIDTH MENU_WIDTH
 # define UL_HEIGHT 20
+
+# define H1_BACKGROUND_R 30
+# define H1_BACKGROUND_G 30
+# define H1_BACKGROUND_B 30
+# define H1_BACKGROUND_A 30
+# define H1_FOCUS_BACKGROUND_R 40
+# define H1_FOCUS_BACKGROUND_G 40
+# define H1_FOCUS_BACKGROUND_B 50
+# define H1_FOCUS_BACKGROUND_A 10
+# define LI_BACKGROUND_R 30
+# define LI_BACKGROUND_G 30
+# define LI_BACKGROUND_B 30
+# define LI_BACKGROUND_A 20
+# define INPUT_BOX_BACKGROUND_R 40
+# define INPUT_BOX_BACKGROUND_G 40
+# define INPUT_BOX_BACKGROUND_B 40
+# define INPUT_BOX_BACKGROUND_A 20
+# define INPUT_BOX_FOCUS_BACKGROUND_R 50
+# define INPUT_BOX_FOCUS_BACKGROUND_G 50
+# define INPUT_BOX_FOCUS_BACKGROUND_B 60
+# define INPUT_BOX_FOCUS_BACKGROUND_A 10
+# define UL_BACKGROUND_R 25
+# define UL_BACKGROUND_G 20
+# define UL_BACKGROUND_B 25
+# define UL_BACKGROUND_A 5
 
 typedef enum e_var_type
 {

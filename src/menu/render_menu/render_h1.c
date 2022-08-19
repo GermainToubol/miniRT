@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:51:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:44:27 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 19:48:44 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,16 @@
 
 void	render_h1_background(t_h1 *h1, t_img *img)
 {
-	static t_color_int	background_color = {30, 30, 30, 100};
-	static t_color_int	background_color_focus = {50, 50, 50, 100};
+	static t_color_int	background_color = {
+		H1_BACKGROUND_R,
+		H1_BACKGROUND_G,
+		H1_BACKGROUND_B,
+		H1_BACKGROUND_A};
+	static t_color_int	background_color_focus = {
+		H1_FOCUS_BACKGROUND_R,
+		H1_FOCUS_BACKGROUND_G,
+		H1_FOCUS_BACKGROUND_B,
+		H1_FOCUS_BACKGROUND_A};
 
 	if (h1->input_box.has_focus)
 		put_background_color(img, &h1->viewport, &background_color_focus);

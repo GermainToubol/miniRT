@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 03:00:34 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:53:26 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 19:50:15 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 void	render_ul_background(t_ul *ul, t_img *img)
 {
 	t_viewport			offset;
-	static t_color_int	background_color = {100, 0, 0, 50};
+	static t_color_int	background_color = {
+		UL_BACKGROUND_R,
+		UL_BACKGROUND_G,
+		UL_BACKGROUND_B,
+		UL_BACKGROUND_A};
 	int					i;
 
 	offset = (t_viewport){ul->viewport.x, ul->viewport.y, UL_WIDTH, UL_HEIGHT};

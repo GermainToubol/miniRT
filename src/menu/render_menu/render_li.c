@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 09:39:04 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:44:42 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 19:49:16 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 void	render_li_background(t_li *li, t_img *img, t_viewport *offset)
 {
 	t_viewport			view;
-	static t_color_int	background_color = {0, 100, 0, 50};
+	static t_color_int	background_color = {
+		LI_BACKGROUND_R,
+		LI_BACKGROUND_G,
+		LI_BACKGROUND_B,
+		LI_BACKGROUND_A};
 
 	view = li->viewport;
 	view.x += offset->x;
