@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:00:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 22:56:59 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 01:42:10 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,60 +39,66 @@ static void	write_img(int fd, t_img *img)
 	}
 }
 
-static void	write_flags(int fd)
+static void	write_ifd_entries(int fd)
 {
-	t_entry		entry;
+	t_entry		entry[13];
 	int			offset;
+
+	offset = 3 * WIDTH * HEIGHT
+		+ sizeof(t_tiff_header)
+		+ sizeof(uint16_t)
+		+ 13 * sizeof(t_entry);
+	entry[0] = (t_entry){0x100, 0x3, 0x1, WIDTH};
+	entry[1] = (t_entry){0x101, 0x3, 0x1, HEIGHT};
+	entry[2] = (t_entry){0x102, 0x3, 0x3, offset};
+	entry[3] = (t_entry){0x103, 0x3, 0x1, 1};
+	entry[4] = (t_entry){0x106, 0x3, 0x1, 2};
+	entry[5] = (t_entry){0x111, 0x4, 0x4, 0x8};
+	entry[6] = (t_entry){0x115, 0x3, 0x1, 3};
+	entry[7] = (t_entry){0x116, 0x3, 0x1, 0x800};
+	entry[8] = (t_entry){0x117, 0x4, 0x4, offset + 22};
+	entry[9] = (t_entry){0x11a, 0x5, 0x1, offset + 6};
+	entry[10] = (t_entry){0x11b, 0x5, 0x1, offset + 14};
+	entry[11] = (t_entry){0x128, 0x03, 0x1, 1};
+	entry[12] = (t_entry){0x0, 0x0, 0x0, 0x0};
+	write(fd, &entry, 13 * sizeof(t_entry));
+}
+
+static void	write_ifd_values(int fd)
+{
+	char		buffer[38];
 	uint16_t	i;
 	uint32_t	j;
 
+	i = 0x8;
+	ft_memcpy(buffer, &i, 2);
+	ft_memcpy(buffer + 2, &i, 2);
+	ft_memcpy(buffer + 4, &i, 2);
+	j = 0x12c;
+	ft_memcpy(buffer + 6, &j, 4);
+	j = 0x1;
+	ft_memcpy(buffer + 10, &j, 4);
+	j = 0x12c;
+	ft_memcpy(buffer + 14, &j, 4);
+	j = 0x1;
+	ft_memcpy(buffer + 18, &j, 4);
+	j = 0x43800;
+	ft_memcpy(buffer + 22, &j, 4);
+	ft_memcpy(buffer + 26, &j, 4);
+	ft_memcpy(buffer + 30, &j, 4);
+	j = 0x32a00;
+	ft_memcpy(buffer + 34, &j, 4);
+	write(fd, buffer, 38);
+}
+
+static void	write_ifd(int fd)
+{
+	uint16_t	i;
+
 	i = 12;
 	write(fd, &i, 2);
-	offset = WIDTH * HEIGHT * 3 + sizeof(t_tiff_header) + sizeof(uint16_t) + sizeof(t_entry) * (i + 1);
-	entry = (t_entry){0x100, 0x3, 0x1, WIDTH};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x101, 0x3, 0x1, HEIGHT};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x102, 0x3, 0x3, offset};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x103, 0x3, 0x1, 1};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x106, 0x3, 0x1, 2};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x111, 0x4, 0x4, 0x8};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x115, 0x3, 0x1, 3};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x116, 0x3, 0x1, 0x800};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x117, 0x4, 0x4, offset + 22};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x11a, 0x5, 0x1, offset + 6};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x11b, 0x5, 0x1, offset + 14};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x128, 0x03, 0x1, 1};
-	write(fd, &entry, sizeof(entry));
-	entry = (t_entry){0x0, 0x0, 0x0, 0x0};
-	write(fd, &entry, sizeof(entry));
-	i = 0x8;
-	write(fd, &i, 2);
-	write(fd, &i, 2);
-	write(fd, &i, 2);
-	j = 0x12c;
-	write(fd, &j, 4);
-	j = 0x1;
-	write(fd, &j, 4);
-	j = 0x12c;
-	write(fd, &j, 4);
-	j = 0x1;
-	write(fd, &j, 4);
-	j = 0x43800;
-	write(fd, &j, 4);
-	write(fd, &j, 4);
-	write(fd, &j, 4);
-	j = 0x32a00;
-	write(fd, &j, 4);
+	write_ifd_entries(fd);
+	write_ifd_values(fd);
 }
 
 int	print_frame_buffer(t_data *data)
@@ -110,7 +116,7 @@ int	print_frame_buffer(t_data *data)
 	header = (t_tiff_header){0x4949, 42, HEIGHT * WIDTH * 3 + sizeof(header)};
 	write(fd, &header, sizeof(header));
 	write_img(fd, img);
-	write_flags(fd);
+	write_ifd(fd);
 	close(fd);
 	return (0);
 }

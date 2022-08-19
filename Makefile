@@ -23,20 +23,25 @@ LIB			= $(LIBEXT_NAMES:%=-l%) \
 SRC_DIR		= src
 SRC_NAMES	=									main							\
 			$(addprefix events/,												\
-				$(addprefix change_uistate/,	close_window					\
+				$(addprefix change_uistate/,									\
+												close_window					\
 												set_control						\
 												switch_ui_mode)					\
-				$(addprefix manage_event/,		manage_buttonpress_default		\
+				$(addprefix manage_event/,										\
+												manage_buttonpress_default		\
 												manage_buttonrelease_default	\
 												manage_event					\
 												manage_event_default			\
 												manage_event_modifier)			\
-				$(addprefix modifier/,			add_char_to_input				\
+				$(addprefix modifier/,											\
+												add_char_to_input				\
 												erase_input_last_char			\
 												hand_focus						\
 												hand_focus_input_box)			\
-				$(addprefix print_frame_buffer/,print_frame_buffer)				\
-				$(addprefix transform_camera/,	buttonmove_cam					\
+				$(addprefix print_frame_buffer/,								\
+												print_frame_buffer)				\
+				$(addprefix transform_camera/,									\
+												buttonmove_cam					\
 												buttonrotate_cam				\
 												change_cam						\
 												move_cam						\
@@ -48,36 +53,44 @@ SRC_NAMES	=									main							\
 												init							\
 												init_mlx						\
 												init_scene						\
-												init_scene_derivates			\
-												name_scene_elems				\
 												parse_tiff						\
-				$(addprefix scene_derivates/,	init_sphere_derivates			\
-												init_plane_derivates			\
-												init_cylinder_derivates			\
-												init_triangle_derivates)		\
-				$(addprefix check_scene/,		check_scene						\
+				$(addprefix check_scene/,										\
+												check_scene						\
 												rt_error_elem_format			\
 												rt_error_elem_format2			\
 												rt_is_type						\
 												rt_is_type2						\
 												rt_is_type3						\
 												rt_print_error)					\
-				$(addprefix parse_scene/,		alloc_masks						\
+				$(addprefix parse_scene/,										\
+												alloc_masks						\
 												parse_scene						\
 												rt_get_type						\
 												rt_get_type2					\
 												rt_get_type3					\
 												rt_set_elem						\
-												rt_set_elem2))					\
-			$(addprefix mask/,					set_default_mask				\
+												rt_set_elem2)					\
+				$(addprefix scene_derivates/,									\
+												init_scene_derivates			\
+												init_sphere_derivates			\
+												name_scene_elems				\
+												init_plane_derivates			\
+												init_cylinder_derivates			\
+												init_triangle_derivates))		\
+			$(addprefix mask/,													\
+												set_default_mask				\
 												set_sphere_mask					\
 												set_plane_mask					\
 												set_cylinder_mask				\
 												update_mask_light				\
 												update_mask_camera)				\
 			$(addprefix menu/,													\
+				$(addprefix put_mlx/,											\
+												put_mlx)						\
 				$(addprefix render_menu/,										\
+												mix_img							\
 												render_h1						\
+												render_input_box				\
 												render_li						\
 												render_menu						\
 												render_ul)						\
@@ -98,11 +111,13 @@ SRC_NAMES	=									main							\
 												render							\
 												print_progress					\
 												set_color						\
-				$(addprefix light_contribution/,set_light_contribution			\
+				$(addprefix light_contribution/,								\
+												set_light_contribution			\
 												set_ambient_light_contribution	\
 												set_direct_light_contribution	\
 												set_specular_contribution)		\
-				$(addprefix set_intersection/,	set_intersection				\
+				$(addprefix set_intersection/,									\
+												set_intersection				\
 												set_intersection_pos			\
 												set_intersection_sphere			\
 												set_intersection_plane			\
@@ -113,7 +128,8 @@ SRC_NAMES	=									main							\
 												set_normal_plane				\
 												set_normal_cylinder				\
 												set_normal_triangle)			\
-				$(addprefix texture/,			apply_texture					\
+				$(addprefix texture/,											\
+												apply_texture					\
 												ftext_sphere					\
 												ftext_plane						\
 												cboard_sphere					\
@@ -199,6 +215,10 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c start_compiling
 .INTERMEDIATE:start_compiling
 start_compiling:
 			@echo "$(_GREEN)Start Compiling $(_NO_COLOR)"
+
+.PHONY:		malloc_test
+malloc_test:	$(OBJ) $(LIB_FILES)
+	$(CC) $(CFLAGS) -fsanitize=undefined -rdynamic -o $@ $(OBJ) $(LIB) -lm -L. -lmallocator
 
 # Libraries
 # -------------------------------------------------------------------------

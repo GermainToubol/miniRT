@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 03:23:01 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 18:03:51 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 00:00:37 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef int	(*t_fbump)(t_color *, t_intersection *);
 int	apply_texture(t_color *color, t_ray *ray, t_intersection *intersection);
 
 /* Simple texture: */
-int ftext_sphere(t_color *color, t_intersection *intersection);
+int	ftext_sphere(t_color *color, t_intersection *intersection);
 int	ftext_plane(t_color *color, t_intersection *intersection);
 
 /* Simple bumpmaps: */
-int fbump_sphere(t_color *color, t_intersection *intersection);
+int	fbump_sphere(t_color *color, t_intersection *intersection);
 int	fbump_plane(t_color *color, t_intersection *intersection);
 
 /* Checkboard texture: */

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 21:56:47 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:59:24 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,23 +159,23 @@ void	set_ul_vect(t_ul *ul, t_vect *v, char *name);
 
 //	PUT_MLX
 void	put_mlx_char(unsigned char c, t_viewport *view, t_font *font,
-	void *frame_buffer);
+			void *frame_buffer);
 void	put_mlx_str(char *str, t_viewport *viewport, t_font *font,
-	void *frame_buffer);
+			void *frame_buffer);
 void	put_mlx_nbr(int nbr, t_viewport *viewport, t_font *font,
-	void *frame_buffer);
+			void *frame_buffer);
 
 //	RENDER_MENU
 //	mix_img
 void	copy_img(t_img *dst, t_viewport *v_dst, t_img *src,
-	t_viewport *v_src);
+			t_viewport *v_src);
 void	put_background_color(t_img *dst, t_viewport *view, t_color_int *color);
 //	render_h1
 void	render_h1_background(t_h1 *h1, t_img *img);
 void	render_h1_text(t_h1 *h1, t_img *img, t_font *font);
 //	render_input_box
 void	render_input_box_background(t_input_box *input_box, t_img *img,
-	t_viewport *offset);
+			t_viewport *offset);
 //	render_li
 void	render_li_background(t_li *li, t_img *img, t_viewport *offset);
 void	render_li_text(t_li *li, t_img *img, t_font *font);

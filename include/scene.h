@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 17:29:53 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 00:28:39 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # include "parameters.h"
 # include "t_math.h"
 
-typedef t_vect	t_pos;
-typedef t_vect	t_dir;
-
 typedef struct s_data	t_data;
+typedef t_vect			t_pos;
+typedef t_vect			t_dir;
 
 typedef struct s_sphere
 {
@@ -151,6 +150,6 @@ typedef struct s_scene
 	t_bumpmap		*bumpmap;
 }	t_scene;
 
-typedef void	(*t_mask_func)(t_obj *, t_light *, t_mask *);
+typedef void			(*t_mask_func)(t_obj *, t_light *, t_mask *);
 
 #endif

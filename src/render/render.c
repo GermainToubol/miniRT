@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 10:56:00 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 00:23:06 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 #include "ray.h"
 #include "render.h"
 #include "scene.h"
+
+#include <stdio.h>
+#include <sys/time.h>
 
 void	set_ray(t_ray *ray, t_camera *camera, int x, int y)
 {
@@ -45,16 +48,15 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 	*((unsigned int *)(img->data + pos)) = color_int;
 }
 
-#include <stdio.h>
-#include <sys/time.h>
-
 static int	set_image(t_data *data)
 {
-	t_ray	ray;
-	t_color	color;
-	int		x;
-	int		y;
-	struct timeval start, end;
+	t_ray			ray;
+	t_color			color;
+	int				x;
+	int				y;
+	struct timeval	start;
+	struct timeval	end;
+	double			time_taken;
 
 	y = 0;
 	gettimeofday(&start, NULL);
@@ -77,11 +79,8 @@ static int	set_image(t_data *data)
 			print_progress(y, HEIGHT);
 	}
 	gettimeofday(&end, NULL);
-	double time_taken;
-
-    time_taken = (end.tv_sec - start.tv_sec) * 1e6;
-    time_taken = (time_taken + (end.tv_usec -
-                              start.tv_usec)) * 1e-3;
+	time_taken = (end.tv_sec - start.tv_sec) * 1e6;
+	time_taken = (time_taken + (end.tv_usec - start.tv_usec)) * 1e-3;
 	printf("loop: %.1f ms\n", time_taken);
 	return (0);
 }

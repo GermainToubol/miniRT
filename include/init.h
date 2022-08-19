@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 16:56:04 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 02:33:35 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "scene.h"
 
 # define RT_AMBIENT_LIGHT "A"
-# define RT_CAMERA "c"
+# define RT_CAMERA "ca"
 # define RT_LIGHT "l"
 # define RT_SPHERE "sp"
 # define RT_PLANE "pl"
