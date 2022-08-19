@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:20:31 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:42:49 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,8 @@ void	render_h1_background(t_h1 *h1, t_img *img);
 void	render_h1_text(t_h1 *h1, t_img *img, t_font *font);
 //	render_input_box
 void	render_input_box_background(t_input_box *input_box, t_img *img,
+			t_viewport *offset);
+void	render_input_box_text(t_input_box *input_box, t_img *img, t_font *font,
 			t_viewport *offset);
 //	render_li
 void	render_li_background(t_li *li, t_img *img, t_viewport *offset);

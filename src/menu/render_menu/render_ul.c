@@ -6,14 +6,12 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 03:00:34 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:17:24 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:44:57 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "menu.h"
 #include "mlx_int.h"
-
-#include <stdio.h>
 
 void	render_ul_background(t_ul *ul, t_img *img)
 {
@@ -38,7 +36,6 @@ void	render_ul_text(t_ul *ul, t_img *img, t_font *font)
 
 	put_mlx_str(ul->name, &ul->viewport, font, img);
 	offset = ul->viewport;
-	printf("%s\n", ul->name);
 	i = 0;
 	while (i < ul->nb_li)
 	{

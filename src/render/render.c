@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 00:23:06 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:48:04 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ static int	set_image(t_data *data)
 	gettimeofday(&end, NULL);
 	time_taken = (end.tv_sec - start.tv_sec) * 1e6;
 	time_taken = (time_taken + (end.tv_usec - start.tv_usec)) * 1e-3;
-	printf("loop: %.1f ms\n", time_taken);
+	if (data->ui_state.verbose)
+		printf("loop: %.1f ms\n", time_taken);
 	return (0);
 }
 
