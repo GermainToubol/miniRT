@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 03:00:34 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:44:57 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:53:26 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	render_ul_background(t_ul *ul, t_img *img)
 
 void	render_ul_text(t_ul *ul, t_img *img, t_font *font)
 {
-	t_viewport			offset;
-	int	i;
+	t_viewport	offset;
+	int			i;
 
 	put_mlx_str(ul->name, &ul->viewport, font, img);
 	offset = ul->viewport;
