@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:35:41 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 21:50:59 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:31:02 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	init_mlx(t_data *data)
 	menu = &data->ui_state.modifier_state.menu;
 	menu->img = mlx_new_image(data->mlx, MENU_WIDTH, MENU_HEIGHT);
 	menu->font.img = mlx_xpm_file_to_image(data->mlx,
-			"ressources/monospace.xpm", &menu->font.w, &menu->font.h);
+			"ressources/fonts/monospace.xpm", &menu->font.w, &menu->font.h);
 	menu->font.w = 10;
 	menu->font.h = 12;
 	if (!data->win || !data->frame_buffer || !menu->img || !menu->font.img)

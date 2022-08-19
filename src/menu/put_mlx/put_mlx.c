@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:30:29 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 22:05:15 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:24:48 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	put_mlx_char(unsigned char c, t_viewport *view, t_font *font,
 	int		y;
 
 	img = (t_img *) frame_buffer;
-	dst_line = img->data + view->y * img->size_line + view->x * img->bpp / 8;
+	dst_line = img->data + (view->y + font->h / 2) * img->size_line
+		+ (view->x + font->w / 2) * img->bpp / 8;
 	src_line = font->img->data
 		+ c / 16 * font->h * font->img->size_line
 		+ c % 16 * font->w * font->img->bpp / 8;
-	x = 0;
 	y = 0;
 	while (y++ < font->h)
 	{
