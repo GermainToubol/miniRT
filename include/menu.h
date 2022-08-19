@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:42:49 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:56:27 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_input_box
 	void				*ptr;
 	t_viewport			viewport;
 	int					has_focus;
+	int					first_input;
 	struct s_input_box	*next;
 	struct s_input_box	*prev;
 }	t_input_box;

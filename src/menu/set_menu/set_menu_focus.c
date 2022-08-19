@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 09:01:37 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 10:07:23 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 03:57:18 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ void	set_menu_focus(t_menu *menu)
 		menu->input_box_focus->has_focus = 0;
 	menu->input_box_focus = &menu->h1.input_box;
 	menu->input_box_focus->has_focus = 1;
+	menu->input_box_focus->first_input = 1;
 }

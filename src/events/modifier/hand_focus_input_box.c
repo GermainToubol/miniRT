@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 08:46:57 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:24:34 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 04:01:38 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	hand_focus_to_next_input_box(t_data *data)
 	menu->input_box_focus->has_focus = 0;
 	menu->input_box_focus = menu->input_box_focus->next;
 	menu->input_box_focus->has_focus = 1;
+	menu->input_box_focus->first_input = 1;
 	render_menu(data, menu);
 	return (0);
 }
@@ -33,6 +34,7 @@ int	hand_focus_to_previous_input_box(t_data *data)
 	menu->input_box_focus->has_focus = 0;
 	menu->input_box_focus = menu->input_box_focus->prev;
 	menu->input_box_focus->has_focus = 1;
+	menu->input_box_focus->first_input = 1;
 	render_menu(data, menu);
 	return (0);
 }

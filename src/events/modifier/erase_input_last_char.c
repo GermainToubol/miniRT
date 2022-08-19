@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:31:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 23:38:59 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 04:05:37 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	erase_input_last_char(t_data *data)
 	int		len_input;
 
 	menu = &data->ui_state.modifier_state.menu;
+	menu->input_box_focus->first_input = 0;
 	input = menu->input_box_focus->input;
 	len_input = ft_strlen(input);
 	if (len_input == 0)
