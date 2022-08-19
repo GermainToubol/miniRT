@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   derivates.h                                        :+:      :+:    :+:   */
+/*   set_normal_hyperbol.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 13:16:01 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 11:02:01 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/19 09:25:29 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/19 13:02:51 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DERIVATES_H
-# define DERIVATES_H
+#include "intersection.h"
+#include "ray.h"
+#include "scene.h"
+#include "t_math.h"
 
-# include "scene.h"
-
-typedef void	(*t_derivate_func) (t_obj *);
-
-void	init_sphere_derivates(t_obj *obj);
-void	init_plane_derivates(t_obj *obj);
-void	init_cylinder_derivates(t_obj *obj);
-void	init_triangle_derivates(t_obj *obj);
-void	init_hyperbol_derivates(t_obj *obj);
-
-#endif /* DERIVATES_H */
+int	set_normal_hyperbol(t_ray *ray, t_pos *pos, t_dir *normal, t_obj *obj_seen)
+{
+	*normal = v_sub(*pos, obj_seen->hyperbol.pos);
+	normal->z *= -1;
+	if (v_dot_product(ray->dir, *normal) > 0)
+		v_copy(normal, v_sub(obj_seen->sphere.pos, *pos));
+	v_normalize(normal);
+	return (0);
+}

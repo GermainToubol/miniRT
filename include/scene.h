@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 00:28:39 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 10:32:42 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,24 @@ typedef struct s_triangle
 	t_dir	uy;
 }	t_triangle;
 
+typedef struct s_hyperbol
+{
+	t_pos	pos;
+	t_dir	dir;
+	float	r;
+	float	h;
+	t_dir	ux;
+	t_dir	uy;
+}	t_hyperbol;
+
+
 typedef enum e_obj_tag
 {
 	sphere_tag,
 	plane_tag,
 	cylinder_tag,
-	triangle_tag
+	triangle_tag,
+	hyperbol_tag
 }	t_obj_tag;
 
 typedef struct s_color
@@ -93,6 +105,7 @@ typedef struct s_obj
 		t_plane		plane;
 		t_cylinder	cylinder;
 		t_triangle	triangle;
+		t_hyperbol	hyperbol;
 	};
 	t_color		color;
 	t_texture	*texture;

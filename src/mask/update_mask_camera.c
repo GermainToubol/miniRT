@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:30:29 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 02:10:37 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/19 10:58:46 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	update_mask_camera(t_obj *obj, t_camera *camera, int n)
 		set_sphere_mask,
 		set_plane_mask,
 		set_cylinder_mask,
+		set_default_mask,
 		set_default_mask
 	};
 	t_light				light;

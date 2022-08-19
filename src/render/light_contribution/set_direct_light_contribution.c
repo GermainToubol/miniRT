@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:19:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 14:51:55 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:23:27 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	inter_on_path(t_vect *to_light, t_intersection *intersection,
 	t_ray						ray;
 	const t_intersection_func	isect[] = {set_intersection_sphere,
 		set_intersection_plane, set_intersection_cylinder,
-		set_intersection_triangle};
+		set_intersection_triangle, set_intersection_hyperbol};
 
 	i = -1;
 	ray.dir = *to_light;

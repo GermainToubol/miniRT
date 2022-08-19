@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 19:28:38 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/10 14:54:31 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 10:57:00 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	set_intersection_normal(t_ray *ray, t_pos *pos, t_dir *normal,
 		set_normal_sphere,
 		set_normal_plane,
 		set_normal_cylinder,
-		set_normal_triangle};
+		set_normal_triangle,
+		set_normal_hyperbol
+	};
 
 	return ((*get_normal[obj_seen->tag])(ray, pos, normal, obj_seen));
 }

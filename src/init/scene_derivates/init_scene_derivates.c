@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 21:59:25 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:00:08 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void	init_scene_derivates(t_scene *scene)
 		init_sphere_derivates,
 		init_plane_derivates,
 		init_cylinder_derivates,
-		init_triangle_derivates};
+		init_triangle_derivates,
+		init_hyperbol_derivates
+	};
 
 	i = -1;
 	while (++i < scene->nb_cameras)

@@ -76,7 +76,8 @@ SRC_NAMES	=									main							\
 												name_scene_elems				\
 												init_plane_derivates			\
 												init_cylinder_derivates			\
-												init_triangle_derivates))		\
+												init_triangle_derivates			\
+												init_hyperbol_derivates))		\
 			$(addprefix mask/,													\
 												set_default_mask				\
 												set_sphere_mask					\
@@ -123,11 +124,13 @@ SRC_NAMES	=									main							\
 												set_intersection_plane			\
 												set_intersection_cylinder		\
 												set_intersection_triangle		\
+												set_intersection_hyperbol		\
 												set_intersection_normal			\
 												set_normal_sphere				\
 												set_normal_plane				\
 												set_normal_cylinder				\
-												set_normal_triangle)			\
+												set_normal_triangle				\
+												set_normal_hyperbol)			\
 				$(addprefix texture/,											\
 												apply_texture					\
 												ftext_sphere					\
@@ -229,7 +232,6 @@ malloc_test:	$(OBJ) $(LIB_FILES)
 
 # Dependencies
 # -------------------------------------------------------------------------
-.SILENT:	$(DEPS)
 $(OBJ_DIR)/%.d: $(SRC_DIR)/%.c
 				@mkdir -p $(dir $@)
 				$(CC) -MM -MT $(@:.d=.o) $(CFLAGS) $(INCLUDE) $< > $@
