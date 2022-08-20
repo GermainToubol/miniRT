@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:10:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 23:35:53 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:39:03 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	manage_keypress_modifier(int keysym, t_data *data)
 	static t_correspondence_key_keyevent	correspondence[] = {
 	{XK_Escape, close_window},
 	{XK_Tab, switch_ui_mode},
-	{XK_Return, update_scene},
+	{XK_Return, update_scene_menu},
 	{XK_Control_L, set_control}, {XK_Control_R, set_control},
 	{XK_Left, hand_focus_to_previous},
 	{XK_Right, hand_focus_to_next},

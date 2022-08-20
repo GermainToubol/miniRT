@@ -6,14 +6,12 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 19:26:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 12:30:16 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:26:05 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "intersection.h"
-#include "light_contribution.h"
 #include "minirt.h"
-#include "ray.h"
+#include "render.h"
 #include "scene.h"
 #include "texture.h"
 

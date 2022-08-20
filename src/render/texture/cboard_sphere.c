@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 10:08:21 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 13:21:55 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:28:53 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "light_contribution.h"
+#include "render.h"
 #include "scene.h"
 #include "texture.h"
 

@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 10:12:34 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 18:06:29 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:19:08 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "intersection.h"
+
+#include "render.h"
 #include "scene.h"
-#include "ray.h"
 #include "t_math.h"
 
 float	set_intersection_triangle(t_obj *obj, t_ray *ray)

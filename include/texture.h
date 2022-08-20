@@ -6,14 +6,14 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 03:23:01 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 00:00:37 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:27:15 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEXTURE_H
 # define TEXTURE_H
 
-# include "light_contribution.h"
+# include "render.h"
 # include "scene.h"
 
 # define TEXTURE_SCALE 10.0f

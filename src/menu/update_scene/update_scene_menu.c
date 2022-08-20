@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:26:04 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 14:27:26 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:37:59 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	update_scene_ul(t_ul *ul)
 	return (0);
 }
 
-int	update_scene(t_data *data)
+int	update_scene_menu(t_data *data)
 {
 	t_menu	*menu;
 	int		i;

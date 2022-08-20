@@ -6,12 +6,13 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:23:18 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 00:25:00 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:29:32 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <stdint.h>
+#include "render.h"
 #include "scene.h"
 #include "texture.h"
 #include "t_math.h"

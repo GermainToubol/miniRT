@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:43:30 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/16 15:49:02 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:57:18 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "raster.h"
+#include "mask.h"
 #include "scene.h"
 #include "t_math.h"
 

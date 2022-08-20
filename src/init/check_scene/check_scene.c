@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:39:54 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 11:04:58 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:47:25 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ static int	error_elem_format_any_type(char **elem, int *nb_elem_type)
 	static int	(*rt_error_elem_format[])(char **) = {
 		rt_error_ambient_light_format, rt_error_camera_format,
 		rt_error_light_format, rt_error_sphere_format, rt_error_plane_format,
-		rt_error_cylinder_format, rt_error_triangle_format, rt_error_hyperbol_format,
-		rt_error_texture_format, rt_error_bumpmap_format};
+		rt_error_cylinder_format, rt_error_triangle_format,
+		rt_error_hyperbol_format, rt_error_texture_format,
+		rt_error_bumpmap_format};
 	int			i;
 
 	if (elem[0] == NULL)
 		return (0);
-	i = 0;
-	while (rt_elem[i])
+	i = -1;
+	while (rt_elem[++i])
 	{
 		if (ft_strcmp(elem[0], rt_elem[i]) == 0)
 		{
@@ -38,10 +39,8 @@ static int	error_elem_format_any_type(char **elem, int *nb_elem_type)
 				return (rt_print_error(ERROR_MULTIPLE_UNIQUE_ELEM, elem, 0), 2);
 			return ((rt_error_elem_format[i])(elem));
 		}
-		i++;
 	}
-	rt_print_error(ERROR_WRONG_ELEM_TYPE, elem, 0);
-	return (1);
+	return (rt_print_error(ERROR_WRONG_ELEM_TYPE, elem, 0), 1);
 }
 
 static int	check_line_format(char *line, int *nb_elem_type)

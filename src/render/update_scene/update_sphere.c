@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.h                                              :+:      :+:    :+:   */
+/*   update_sphere.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 13:09:30 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/04 03:30:08 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/11 13:33:37 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/20 17:34:23 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAY_H
-# define RAY_H
+#include "scene.h"
+#include "t_math.h"
 
-# include "scene.h"
-
-typedef struct s_ray
+void	update_sphere(t_obj *obj)
 {
-	t_pos	pos;
-	t_dir	dir;
-}	t_ray;
-
-#endif /* RAY_H */
+	(void)obj;
+}

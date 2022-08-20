@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:26:09 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/16 11:00:45 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:23:25 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "intersection.h"
+#include "render.h"
 #include "t_math.h"
 
 static float	get_discriminant(t_ray *ray, t_vect *p_sphere, float r)

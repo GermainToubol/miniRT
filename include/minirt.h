@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:04:37 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 10:57:01 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:54:50 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "scene.h"
 # include "ui_state.h"
+
+# define TITLE "miniRT"
+# define WIDTH 720
+# define HEIGHT 480
 
 typedef struct s_data
 {

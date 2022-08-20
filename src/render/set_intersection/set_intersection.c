@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:15:07 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/02 11:49:21 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:15:03 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include "intersection.h"
+#include "render.h"
 
 int	set_intersection(t_intersection *intersection, t_ray *ray, t_data *data)
 {

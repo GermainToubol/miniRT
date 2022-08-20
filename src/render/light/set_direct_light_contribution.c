@@ -6,14 +6,13 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:19:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 11:23:27 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:26:44 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <stddef.h>
-#include "intersection.h"
-#include "light_contribution.h"
+#include "render.h"
 #include "scene.h"
 #include "t_math.h"
 

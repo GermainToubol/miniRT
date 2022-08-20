@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_plane_derivates.c                             :+:      :+:    :+:   */
+/*   update_plane.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:35:03 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 15:44:22 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:33:43 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "derivates.h"
 #include "scene.h"
 #include "t_math.h"
 
-void	init_plane_derivates(t_obj *obj)
+void	update_plane(t_obj *obj)
 {
 	t_vect	ux;
 	t_vect	uy;

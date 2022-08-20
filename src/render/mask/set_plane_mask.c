@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   derivates.h                                        :+:      :+:    :+:   */
+/*   set_plane_mask.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 13:16:01 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 11:02:01 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/16 15:44:32 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/20 17:57:12 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DERIVATES_H
-# define DERIVATES_H
+#include "mask.h"
+#include "scene.h"
+#include "t_math.h"
 
-# include "scene.h"
+void	set_plane_mask(t_obj *obj, t_light *light, t_mask *mask)
+{
+	t_dir	obj_to_light;
 
-typedef void	(*t_derivate_func) (t_obj *);
-
-void	init_sphere_derivates(t_obj *obj);
-void	init_plane_derivates(t_obj *obj);
-void	init_cylinder_derivates(t_obj *obj);
-void	init_triangle_derivates(t_obj *obj);
-void	init_hyperbol_derivates(t_obj *obj);
-
-#endif /* DERIVATES_H */
+	obj_to_light = v_sub(light->pos, obj->plane.pos);
+	mask->angle = 0;
+	if (v_dot_product(obj_to_light, obj->plane.normal) >= 0)
+		mask->dir = obj->plane.normal;
+	else
+		mask->dir = v_scalar(-1.0f, obj->plane.normal);
+}

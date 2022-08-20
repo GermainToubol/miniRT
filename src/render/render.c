@@ -6,17 +6,16 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:48:04 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:56:24 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "events.h"
+#include "mask.h"
 #include "mlx.h"
 #include "mlx_int.h"
 #include "minirt.h"
-#include "raster.h"
-#include "ray.h"
 #include "render.h"
 #include "scene.h"
 

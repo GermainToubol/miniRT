@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 20:13:14 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:39:23 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@
 # define LI_X 0
 # define LI_Y 0
 # define LI_WIDTH MENU_WIDTH
-# define LI_HEIGHT 18
-# define LI_INPUT_BOX_X 20
+# define LI_HEIGHT 20
+# define LI_INPUT_BOX_X 18
 # define LI_INPUT_BOX_Y 0
 # define UL_X 0
 # define UL_Y 0
@@ -53,10 +53,10 @@
 # define H1_BACKGROUND_R 30
 # define H1_BACKGROUND_G 30
 # define H1_BACKGROUND_B 30
-# define H1_BACKGROUND_A 30
-# define H1_FOCUS_BACKGROUND_R 40
-# define H1_FOCUS_BACKGROUND_G 40
-# define H1_FOCUS_BACKGROUND_B 50
+# define H1_BACKGROUND_A 20
+# define H1_FOCUS_BACKGROUND_R 35
+# define H1_FOCUS_BACKGROUND_G 35
+# define H1_FOCUS_BACKGROUND_B 40
 # define H1_FOCUS_BACKGROUND_A 10
 # define LI_BACKGROUND_R 30
 # define LI_BACKGROUND_G 30
@@ -220,7 +220,7 @@ int		update_input_fov(char *input, void *ptr);
 int		update_input_int(char *input, void *ptr);
 int		update_input_ratio(char *input, void *ptr);
 int		update_input_str(char *input, void *ptr);
-//	update_scene
-int		update_scene(t_data *data);
+//	update_scene_menu
+int		update_scene_menu(t_data *data);
 
 #endif

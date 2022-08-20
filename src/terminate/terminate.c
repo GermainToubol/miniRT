@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:13:55 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 03:05:26 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:55:51 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "menu.h"
 #include "minirt.h"
 #include "mlx.h"
-#include "parameters.h"
 #include "terminate.h"
 
 void	terminate_mlx(t_data *data)

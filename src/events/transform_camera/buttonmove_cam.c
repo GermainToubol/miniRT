@@ -6,12 +6,12 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:04:31 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/06 01:34:59 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:55:25 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "events.h"
-#include "parameters.h"
+#include "minirt.h"
 #include "scene.h"
 
 void	buttonmove_cam(int mouse_x, int mouse_y, t_camera *camera,

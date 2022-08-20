@@ -6,11 +6,11 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:17:22 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 13:42:57 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:26:50 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light_contribution.h"
+#include "render.h"
 #include "t_math.h"
 
 int	set_light_contribution(

@@ -6,12 +6,12 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 07:48:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/16 10:00:27 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:55:33 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "parameters.h"
+#include "minirt.h"
 #include "render.h"
 
 void	print_progress(int x, int max)

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:23:33 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 08:27:09 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:40:11 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "ft.h"
+#include "render.h"
 #include "init.h"
 #include "minirt.h"
 
@@ -69,6 +70,6 @@ int	init_scene(t_scene *scene, int argc, char **argv)
 		return (ft_free_tab(scene_lines), 1);
 	ft_free_tab(scene_lines);
 	name_scene_elems(scene);
-	init_scene_derivates(scene);
+	update_scene(scene);
 	return (0);
 }

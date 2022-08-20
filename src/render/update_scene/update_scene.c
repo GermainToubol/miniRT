@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_intersection_plane.c                           :+:      :+:    :+:   */
+/*   update_scene.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/04 00:47:21 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/20 17:16:18 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/20 17:36:21 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 #include "scene.h"
-#include "t_math.h"
 
-float	set_intersection_plane(t_obj *obj, t_ray *ray)
+void	update_scene(t_scene *scene)
 {
-	float	norm_scal_dir;
-	float	dist;
+	int					i;
+	const t_update_obj	update_obj[] = {
+		update_sphere,
+		update_plane,
+		update_cylinder,
+		update_triangle,
+		update_hyperbol
+	};
+	t_obj_tag			tag;
 
-	norm_scal_dir = v_dot_product(ray->dir, obj->plane.normal);
-	if (norm_scal_dir == 0)
-		return (-1.0f);
-	dist = -v_dot_product(v_sub(ray->pos, obj->plane.pos), obj->plane.normal);
-	dist /= norm_scal_dir;
-	return (dist);
+	i = 0;
+	while (i < scene->nb_cameras)
+	{
+		update_camera(scene, scene->camera + i);
+		i++;
+	}
+	i = 0;
+	while (i < scene->nb_objs)
+	{
+		tag = scene->obj[i].tag;
+		(*update_obj[tag])(scene->obj + i);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:46:43 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/18 23:58:58 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:54:11 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define EVENTS_H
 
 # include "minirt.h"
-# include "parameters.h"
 
 typedef struct s_correspondence_uimode_buttonevent
 {

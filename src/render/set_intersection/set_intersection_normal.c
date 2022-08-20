@@ -6,13 +6,11 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 19:28:38 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 10:57:00 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:15:24 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "intersection.h"
-#include "ray.h"
+#include "render.h"
 #include "scene.h"
 
 int	set_intersection_normal(t_ray *ray, t_pos *pos, t_dir *normal,

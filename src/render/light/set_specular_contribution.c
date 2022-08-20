@@ -6,11 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 10:09:32 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 10:10:36 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:26:57 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <math.h>
-#include "light_contribution.h"
+#include "render.h"
 #include "t_math.h"
 
 float	set_specular_contribution(

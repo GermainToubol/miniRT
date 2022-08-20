@@ -6,14 +6,13 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 10:32:42 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:54:31 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENE_H
 # define SCENE_H
 
-# include "parameters.h"
 # include "t_math.h"
 
 typedef struct s_data	t_data;
@@ -142,6 +141,7 @@ typedef struct s_camera
 	t_dir	dir;
 	float	fov;
 	t_pos	anchor;
+	float	theta;
 	t_vect	ux;
 	t_vect	uy;
 	t_mask	*mask;

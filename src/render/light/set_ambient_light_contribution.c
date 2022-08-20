@@ -6,11 +6,11 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:53:24 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/08 09:50:41 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:26:40 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light_contribution.h"
+#include "render.h"
 
 int	set_ambient_light_contribution(t_color *color,
 		float *ratio, t_intersection *intersection, t_data *data)

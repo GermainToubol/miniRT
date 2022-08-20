@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parameters.h                                       :+:      :+:    :+:   */
+/*   set_default_mask.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 14:06:19 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/27 14:07:22 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/16 15:45:25 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/20 17:57:04 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARAMETERS_H
-# define PARAMETERS_H
+#include "mask.h"
+#include "scene.h"
+#include "t_math.h"
 
-# define TITLE "miniRT"
-# define WIDTH 720
-# define HEIGHT 480
-
-#endif
+void	set_default_mask(t_obj *obj, t_light *light, t_mask *mask)
+{
+	(void)obj;
+	(void)light;
+	mask->dir = (t_vect){0, 0, 1};
+	mask->angle = -1;
+}

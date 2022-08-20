@@ -6,13 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:03:36 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/11 19:01:17 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:15:07 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "intersection.h"
-#include "ray.h"
+#include "render.h"
 #include "scene.h"
 #include "t_math.h"
 

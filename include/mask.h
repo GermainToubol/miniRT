@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 13:38:15 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/17 13:50:16 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:52:39 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RASTER_H
-# define RASTER_H
+#ifndef MASK_H
+# define MASK_H
 
 # include "scene.h"
 # include "t_math.h"

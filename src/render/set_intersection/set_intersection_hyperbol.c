@@ -6,13 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:25:03 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/19 15:00:46 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:18:04 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "intersection.h"
-#include "ray.h"
+#include "render.h"
 #include "scene.h"
 #include "t_math.h"
 
@@ -41,15 +40,15 @@ static float	get_distance(float delta, float *params)
 	t2 = -0.5f * (params[1] - root) / params[0];
 	d1 = params[4] + t1 * params[5];
 	d2 = params[4] + t2 * params[5];
-	if (d1 * d1 <= params[3] && d2 * d2 <= params[3])
-	{
-		if (t1 > 0 && (t1 ))
-	}
+//	if (d1 * d1 <= params[3] && d2 * d2 <= params[3])
+//	{
+//		if (t1 > 0 && (t1 ))
+//	}
 	if (d1 * d1 <= params[3])
 		return (t1);
 	if (d2 * d2 <= params[3])
 		return (t2);
-	return (-1.0f)
+	return (-1.0f);
 }
 
 float	set_intersection_hyperbol(t_obj *obj, t_ray *ray)
@@ -69,4 +68,5 @@ float	set_intersection_hyperbol(t_obj *obj, t_ray *ray)
 	params[5] = v_dot_product(v, obj->hyperbol.dir);
 	delta = params[1] * params[1] - 4 * params[0] * params[2];
 	delta = get_distance(delta, params);
+	return (0);
 }

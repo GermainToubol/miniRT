@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:28:09 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/17 13:32:05 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/20 15:05:44 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	rt_set_camera(t_scene *scene, char **elem, int *i_elem_category)
 	camera->pos = rt_get_pos(elem[1]);
 	camera->dir = rt_get_dir(elem[2]);
 	camera->fov = rt_get_fov(elem[3]);
+	camera->theta = 0;
 	return (0);
 }
 

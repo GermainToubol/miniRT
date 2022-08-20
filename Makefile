@@ -53,6 +53,7 @@ SRC_NAMES	=									main							\
 												init							\
 												init_mlx						\
 												init_scene						\
+												name_scene_elems				\
 												parse_tiff						\
 				$(addprefix check_scene/,										\
 												check_scene						\
@@ -69,22 +70,7 @@ SRC_NAMES	=									main							\
 												rt_get_type2					\
 												rt_get_type3					\
 												rt_set_elem						\
-												rt_set_elem2)					\
-				$(addprefix scene_derivates/,									\
-												init_scene_derivates			\
-												init_sphere_derivates			\
-												name_scene_elems				\
-												init_plane_derivates			\
-												init_cylinder_derivates			\
-												init_triangle_derivates			\
-												init_hyperbol_derivates))		\
-			$(addprefix mask/,													\
-												set_default_mask				\
-												set_sphere_mask					\
-												set_plane_mask					\
-												set_cylinder_mask				\
-												update_mask_light				\
-												update_mask_camera)				\
+												rt_set_elem2))					\
 			$(addprefix menu/,													\
 				$(addprefix put_mlx/,											\
 												put_mlx)						\
@@ -106,17 +92,23 @@ SRC_NAMES	=									main							\
 												set_menu_viewports				\
 												set_ul_type)					\
 				$(addprefix update_scene/,										\
-												update_scene					\
+												update_scene_menu				\
 												update_input_type))				\
 			$(addprefix render/,												\
 												render							\
-												print_progress					\
 												set_color						\
-				$(addprefix light_contribution/,								\
+				$(addprefix light/,												\
 												set_light_contribution			\
 												set_ambient_light_contribution	\
 												set_direct_light_contribution	\
 												set_specular_contribution)		\
+				$(addprefix mask/,												\
+												set_default_mask				\
+												set_sphere_mask					\
+												set_plane_mask					\
+												set_cylinder_mask				\
+												update_mask_light				\
+												update_mask_camera)				\
 				$(addprefix set_intersection/,									\
 												set_intersection				\
 												set_intersection_pos			\
@@ -137,11 +129,21 @@ SRC_NAMES	=									main							\
 												ftext_plane						\
 												cboard_sphere					\
 												cboard_plane					\
-												cboard_cylinder))				\
+												cboard_cylinder)				\
+				$(addprefix ui/,												\
+												print_progress)					\
+				$(addprefix update_scene/,										\
+												update_scene					\
+												update_sphere					\
+												update_plane					\
+												update_camera					\
+												update_cylinder					\
+												update_triangle					\
+												update_hyperbol))				\
 			$(addprefix terminate/,												\
 												free_camera						\
 												free_lights						\
-												terminate)
+												terminate)						
 
 # List of all object files (.o)
 # -------------------------------------------------------------------------
@@ -154,7 +156,7 @@ DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
 # List of all compilation options
 # -------------------------------------------------------------------------
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -g
+CFLAGS		= -Wall -Werror -Wextra -O3
 MAKE		= /bin/make
 SHELL		= /bin/zsh
 
