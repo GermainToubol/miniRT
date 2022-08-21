@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/20 17:39:23 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 22:05:11 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define MENU_NAME_RATIO "Ratio"
 # define MENU_NAME_COLOR "Color"
 # define MENU_NAME_FOV "Fov"
+# define MENU_NAME_ROT_AXIS "Rotation axis"
 # define MENU_NAME_R "Radius"
 # define MENU_NAME_H "Height"
 # define MENU_NAME_EDGE0 "Edge 1"

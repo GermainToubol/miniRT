@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 15:09:58 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 19:44:07 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 22:21:19 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	update_camera_anchor(t_camera *camera)
 int	update_camera(t_camera *camera, t_scene *scene)
 {
 	camera->ux = v_cross_product(camera->dir, camera->rot_axis);
-	if (v_norm2(camera->ux) < 0.005)
+	if (v_norm2(camera->ux) < 0.0005)
 		camera->ux = (t_vect){1, 0, 0};
 	camera->uy = v_cross_product(camera->ux, camera->dir);
 	v_normalize(&camera->uy);

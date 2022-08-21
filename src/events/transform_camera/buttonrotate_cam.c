@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:06:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 19:57:28 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 21:56:56 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	buttonrotate_cam(int mouse_x, int mouse_y, t_camera *camera,
 		event_state->last_buttonpress_y);
 	set_ray(&ray, camera, mouse_x, mouse_y);
 	v_rotate(&camera->dir, v_cross_product(ray.dir, ray_last.dir),
-		acosf(v_dot_product(ray.dir, ray_last.dir)));
-	v_rotate(&camera->rot_axis, v_cross_product(ray.dir, ray_last.dir),
 		acosf(v_dot_product(ray.dir, ray_last.dir)));
 }
 

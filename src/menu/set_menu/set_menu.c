@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 03:01:03 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:23:02 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 22:04:32 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,11 @@ static void	set_menu_camera(t_menu *menu, t_scene *scene, int i)
 
 	camera = &scene->camera[i];
 	set_h1(&menu->h1, camera->name);
-	menu->nb_ul = 3;
+	menu->nb_ul = 4;
 	set_ul_vect(&menu->ul[0], &camera->pos, MENU_NAME_POS);
 	set_ul_vect(&menu->ul[1], &camera->dir, MENU_NAME_DIR);
 	set_ul_fov(&menu->ul[2], &camera->fov, MENU_NAME_FOV);
+	set_ul_vect(&menu->ul[3], &camera->rot_axis, MENU_NAME_ROT_AXIS);
 }
 
 void	set_menu(t_data *data, t_modifier_state *modifier_state)
