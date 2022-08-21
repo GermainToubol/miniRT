@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   v_copy.c                                           :+:      :+:    :+:   */
+/*   f_operations.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 19:41:06 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/21 03:44:44 by rgarrigo         ###   ########.fr       */
+/*   Created: 2022/08/21 04:32:33 by rgarrigo          #+#    #+#             */
+/*   Updated: 2022/08/21 04:33:47 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_math.h"
-
-void	v_copy(t_vect *dest, t_vect src)
+float	f_abs(float f)
 {
-	*dest = src;
+	if (f < 0)
+		f = -f;
+	return (f);
+}
+
+float	f_max(float f1, float f2)
+{
+	if (f1 > f2)
+		return (f1);
+	return (f2);
 }

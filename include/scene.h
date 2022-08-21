@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/20 17:54:31 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 04:10:53 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ typedef struct s_obj
 	t_texture	*texture;
 	t_bumpmap	*bumpmap;
 	int			checkerboard;
+	float		d2_majorant;
+	float		d2_minorant;
 }	t_obj;
 
 typedef struct s_mask

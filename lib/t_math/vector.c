@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:20:28 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/01 08:27:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 03:51:58 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 t_vect	v_get(float x, float y, float z)
 {
-	t_vect	v;
-
-	v.x = x;
-	v.y = y;
-	v.z = z;
-	return (v);
+	return ((t_vect){x, y, z});
 }

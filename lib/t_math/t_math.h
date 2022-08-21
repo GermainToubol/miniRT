@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 00:53:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 09:22:11 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/21 04:34:11 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,30 @@ typedef struct s_quaternion
 	float	z;
 }	t_quat;
 
+float	f_abs(float f);
+float	f_max(float f1, float f2);
+
 //Vectors
 
+void	v_copy(t_vect *dest, t_vect src);
 t_vect	v_get(float x, float y, float z);
 
 t_vect	v_add(t_vect v1, t_vect v2);
 t_vect	v_sub(t_vect v1, t_vect v2);
-t_vect	v_inv_add(t_vect v1, t_vect v2);
 t_vect	v_scalar(float lambda, t_vect v);
-float	v_norm(t_vect v);
-t_vect	v_cross_product(t_vect v1, t_vect v2);
-float	v_dot_product(t_vect v1, t_vect v2);
 t_vect	v_scalar_product(t_vect v1, t_vect v2);
+t_vect	v_cross_product(t_vect v1, t_vect v2);
+
+float	v_dist(t_vect v1, t_vect v2);
+float	v_dist2(t_vect v1, t_vect v2);
+float	v_dot_product(t_vect v1, t_vect v2);
+float	v_norm(t_vect v);
 float	v_star_product(t_vect v1, t_vect v2);
 
 void	v_normalize(t_vect *v);
 void	v_translate(t_vect *pos, t_vect move);
 void	v_rotate(t_vect *dir, t_vect dir_rot, float theta);
 
-void	v_copy(t_vect *dest, t_vect src);
 
 // Quaternions
 

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:54:00 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/20 17:36:21 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 03:32:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	update_scene(t_scene *scene)
 	while (i < scene->nb_objs)
 	{
 		tag = scene->obj[i].tag;
-		(*update_obj[tag])(scene->obj + i);
+		(*update_obj[tag])(scene->obj + i, scene->camera);
 		i++;
 	}
 }

@@ -6,14 +6,20 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:35:03 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/20 17:33:43 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 04:37:40 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
 #include "t_math.h"
 
-void	update_plane(t_obj *obj)
+static void	set_d2_bounds_plane(t_obj *obj, t_camera *cam)
+{
+	obj->d2_majorant = -1;
+	obj->d2_minorant = v_dist2(obj->plane.pos, cam->pos);
+}
+
+void	update_plane(t_obj *obj, t_camera *cam)
 {
 	t_vect	ux;
 	t_vect	uy;
@@ -24,4 +30,5 @@ void	update_plane(t_obj *obj)
 	uy = v_cross_product(obj->plane.normal, ux);
 	obj->plane.ux = ux;
 	obj->plane.uy = uy;
+	set_d2_bounds_plane(obj, cam);
 }
