@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:35:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/21 04:32:16 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 15:50:14 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,7 @@
 #include "scene.h"
 #include "t_math.h"
 
-static void	set_d2_bounds_cylinder(t_obj *obj, t_camera *cam)
-{
-	float	d2_center;
-	float	d2_max_to_center;
-	float	r;
-	float	h;
-
-	d2_center = v_dist2(obj->cylinder.pos, cam->pos);
-	r = obj->cylinder.r;
-	h = obj->cylinder.h;
-	d2_max_to_center = (r * r + h * h) / 4;
-	obj->d2_majorant = d2_center + d2_max_to_center;
-	obj->d2_minorant = f_abs(d2_center - d2_max_to_center);
-}
-
-void	update_cylinder(t_obj *obj, t_camera *cam)
+void	update_cylinder(t_obj *obj)
 {
 	t_vect	ux;
 	t_vect	uy;
@@ -44,5 +29,4 @@ void	update_cylinder(t_obj *obj, t_camera *cam)
 			v_scalar(0.5f * obj->cylinder.h, obj->cylinder.dir));
 	obj->cylinder.down_face = v_add(obj->cylinder.pos,
 			v_scalar(-0.5f * obj->cylinder.h, obj->cylinder.dir));
-	set_d2_bounds_cylinder(obj, cam);
 }

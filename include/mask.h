@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raster.h                                           :+:      :+:    :+:   */
+/*   mask.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 13:38:15 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/20 17:52:39 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:38:45 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,32 @@
   object will intersect using a dot product.
  */
 
-void	set_sphere_mask(t_obj *obj, t_light *light, t_mask *mask);
-void	set_plane_mask(t_obj *obj, t_light *light, t_mask *mask);
-void	set_cylinder_mask(t_obj *obj, t_light *light, t_mask *mask);
-void	set_default_mask(t_obj *obj, t_light *light, t_mask *mask);
+typedef void	(*t_mask_func)(t_mask *, t_obj *, t_pos *);
 
-void	update_single_mask_single_light(t_obj *obj, t_light *light, int n);
-void	update_all_masks_single_light(t_scene *scene, t_light *light);
-void	update_single_mask_all_lights(t_scene *scene, int n);
-void	update_all_masks_all_lights(t_scene *scene);
+//	set_mask
+void	set_coneview_sphere(t_mask *mask, t_pos *pos_relative_origin,
+			float d2_obj_origin, float r2_sphere);
+void	set_d2_bounds_sphere(t_mask *mask, float d2_obj_origin,
+			float r2_sphere);
 
-void	update_mask_camera(t_obj *obj, t_camera *camera, int n);
-void	update_masks_camera(t_scene *scene, t_camera *camera);
+void	set_cylinder_mask(t_mask *mask, t_obj *obj, t_pos *origin);
+void	set_default_mask(t_mask *mask, t_obj *obj, t_pos *origin);
+void	set_plane_mask(t_mask *mask, t_obj *obj, t_pos *origin);
+void	set_sphere_mask(t_mask *mask, t_obj *obj, t_pos *origin);
+void	set_triangle_mask(t_mask *mask, t_obj *obj, t_pos *origin);
+
+//	update_mask_camera
+void	update_mask_camera(t_mask *mask, t_camera *camera,
+			t_obj *obj);
+void	update_mask_cameras(t_scene *scene, int n);
+void	update_masks_camera(t_camera *camera, t_scene *scene);
+void	update_masks_cameras(t_scene *scene);
+
+//	update_mask_light
+void	update_mask_light(t_mask *mask, t_light *light,
+			t_obj *obj);
+void	update_mask_lights(t_scene *scene, int n);
+void	update_masks_light(t_light *light, t_scene *scene);
+void	update_masks_lights(t_scene *scene);
 
 #endif /* RASTER_H */

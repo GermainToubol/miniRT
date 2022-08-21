@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 15:09:58 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/20 17:56:45 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:42:44 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@
 #include "minirt.h"
 #include "scene.h"
 #include "t_math.h"
-
-static int	update_camera_mask(t_scene *scene, t_camera *camera)
-{
-	int	i;
-
-	i = -1;
-	while (++i < scene->nb_objs)
-		update_mask_camera(scene->obj, camera, i);
-	return (0);
-}
 
 int	update_camera(t_scene *scene, t_camera *camera)
 {
@@ -47,5 +37,6 @@ int	update_camera(t_scene *scene, t_camera *camera)
 	camera->anchor = v_sub(camera->anchor, v_scalar(x_offset, camera->ux));
 	y_offset = (float)(HEIGHT - 1) / 2;
 	camera->anchor = v_sub(camera->anchor, v_scalar(-y_offset, camera->uy));
-	return (update_camera_mask(scene, camera));
+	update_masks_camera(camera, scene);
+	return (0);
 }

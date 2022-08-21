@@ -64,7 +64,7 @@ SRC_NAMES	=									main							\
 												rt_is_type3						\
 												rt_print_error)					\
 				$(addprefix parse_scene/,										\
-												alloc_masks						\
+												alloc_scene						\
 												parse_scene						\
 												rt_get_type						\
 												rt_get_type2					\
@@ -92,54 +92,55 @@ SRC_NAMES	=									main							\
 												set_menu_viewports				\
 												set_ul_type)					\
 				$(addprefix update_scene/,										\
-												update_scene_menu				\
-												update_input_type))				\
+												update_input_type				\
+												update_scene_menu))				\
 			$(addprefix render/,												\
 												render							\
 												set_color						\
 				$(addprefix light/,												\
-												set_light_contribution			\
 												set_ambient_light_contribution	\
 												set_direct_light_contribution	\
+												set_light_contribution			\
 												set_specular_contribution)		\
 				$(addprefix mask/,												\
-												set_default_mask				\
-												set_sphere_mask					\
-												set_plane_mask					\
 												set_cylinder_mask				\
+												set_default_mask				\
+												set_plane_mask					\
+												set_sphere_mask					\
+												set_triangle_mask				\
 												update_mask_light				\
 												update_mask_camera)				\
 				$(addprefix set_intersection/,									\
 												set_intersection				\
-												set_intersection_pos			\
-												set_intersection_sphere			\
-												set_intersection_plane			\
 												set_intersection_cylinder		\
-												set_intersection_triangle		\
 												set_intersection_hyperbol		\
 												set_intersection_normal			\
-												set_normal_sphere				\
-												set_normal_plane				\
+												set_intersection_plane			\
+												set_intersection_pos			\
+												set_intersection_sphere			\
+												set_intersection_triangle		\
 												set_normal_cylinder				\
-												set_normal_triangle				\
-												set_normal_hyperbol)			\
+												set_normal_hyperbol				\
+												set_normal_plane				\
+												set_normal_sphere				\
+												set_normal_triangle)			\
 				$(addprefix texture/,											\
 												apply_texture					\
-												ftext_sphere					\
-												ftext_plane						\
-												cboard_sphere					\
+												cboard_cylinder					\
 												cboard_plane					\
-												cboard_cylinder)				\
+												cboard_sphere					\
+												ftext_sphere					\
+												ftext_plane)					\
 				$(addprefix ui/,												\
 												print_progress)					\
 				$(addprefix update_scene/,										\
-												update_scene					\
-												update_sphere					\
-												update_plane					\
 												update_camera					\
 												update_cylinder					\
-												update_triangle					\
-												update_hyperbol))				\
+												update_hyperbol					\
+												update_plane					\
+												update_scene					\
+												update_sphere					\
+												update_triangle))				\
 			$(addprefix terminate/,												\
 												free_camera						\
 												free_lights						\

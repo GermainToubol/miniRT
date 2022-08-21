@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 00:53:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 04:34:11 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 16:20:42 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ float	v_dist(t_vect v1, t_vect v2);
 float	v_dist2(t_vect v1, t_vect v2);
 float	v_dot_product(t_vect v1, t_vect v2);
 float	v_norm(t_vect v);
+float	v_norm2(t_vect v);
 float	v_star_product(t_vect v1, t_vect v2);
 
 void	v_normalize(t_vect *v);

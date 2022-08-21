@@ -8,6 +8,7 @@ SRCS	= f_operations.c \
 		  vector.c \
 		  v_operations.c \
 		  v_operations2.c \
+		  v_operations3.c \
 		  v_transformation.c\
 		  v_copy.c
 

@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 04:10:53 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:36:48 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,14 +110,14 @@ typedef struct s_obj
 	t_texture	*texture;
 	t_bumpmap	*bumpmap;
 	int			checkerboard;
-	float		d2_majorant;
-	float		d2_minorant;
 }	t_obj;
 
 typedef struct s_mask
 {
 	t_dir	dir;
 	float	angle;
+	float	d2_majorant;
+	float	d2_minorant;
 }	t_mask;
 
 typedef struct s_light
@@ -164,7 +164,5 @@ typedef struct s_scene
 	int				nb_bumpmaps;
 	t_bumpmap		*bumpmap;
 }	t_scene;
-
-typedef void			(*t_mask_func)(t_obj *, t_light *, t_mask *);
 
 #endif

@@ -6,49 +6,52 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:29:31 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/20 17:57:36 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:49:17 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mask.h"
 #include "scene.h"
 
-void	update_single_mask_single_light(t_obj *obj, t_light *light, int n)
+void	update_mask_light(t_mask *mask, t_light *light,
+	t_obj *obj)
 {
-	const t_mask_func	init_mask[] = {
+	const t_mask_func	set_mask[] = {
 		set_sphere_mask,
 		set_plane_mask,
 		set_cylinder_mask,
-		set_default_mask,
+		set_triangle_mask,
 		set_default_mask
 	};
 
-	(*init_mask[obj[n].tag])(obj + n, light, light->mask + n);
+	(*set_mask[obj->tag])(mask, obj, &light->pos);
+	mask->dir = v_scalar(-1.0f, mask->dir);
 }
 
-void	update_all_masks_single_light(t_scene *scene, t_light *light)
+void	update_masks_light(t_light *light, t_scene *scene)
 {
 	int	i;
 
 	i = -1;
 	while (++i < scene->nb_objs)
-		update_single_mask_single_light(scene->obj, light, i);
+		update_mask_light(light->mask + i, light, scene->obj + i);
 }
 
-void	update_single_mask_all_lights(t_scene *scene, int n)
+void	update_mask_lights(t_scene *scene, int n)
 {
 	int	i;
 
 	i = -1;
 	while (++i < scene->nb_lights)
-		update_single_mask_single_light(scene->obj, scene->light + i, n);
+		update_mask_light(scene->light[i].mask + n, scene->light + i,
+			scene->obj + n);
 }
 
-void	update_all_masks_all_lights(t_scene *scene)
+void	update_masks_lights(t_scene *scene)
 {
 	int	i;
 
 	i = -1;
 	while (++i < scene->nb_lights)
-		update_all_masks_single_light(scene, scene->light + i);
+		update_masks_light(scene->light + i, scene);
 }
