@@ -6,11 +6,12 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:56:25 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/11 09:32:40 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 23:13:39 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
+#include "t_math.h"
 
 void	set_input_int(char *input, void *ptr)
 {
@@ -42,10 +43,12 @@ void	set_input_float(char *input, void *ptr)
 
 	f = *((float *) ptr);
 	f_int = (int) f;
-	set_input_int(input, &f_int);
+	if (f < 0 && f_int == 0)
+		ft_strlcpy(input, "-0", 16);
+	else
+		set_input_int(input, &f_int);
 	f -= f_int;
-	if (f < 0)
-		f *= -1;
+	f = f_abs(f);
 	len = ft_strlen(input);
 	input[len] = '.';
 	i = 0;

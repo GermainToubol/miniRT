@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:04:12 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 19:53:09 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 22:47:11 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	count_nb_elem_category(int *nb_elem_category, char **scene_lines)
 	while (*scene_lines)
 	{
 		i = 0;
-		while (i < 5)
+		while (i < 6)
 		{
 			j = 0;
 			while (rt_elem_category[i][j])
