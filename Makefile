@@ -137,6 +137,7 @@ SRC_NAMES	=									main							\
 												update_camera					\
 												update_cylinder					\
 												update_hyperbol					\
+												update_light					\
 												update_plane					\
 												update_scene					\
 												update_sphere					\

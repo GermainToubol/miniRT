@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 00:53:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 16:20:42 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 19:50:35 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_vect	v_scalar(float lambda, t_vect v);
 t_vect	v_scalar_product(t_vect v1, t_vect v2);
 t_vect	v_cross_product(t_vect v1, t_vect v2);
 
+float	v_angle(t_vect v1, t_vect v2);
 float	v_dist(t_vect v1, t_vect v2);
 float	v_dist2(t_vect v1, t_vect v2);
 float	v_dot_product(t_vect v1, t_vect v2);

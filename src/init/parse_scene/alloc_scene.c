@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:04:12 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 15:29:22 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 19:53:09 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	count_nb_elem_category(int *nb_elem_category, char **scene_lines)
 			while (rt_elem_category[i][j])
 			{
 				if (ft_strncmp(*scene_lines, rt_elem_category[i][j],
-						ft_strlen(rt_elem_category[i][j])) == 0)
+					ft_strlen(rt_elem_category[i][j])) == 0)
 					nb_elem_category[i]++;
 				j++;
 			}

@@ -6,13 +6,14 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:28:09 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/20 15:05:44 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 19:29:39 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 #include "init.h"
 #include "scene.h"
+#include "t_math.h"
 
 int	rt_set_ambient_light(t_scene *scene, char **elem, int *i_elem_category)
 {
@@ -36,7 +37,7 @@ int	rt_set_camera(t_scene *scene, char **elem, int *i_elem_category)
 	camera->pos = rt_get_pos(elem[1]);
 	camera->dir = rt_get_dir(elem[2]);
 	camera->fov = rt_get_fov(elem[3]);
-	camera->theta = 0;
+	camera->rot_axis = (t_vect){0, 0, 1};
 	return (0);
 }
 

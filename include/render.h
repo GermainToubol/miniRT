@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:53:48 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 03:59:47 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:57:37 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,10 @@ float	set_specular_contribution(t_intersection *intersection, float *ratio,
 
 typedef void	(*t_update_obj) (t_obj *, t_camera *);
 
-int		update_camera(t_scene *scene, t_camera *camera);
+int		update_camera(t_camera *camera, t_scene *scene);
 void	update_cylinder(t_obj *obj, t_camera *cam);
 void	update_hyperbol(t_obj *obj, t_camera *cam);
+int		update_light(t_light *light, t_scene *scene);
 void	update_plane(t_obj *obj, t_camera *cam);
 void	update_scene(t_scene *scene);
 void	update_sphere(t_obj *obj, t_camera *cam);

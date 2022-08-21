@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 17:41:07 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:49:22 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	set_image(t_data *data)
 
 	y = 0;
 	gettimeofday(&start, NULL);
-	update_masks_camera(data->scene.camera, &data->scene);
+	update_scene(&data->scene);
 	update_masks_lights(&data->scene);
 	ray.pos = data->scene.camera->pos;
 	while (y < HEIGHT)
