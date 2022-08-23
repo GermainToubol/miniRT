@@ -235,7 +235,7 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c start_compiling
 $(NAME_BONUS):	$(LIB_FILES) $(OBJ_BONUS)
 			@echo ""
 			@echo "$(_BLUE)Linkage $(NAME_BONUS)$(_NO_COLOR)"
-			$(CC) $(CFLAGS) $(OBJ) -o $(NAME_BONUS) $(LIB)
+			$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME_BONUS) $(LIB)
 
 $(OBJ_DIR)/%_bonus.o:$(SRC_DIR)/%.c start_compiling
 			@mkdir -p $(dir $@)
