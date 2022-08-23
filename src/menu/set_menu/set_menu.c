@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 03:01:03 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 22:04:32 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:15:08 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 static void	set_menu_any_obj(t_menu *menu, t_scene *scene, int i)
 {
 	static void	(*set_menu_obj[])(t_menu *, t_obj *) = {set_menu_sphere,
-		set_menu_plane, set_menu_cylinder, set_menu_triangle};
+		set_menu_plane, set_menu_cylinder, set_menu_triangle,
+		set_menu_hyperbol};
 	t_obj		*obj;
 
 	obj = &scene->obj[i];

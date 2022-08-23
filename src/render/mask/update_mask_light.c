@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:29:31 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/21 17:49:17 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/23 12:00:25 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	update_mask_light(t_mask *mask, t_light *light,
 		set_plane_mask,
 		set_cylinder_mask,
 		set_triangle_mask,
-		set_default_mask
+		set_hyperbol_mask
 	};
 
 	(*set_mask[obj->tag])(mask, obj, &light->pos);

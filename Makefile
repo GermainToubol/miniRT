@@ -109,6 +109,7 @@ SRC_NAMES	=									main							\
 												set_plane_mask					\
 												set_sphere_mask					\
 												set_triangle_mask				\
+												set_hyperbol_mask				\
 												update_mask_light				\
 												update_mask_camera)				\
 				$(addprefix set_intersection/,									\
@@ -146,7 +147,7 @@ SRC_NAMES	=									main							\
 			$(addprefix terminate/,												\
 												free_camera						\
 												free_lights						\
-												terminate)						
+												terminate)
 
 # List of all object files (.o)
 # -------------------------------------------------------------------------
