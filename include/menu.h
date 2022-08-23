@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:59:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 22:05:11 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:14:16 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,7 @@ void	set_menu_sphere(t_menu *menu, t_obj *obj);
 void	set_menu_plane(t_menu *menu, t_obj *obj);
 void	set_menu_cylinder(t_menu *menu, t_obj *obj);
 void	set_menu_triangle(t_menu *menu, t_obj *obj);
+void	set_menu_hyperbol(t_menu *menu, t_obj *obj);
 //	set_menu_viewports
 void	set_menu_viewports(t_menu *menu);
 //	set_menu_ul_type

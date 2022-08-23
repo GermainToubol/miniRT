@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 13:38:15 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/21 17:38:45 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/23 10:01:41 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	set_default_mask(t_mask *mask, t_obj *obj, t_pos *origin);
 void	set_plane_mask(t_mask *mask, t_obj *obj, t_pos *origin);
 void	set_sphere_mask(t_mask *mask, t_obj *obj, t_pos *origin);
 void	set_triangle_mask(t_mask *mask, t_obj *obj, t_pos *origin);
+void	set_hyperbol_mask(t_mask *mask, t_obj *obj, t_pos *origin);
 
 //	update_mask_camera
 void	update_mask_camera(t_mask *mask, t_camera *camera,
