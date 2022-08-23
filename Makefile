@@ -1,4 +1,5 @@
 NAME		= miniRT
+NAME_BONUS	= miniRT_bonus
 
 # List of all inclusions (.h and .a)
 # -------------------------------------------------------------------------
@@ -152,6 +153,7 @@ SRC_NAMES	=									main							\
 
 OBJ_DIR		= obj
 OBJ			= $(SRC_NAMES:%=$(OBJ_DIR)/%.o)
+OBJ_BONUS	= $(SRC_NAMES:%=$(OBJ_DIR)/%_bonus.o)
 
 DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
 
@@ -184,6 +186,7 @@ all:		$(NAME)
 clean:
 			@echo "$(_GREEN)Removing objects$(_NO_COLOR)"
 			rm -f $(OBJ)
+			rm -f $(OBJ_BONUS)
 			@echo ""
 			@echo "$(_GREEN)Removing dependencies$(_NO_COLOR)"
 			rm -f $(DEPS)
@@ -198,6 +201,7 @@ fclean:		clean
 	@echo ""
 	@echo "$(_GREEN)Removing $(NAME)$(_NO_COLOR)"
 	rm -f $(NAME)
+	rm -f $(NAME_BONUS)
 	@for lib in $(LIB_NAMES); do \
 		echo ""; \
 		echo "$(_GREEN)$(LIB_DIR)/$${lib}/: make fclean$(_NO_COLOR)"; \
@@ -209,6 +213,9 @@ fclean:		clean
 .PHONY:		re
 re:			fclean all
 
+.PHONY:		bonus
+bonus:		$(NAME_BONUS)
+
 
 $(NAME):	$(LIB_FILES) $(OBJ)
 			@echo ""
@@ -218,6 +225,15 @@ $(NAME):	$(LIB_FILES) $(OBJ)
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c start_compiling
 			@mkdir -p $(dir $@)
 			$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+$(NAME_BONUS):	$(LIB_FILES) $(OBJ_BONUS)
+			@echo ""
+			@echo "$(_BLUE)Linkage $(NAME_BONUS)$(_NO_COLOR)"
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME_BONUS) $(LIB)
+
+$(OBJ_DIR)/%_bonus.o:$(SRC_DIR)/%.c start_compiling
+			@mkdir -p $(dir $@)
+			$(CC) $(CFLAGS) $(INCLUDE) -D BONUS -c $< -o $@
 
 .INTERMEDIATE:start_compiling
 start_compiling:
