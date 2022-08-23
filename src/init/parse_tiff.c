@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:02:40 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/20 15:20:32 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:49:48 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ int	load_tiff_img(char *filename, t_tiff_img *img)
 		return (close(fd), -1);
 	if (tiff_getcontent(fd, img) != 0)
 		return (close(fd), -1);
+	close(fd);
 	return (0);
 }

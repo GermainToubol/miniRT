@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:17:22 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/20 17:26:50 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:13:17 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ int	set_light_contribution(
 {
 	t_vect	tmp;
 
-	color->r = 0;
-	color->g = 0;
-	color->b = 0;
 	intersection->specular.r = 0;
 	intersection->specular.g = 0;
 	intersection->specular.b = 0;

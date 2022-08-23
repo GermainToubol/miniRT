@@ -131,8 +131,13 @@ SRC_NAMES	=									main							\
 												cboard_cylinder					\
 												cboard_plane					\
 												cboard_sphere					\
+												cboard_triangle					\
+												cboard_hyperbol					\
 												ftext_sphere					\
-												ftext_plane)					\
+												ftext_plane						\
+												ftext_cylinder					\
+												ftext_triangle					\
+												ftext_hyperbol)					\
 				$(addprefix ui/,												\
 												print_progress)					\
 				$(addprefix update_scene/,										\
@@ -161,7 +166,7 @@ DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
 # List of all compilation options
 # -------------------------------------------------------------------------
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -O3
+CFLAGS		= -Wall -Werror -Wextra -O3 -g
 MAKE		= /bin/make
 SHELL		= /bin/zsh
 
