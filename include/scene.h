@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:56:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 19:28:55 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:48:50 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ typedef struct s_hyperbol
 	t_dir	ux;
 	t_dir	uy;
 }	t_hyperbol;
-
 
 typedef enum e_obj_tag
 {

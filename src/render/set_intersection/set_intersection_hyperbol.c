@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:25:03 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/23 11:10:39 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/23 15:02:00 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 #include "render.h"
 #include "scene.h"
 #include "t_math.h"
+
+static float	distance_linear(float *params)
+{
+	if (params[1] == 0)
+	{
+		if (params[2] == 0)
+			return (-1.0f);
+		return (-1.0f);
+	}
+	return (-params[2] / params[1]);
+}
 
 static float	get_distance(float delta, float *params)
 {
@@ -24,15 +35,7 @@ static float	get_distance(float delta, float *params)
 	float	root;
 
 	if (params[0] == 0)
-	{
-		if (params[1] == 0)
-		{
-			if (params[2] == 0)
-				return (-1.0f);
-			return (-1.0f);
-		}
-		return (-params[2]/params[1]);
-	}
+		return (distance_linear(params));
 	if (delta < 0)
 		return (-1.0f);
 	root = sqrtf(delta);
@@ -40,9 +43,11 @@ static float	get_distance(float delta, float *params)
 	t2 = -0.5f * (params[1] - root) / params[0];
 	d1 = params[4] + t1 * params[5];
 	d2 = params[4] + t2 * params[5];
-	if (d1 * d1 <= params[3] && t1 > 0 && (t1 < t2 || t2 <= 0 || d2 * d2 > params[3]))
+	if (d1 * d1 <= params[3] && t1 > 0
+		&& (t1 < t2 || t2 <= 0 || d2 * d2 > params[3]))
 		return (t1);
-	if (d2 * d2 <= params[3] && t2 > 0 && (t2 < t1 || t1 <= 0 || d1 * d1 > params[3]))
+	if (d2 * d2 <= params[3] && t2 > 0
+		&& (t2 < t1 || t1 <= 0 || d1 * d1 > params[3]))
 		return (t2);
 	return (-1.0f);
 }
@@ -56,12 +61,12 @@ float	set_intersection_hyperbol(t_obj *obj, t_ray *ray)
 
 	u = v_sub(ray->pos, obj->hyperbol.pos);
 	u = (t_vect){v_dot_product(u, obj->hyperbol.ux),
-				 v_dot_product(u, obj->hyperbol.uy),
-				 v_dot_product(u, obj->hyperbol.dir),
+		v_dot_product(u, obj->hyperbol.uy),
+		v_dot_product(u, obj->hyperbol.dir),
 	};
 	v = (t_vect){v_dot_product(ray->dir, obj->hyperbol.ux),
-				 v_dot_product(ray->dir, obj->hyperbol.uy),
-				 v_dot_product(ray->dir, obj->hyperbol.dir)
+		v_dot_product(ray->dir, obj->hyperbol.uy),
+		v_dot_product(ray->dir, obj->hyperbol.dir)
 	};
 	params[0] = v_star_product(v, v);
 	params[1] = 2 * v_star_product(u, v);

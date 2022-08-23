@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 09:58:08 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/23 10:00:10 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/23 11:58:33 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	set_hyperbol_mask(t_mask *mask, t_obj *obj, t_pos *origin)
 	d2_obj_origin = v_norm2(pos_relative_origin);
 	r = obj->hyperbol.r;
 	h = obj->hyperbol.h;
-	r2_sphere = r * r + h * h / 2;
+	r2_sphere = r * r + h * h;
 	set_coneview_sphere(mask, &pos_relative_origin, d2_obj_origin, r2_sphere);
 	set_d2_bounds_sphere(mask, d2_obj_origin, r2_sphere);
 }
