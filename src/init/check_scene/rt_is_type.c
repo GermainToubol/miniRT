@@ -6,12 +6,13 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:48:53 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/19 14:26:18 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/26 14:06:50 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 #include "init.h"
+#include "t_math.h"
 
 static int	rt_is_vect(char *str)
 {
@@ -55,7 +56,8 @@ int	rt_is_dir(char *str)
 	v = rt_get_dir(str);
 	if (v.x < -1 || v.x > 1
 		|| v.y < -1 || v.y > 1
-		|| v.z < -1 || v.z > 1)
+		|| v.z < -1 || v.z > 1
+		|| v_norm2(v) < 0.00001)
 		return (0);
 	return (1);
 }
