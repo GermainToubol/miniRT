@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:00:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/26 14:27:07 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/26 14:47:51 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	write_ifd_entries(int fd)
 	entry[4] = (t_entry){0x106, 0x3, 0x1, 2};
 	entry[5] = (t_entry){0x111, 0x4, 0x4, offset + 38};
 	entry[6] = (t_entry){0x115, 0x3, 0x1, 3};
-	entry[7] = (t_entry){0x116, 0x3, 0x1, 0x800};
+	entry[7] = (t_entry){0x116, 0x3, 0x1, 0x80};
 	entry[8] = (t_entry){0x117, 0x4, 0x4, offset + 22};
 	entry[9] = (t_entry){0x11a, 0x5, 0x1, offset + 6};
 	entry[10] = (t_entry){0x11b, 0x5, 0x1, offset + 14};
