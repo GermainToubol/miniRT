@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:17:22 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/23 15:13:17 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/30 19:51:28 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@ int	set_light_contribution(
 		t_data *data
 	)
 {
-	t_vect	tmp;
-
 	intersection->specular.r = 0;
 	intersection->specular.g = 0;
 	intersection->specular.b = 0;
-	tmp = v_sub(intersection->pos, intersection->ray->pos);
 	set_ambient_light_contribution(color, ratio, intersection, data);
 	set_direct_light_contribution(color, ratio, intersection, data);
 	return (0);
