@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:43:55 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/31 15:45:22 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/31 15:52:05 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	control_cam_lights(t_scene *scene)
 	return (0);
 }
 
-static int control_objs(t_scene *scene)
+static int	control_objs(t_scene *scene)
 {
 	int			i;
 	t_obj_tag	tag;
