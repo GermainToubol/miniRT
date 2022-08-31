@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_aa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:54:14 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/31 09:15:45 by gtoubol          ###   ########.fr       */
+/*   Created: 2022/08/31 09:10:01 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/08/31 09:22:58 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@
 #include "minirt.h"
 #include "render.h"
 #include "scene.h"
+#include "t_random.h"
 
-#ifndef AALIAS
+#ifdef AALIAS
 
 void	set_ray(t_ray *ray, t_camera *camera, int x, int y)
 {
 	ray->dir = camera->anchor;
-	ray->dir = v_add(ray->dir, v_scalar((float)x, camera->ux));
-	ray->dir = v_add(ray->dir, v_scalar((float)-y, camera->uy));
+	ray->dir = v_add(ray->dir, v_scalar((float)x + r_randf() - 0.5f,
+				camera->ux));
+	ray->dir = v_add(ray->dir, v_scalar((float)-y - r_randf() + 0.5f,
+				camera->uy));
 	ray->dir = v_sub(ray->dir, camera->pos);
 	v_normalize(&ray->dir);
 }
@@ -50,10 +53,24 @@ static void	put_color(int x, int y, t_color *color, void *frame_buffer)
 static int	multiray_on_pxl(t_color *color, t_data *data, t_ray *ray,
 				t_vect dir)
 {
+	int		i;
+	t_color	tmp;
+
 	*color = (t_color){0.0f, 0.0f, 0.0f};
-	set_ray(ray, data->scene.camera, dir.x, dir.y);
-	if (set_color(color, ray, data) == -1)
-		return (-1);
+	i = -1;
+	while (++i < AALIAS)
+	{
+		tmp = (t_color){0.0f, 0.0f, 0.0f};
+		set_ray(ray, data->scene.camera, dir.x, dir.y);
+		if (set_color(&tmp, ray, data) == -1)
+			return (-1);
+		color->r += tmp.r;
+		color->g += tmp.g;
+		color->b += tmp.b;
+	}
+	color->r /= AALIAS;
+	color->g /= AALIAS;
+	color->b /= AALIAS;
 	return (0);
 }
 

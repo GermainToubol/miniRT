@@ -1,5 +1,17 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/31 09:02:14 by gtoubol           #+#    #+#              #
+#    Updated: 2022/08/31 09:31:35 by gtoubol          ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
 NAME		= miniRT
 NAME_BONUS	= miniRT_bonus
+NAME_ABONUS	= miniRT_abonus
 
 # List of all inclusions (.h and .a)
 # -------------------------------------------------------------------------
@@ -97,6 +109,7 @@ SRC_NAMES	=									main							\
 												update_scene_menu))				\
 			$(addprefix render/,												\
 												render							\
+												render_aa						\
 												set_color						\
 				$(addprefix light/,												\
 												set_ambient_light_contribution	\
@@ -160,8 +173,9 @@ SRC_NAMES	=									main							\
 OBJ_DIR		= obj
 OBJ			= $(SRC_NAMES:%=$(OBJ_DIR)/%.o)
 OBJ_BONUS	= $(SRC_NAMES:%=$(OBJ_DIR)/%_bonus.o)
+OBJ_ABONUS	= $(SRC_NAMES:%=$(OBJ_DIR)/%_abonus.o)
 
-DEPS		= $(SRC_NAMES:%=$(OBJ_DIR)/%.d)
+DEPS		= $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d) $(OBJ_ABONUS:.o=.d)
 
 # List of all compilation options
 # -------------------------------------------------------------------------
@@ -193,6 +207,7 @@ clean:
 			@echo "$(_GREEN)Removing objects$(_NO_COLOR)"
 			rm -f $(OBJ)
 			rm -f $(OBJ_BONUS)
+			rm -f $(OBJ_ABONUS)
 			@echo ""
 			@echo "$(_GREEN)Removing dependencies$(_NO_COLOR)"
 			rm -f $(DEPS)
@@ -208,6 +223,7 @@ fclean:		clean
 	@echo "$(_GREEN)Removing $(NAME)$(_NO_COLOR)"
 	rm -f $(NAME)
 	rm -f $(NAME_BONUS)
+	rm -f $(NAME_ABONUS)
 	@for lib in $(LIB_NAMES); do \
 		echo ""; \
 		echo "$(_GREEN)$(LIB_DIR)/$${lib}/: make fclean$(_NO_COLOR)"; \
@@ -222,6 +238,9 @@ re:			fclean all
 .PHONY:		bonus
 bonus:		$(NAME_BONUS)
 
+.PHONY:		abonus
+abonus:		$(NAME_ABONUS)
+
 
 $(NAME):	$(LIB_FILES) $(OBJ)
 			@echo ""
@@ -232,6 +251,8 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c start_compiling
 			@mkdir -p $(dir $@)
 			$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
+# Bonus
+# -------------------------------------------------------------------------
 $(NAME_BONUS):	$(LIB_FILES) $(OBJ_BONUS)
 			@echo ""
 			@echo "$(_BLUE)Linkage $(NAME_BONUS)$(_NO_COLOR)"
@@ -240,6 +261,17 @@ $(NAME_BONUS):	$(LIB_FILES) $(OBJ_BONUS)
 $(OBJ_DIR)/%_bonus.o:$(SRC_DIR)/%.c start_compiling
 			@mkdir -p $(dir $@)
 			$(CC) $(CFLAGS) $(INCLUDE) -D BONUS -c $< -o $@
+
+# Antialiasing
+# -------------------------------------------------------------------------
+$(NAME_ABONUS):	$(LIB_FILES) $(OBJ_ABONUS)
+			@echo ""
+			@echo "$(_BLUE)Linkage $(NAME_ABONUS)$(_NO_COLOR)"
+			$(CC) $(CFLAGS) $(OBJ_ABONUS) -o $(NAME_ABONUS) $(LIB)
+
+$(OBJ_DIR)/%_abonus.o:$(SRC_DIR)/%.c start_compiling
+			@mkdir -p $(dir $@)
+			$(CC) $(CFLAGS) $(INCLUDE) -D BONUS -D AALIAS=100 -c $< -o $@
 
 .INTERMEDIATE:start_compiling
 start_compiling:

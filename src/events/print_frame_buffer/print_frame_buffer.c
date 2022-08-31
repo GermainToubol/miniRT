@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:00:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/26 14:47:51 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/08/31 08:53:09 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,15 @@ static void	write_ifd_entries(int fd)
 static void	write_ifd_values(int fd)
 {
 	char		buffer[54];
-	uint16_t	i;
-	uint32_t	j;
+	uint32_t	i;
+	uint64_t	j;
 
-	i = 0x8;
-	ft_memcpy(buffer, &i, 2);
-	ft_memcpy(buffer + 2, &i, 2);
+	i = 0x00080008;
+	ft_memcpy(buffer, &i, 4);
 	ft_memcpy(buffer + 4, &i, 2);
-	j = 0x12c;
+	j = 0x10000012c;
 	ft_memcpy(buffer + 6, &j, 4);
-	j = 0x1;
-	ft_memcpy(buffer + 10, &j, 4);
-	j = 0x12c;
 	ft_memcpy(buffer + 14, &j, 4);
-	j = 0x1;
-	ft_memcpy(buffer + 18, &j, 4);
 	j = 0x43800;
 	ft_memcpy(buffer + 22, &j, 4);
 	ft_memcpy(buffer + 26, &j, 4);
@@ -92,10 +86,10 @@ static void	write_ifd_values(int fd)
 	ft_memcpy(buffer + 38, &j, 4);
 	j = 0x43808;
 	ft_memcpy(buffer + 42, &j, 4);
-	j = 0x87008;
-	ft_memcpy(buffer + 46, &j, 4);
-	j = 0xca808;
-	ft_memcpy(buffer + 50, &j, 4);
+	i = 0x87008;
+	ft_memcpy(buffer + 46, &i, 4);
+	i = 0xca808;
+	ft_memcpy(buffer + 50, &i, 4);
 	write(fd, buffer, 54);
 }
 
