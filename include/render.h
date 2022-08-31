@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:53:48 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/23 18:53:26 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/09/01 00:15:12 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # define SHIFT 0.001f
 
 //	LIGHT_CONTRIBUTION
-# define BRIGHTNESS 1000
+# define BRIGHTNESS 50
 # define RATIO -1.2f
-# define D_SCALE 200.f
+# define RATIO_SPECULAR 0.5f
+# define D_SCALE 20.f
 
 typedef struct s_ray
 {
