@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:41:02 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/21 15:26:50 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:43:35 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	parse_scene(t_scene *scene, char **scene_lines)
 	if (alloc_scene(scene, scene_lines) == -1)
 		return (ft_putstr_fd("Error malloc scene\n", 2), -1);
 	if (set_scene(scene, scene_lines) == -1)
+		return (free_scene(scene), ft_putstr_fd("Error set scene\n", 2), -1);
+	if (control_scene(scene) == -1)
 		return (free_scene(scene), ft_putstr_fd("Error set scene\n", 2), -1);
 	return (0);
 }

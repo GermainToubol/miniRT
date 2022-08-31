@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:19:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/08/20 17:26:44 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:30:35 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	set_direct_light_contribution(t_color *color,
 		if (r_color >= 0
 			&& inter_on_path(&inter_light, intersection, data, light) != 0)
 		{
-			r0 = *ratio * D_SCALE / v_dot_product(inter_light, inter_light);
+			r0 = *ratio; // * D_SCALE / v_dot_product(inter_light, inter_light);
 			set_specular_contribution(intersection, &r0, &inter_light,
 				light);
 			current_color_update(color, r0 * r_color * light->ratio, light);

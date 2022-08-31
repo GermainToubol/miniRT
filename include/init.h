@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:43:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/23 20:20:18 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:53:09 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int			rt_print_error(const char *str_error, char **elem,
 //	PARSE_SCENE
 
 int			alloc_scene(t_scene *scene, char **scene_lines);
+int			control_scene(t_scene *scene);
 int			parse_scene(t_scene *scene, char **scene_lines);
 //	rt_set_elem
 int			rt_set_ambient_light(t_scene *scene, char **elem,

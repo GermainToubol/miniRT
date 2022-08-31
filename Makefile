@@ -6,7 +6,7 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 09:02:14 by gtoubol           #+#    #+#              #
-#    Updated: 2022/08/31 09:31:35 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/08/31 15:48:24 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 NAME		= miniRT
@@ -78,6 +78,7 @@ SRC_NAMES	=									main							\
 												rt_print_error)					\
 				$(addprefix parse_scene/,										\
 												alloc_scene						\
+												control_scene					\
 												parse_scene						\
 												rt_get_type						\
 												rt_get_type2					\
@@ -291,6 +292,14 @@ malloc_test:	$(OBJ) $(LIB_FILES)
 # Dependencies
 # -------------------------------------------------------------------------
 $(OBJ_DIR)/%.d: $(SRC_DIR)/%.c
+				@mkdir -p $(dir $@)
+				$(CC) -MM -MT $(@:.d=.o) $(CFLAGS) $(INCLUDE) $< > $@
+
+$(OBJ_DIR)/%_bonus.d: $(SRC_DIR)/%.c
+				@mkdir -p $(dir $@)
+				$(CC) -MM -MT $(@:.d=.o) $(CFLAGS) $(INCLUDE) $< > $@
+
+$(OBJ_DIR)/%_abonus.d: $(SRC_DIR)/%.c
 				@mkdir -p $(dir $@)
 				$(CC) -MM -MT $(@:.d=.o) $(CFLAGS) $(INCLUDE) $< > $@
 
