@@ -94,5 +94,5 @@ property while the program is rendering.
 
 [earth_moon]: /ressources/screenshots/planete.png "Rendering of the earth and the moon"
 [geometric]: /ressources/screenshots/geometric.png
-[no_aa]: /ressources/screenshots/noantiall.png.png "No antialiazing"
+[no_aa]: /ressources/screenshots/noantiall.png "No antialiazing"
 [with_aa]: /ressources/screenshots/antiall100.png "100 ray per pixel"
