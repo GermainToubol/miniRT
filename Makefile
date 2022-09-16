@@ -181,7 +181,7 @@ DEPS		= $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d) $(OBJ_ABONUS:.o=.d)
 # List of all compilation options
 # -------------------------------------------------------------------------
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -O3
 MAKE		= /bin/make
 SHELL		= /bin/zsh
 
