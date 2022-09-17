@@ -38,7 +38,7 @@ flowchart TB
    render-->inter(ray intersection)
    render-->light(light contribution)
    render-->color(output color)
-   inter-.->light-.->color```mermaid
+   inter-.->light-.->color
 ```
 
 This architecture allowed us to be really modular: adding a new geometric object
